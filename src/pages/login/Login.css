@@ -1,10 +1,10 @@
-.student-section{
+.login-section{
     width: 100%;
     position: relative;
     
 }
 
-.appbar-header{
+.login-appbar-header{
     width: 100%;
     height: 4vw;
     border-top: 4px;
@@ -12,7 +12,7 @@
     position: relative;
 }
 
-.appbar-header h2{
+.login-appbar-header h2{
     font-size: 1.2vw;
     color: white;
     font-family: 'Poppins';
@@ -27,7 +27,7 @@
 
 }
 
-.student-square {
+.login-square {
     width: 45vw;
     height: 25vw;
     margin-left: auto;
@@ -40,9 +40,10 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    
 }
 
-.square-header{
+.login-header{
     width: 100%;
     height: 4vw;
     border-top: 4px;
@@ -52,7 +53,7 @@
     position: relative;
 }
 
-.square-header h2{
+.login-header h2{
     font-size: 1.2vw;
     color: white;
     font-family: 'Poppins';
@@ -67,7 +68,7 @@
 
 }
 
-.student-card-parent {
+.login-card-parent {
     margin-left: 2vw;
     margin-top: 2vw;
     position: relative;
@@ -76,7 +77,7 @@
 
 }
 
-.student-card-parent h2 {
+.login-card-parent h2 {
     font-size: 2vw;
     color: #2F4E71;
     font-family: 'Poppins';
@@ -84,7 +85,7 @@
        
 }
 
-.student-card-parent p {
+.login-card-parent p {
     font-size: 0.8vw;
     color: black;
     font-family: 'Poppins';
@@ -113,11 +114,11 @@ input::placeholder {
     font-weight: 400;
 }
 
-.student-button-parent{
+.login-button-parent{
     margin-left: 1.5vw;
 }
 
-.student-button-parent button {
+.login-button-parent button {
     display: flex;
     width: 10vw;
     text-align: center;

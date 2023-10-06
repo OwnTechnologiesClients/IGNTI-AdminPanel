@@ -8,9 +8,9 @@ import { useNavigate } from "react-router-dom"
 const Login = () => {
     const navigate = useNavigate();
 
-    const navigateToContacts = () => {
+    const navigateToType = () => {
         // 👇️ navigate to /contacts
-        navigate('/select-course');
+        navigate('/type');
     };
 
     const [userId, setUserId] = useState("");
@@ -22,16 +22,16 @@ const Login = () => {
         <div>
 
 
-            <div className='student-section'>
-                <div className='appbar-header'>
+            <div className='login-section'>
+                <div className='login-appbar-header'>
                     <h2>Admin Panel</h2>
                 </div>
 
-                <div className='student-square'>
-                    <div className='square-header'>
+                <div className='login-square'>
+                    <div className='login-header'>
                         <h2>Login</h2>
                     </div>
-                    <div className='student-card-parent'>
+                    <div className='login-card-parent'>
                         {/* <h2>BECOME A MEMBER</h2> */}
                         <div className='userid-section'>
                             <p>User ID</p>
@@ -55,8 +55,8 @@ const Login = () => {
 
 
                         <div>
-                            <div className='student-button-parent'>
-                                <button class="button" onClick={navigateToContacts}>Login</button>
+                            <div className='login-button-parent'>
+                                <button class="button" onClick={navigateToType}>Login</button>
 
                             </div>
                         </div>
