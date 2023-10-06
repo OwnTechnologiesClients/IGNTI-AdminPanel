@@ -1,21 +1,17 @@
 import React from 'react'
 import { useState } from "react";
 import './Type.css';
-import { useNavigate } from "react-router-dom"
+import { Link, NavLink, useNavigate } from "react-router-dom"
 
 
 
 const Type = () => {
     const navigate = useNavigate();
 
-    const navigateToContacts = () => {
+    const navigateToCourse = () => {
         // 👇️ navigate to /contacts
-        navigate('/select-course');
+        navigate('/course');
     };
-
-    const [userId, setUserId] = useState("");
-    const [password, setPassword] = useState("");
-
 
 
     return (
@@ -37,12 +33,13 @@ const Type = () => {
                         </div>
 
 
-                        <div className='type-parent'>
-                            <div className='type-square'>
+
+                        <div className='type-parent' >
+
+                            <div className='type-square' onClick={navigateToCourse}>
                                 <p>Add Courses</p>
                             </div>
                         </div>
-
 
                         <div className='type-parent'>
                             <div className='type-square'>

@@ -1,10 +1,10 @@
-.type-section{
+.course-section{
     width: 100%;
     position: relative;
     
 }
 
-/* .type-parent{
+/* .course-parent{
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -13,12 +13,12 @@
 
 
 } */
-.type-child{
+.course-child{
     justify-content: center;
     margin-top: 20vh;
 }
 
-.appbar-header{
+.course-appbar-header{
     width: 100%;
     height: 4vw;
     border-top: 4px;
@@ -26,7 +26,7 @@
     position: relative;
 }
 
-.appbar-header h2{
+.course-appbar-header h2{
     font-size: 1.2vw;
     color: white;
     font-family: 'Poppins';
@@ -39,7 +39,7 @@
 
 }
 
-.type-parent{
+.course-parent{
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -50,7 +50,7 @@
     
 }
 
-.type-square{
+.course-square{
     width: 30vw;
     height: 3.2vw;
     border: 1px solid #8C9099;
@@ -62,7 +62,7 @@
 }
 
 
-.type-square p{
+.course-square p{
     width: 100%;
     font-size: 1.2vw;
     margin: auto;
