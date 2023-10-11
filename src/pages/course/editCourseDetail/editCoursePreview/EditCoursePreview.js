@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom"
 function EditCoursePreview() {
     const navigate = useNavigate();
 
-    const navigateToSuccessAddCourse = () => {
+    const navigateToSuccessUpdateCourse = () => {
         // 👇️ navigate to /contacts
-        navigate('/course-add-successful');
+        navigate('/update-course-status');
     };
     const cancelButton = () => {
         // 👇️ navigate to /contacts
@@ -45,7 +45,7 @@ function EditCoursePreview() {
                     <div className='ecp-cancel-button' onClick={cancelButton}>
                         <p>Cancel</p>
                     </div>
-                    <button class="button" onClick={navigateToSuccessAddCourse}>Submit</button>
+                    <button class="button" onClick={navigateToSuccessUpdateCourse}>Submit</button>
                 </div>
             </div>
         </div>
