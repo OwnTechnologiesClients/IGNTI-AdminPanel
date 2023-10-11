@@ -10,7 +10,7 @@ const Course = () => {
 
     const navigateToAddCourse = () => {
         // 👇️ navigate to /contacts
-        navigate('/select-course');
+        navigate('/add-course');
     };
 
 
