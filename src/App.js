@@ -6,6 +6,7 @@ import Type from './pages/type/Type';
 import Course from './pages/course/Course';
 import AddCourse from './pages/course/addcourse/AddCourse';
 import CoursePreview from './pages/course/addcourse/coursePreview/CoursePreview';
+import CourseAddSuccess from './pages/course/addcourse/courseAddSuccess/CourseAddSuccess';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path='/course' element={<Course />} />
       <Route path='/add-course' element={<AddCourse />} />
       <Route path='/course-preview' element={<CoursePreview />} />
+      <Route path='/course-add-successful' element={<CourseAddSuccess />} />
       
     </Routes>
   );
