@@ -1,0 +1,67 @@
+.cp-parent {
+    justify-content: center;
+    display: flex;
+}
+
+.cp-item-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    border: 1px solid #F46A6F;
+    margin-top: 6vw;
+
+
+}
+
+.cp-item-label {
+    font-size: 0.8vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+
+}
+
+.cp-item-heading {
+    font-size: 1vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+
+.cp-cancel-button {
+    width: 20vw;
+    height: 2vw;
+    border: 0.2vw solid #2F4E71;
+    border-radius: 0.5vw;
+    margin-right: 2vw;
+    cursor: pointer;
+    margin-top: 3vw;
+}
+
+
+.cp-cancel-button p {
+    width: 100%;
+    font-size: 1vw;
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins';
+    font-weight: 500;
+    margin: auto;
+    margin-top: 0.3vw;
+
+
+}
+
+.cp-submit-button-parent {
+    display: flex;
+    justify-content: center;
+    margin-top: 5vw;
+}
+
+.cp-submit-button-parent button {
+    width: 20vw;
+    font-size: 0.9vw;
+    font-weight: 600;
+
+}

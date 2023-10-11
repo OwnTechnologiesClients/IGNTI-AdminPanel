@@ -7,25 +7,14 @@ import { useState, useMemo } from "react";
 
 function AddCourse() {
 
-    const navigateToAddCourse = () => {
+    const navigateToCoursePreview = () => {
         // 👇️ navigate to /contacts
-        navigate('/select-course');
+        navigate('/course-preview');
     };
 
 
-    const [sportList, setSportList] = useState([]);
-
     const [selectedCategory, setSelectedCategory] = useState();
 
-    function getFilteredList() {
-        if (!selectedCategory) {
-            return sportList;
-        }
-        return sportList.filter((item) => item.category === selectedCategory);
-    }
-
-    // Avoid duplicate function calls with useMemo
-    var filteredList = useMemo(getFilteredList, [selectedCategory, sportList]);
 
     function handleCategoryChange(event) {
         setSelectedCategory(event.target.value);
@@ -131,7 +120,7 @@ function AddCourse() {
             </div>
             <div>
                 <div className='save-course-detail-button-parent'>
-                    <button class="button" onClick={navigateToAddCourse}>Save Course Detail  & Continue</button>
+                    <button class="button" onClick={navigateToCoursePreview}>Save Course Detail  & Continue</button>
 
                 </div>
             </div>
