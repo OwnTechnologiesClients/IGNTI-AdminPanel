@@ -1,14 +1,15 @@
 import React from 'react'
-import './AddCourse.css';
+import './AddSubject.css';
 import { useNavigate } from "react-router-dom"
 import { useState, useMemo } from "react";
 
 
 
-function AddCourse() {
+function AddSubject() {
 
-    const addSubject = () => {
-        navigate('/add-subject');
+    const navigateToCoursePreview = () => {
+        // 👇️ navigate to /contacts
+        navigate('/course-preview');
     };
 
 
@@ -33,18 +34,18 @@ function AddCourse() {
         <div>
 
 
-            <div className='course-section'>
+            <div className='subject-section'>
                 <div className='course-appbar-header'>
-                    <h2>Add Course</h2>
+                    <h2>Add Subject</h2>
                 </div>
 
 
 
-                <div className='add-course-parent'>
-                    <div className='course-duration-section'>
+                <div className='add-subject-parent'>
+                    <div className='subject-duration-section'>
 
                         {/* -------------- Course Name ----------------- */}
-                        <div className='ac-userid-section'>
+                        <div className='as-userid-section'>
                             <p>Course Name</p>
 
                             {/* ------------ User Id Input textfield -------------------- */}
@@ -55,10 +56,10 @@ function AddCourse() {
                         </div>
 
 
-                        {/* -------------- Duration ----------------- */}
+                        {/* -------------- Subject ----------------- */}
 
-                        <div className='ac-userid-section'>
-                            <p>Duration</p>
+                        <div className='as-userid-section'>
+                            <p>Subject</p>
 
                             {/* ------------ User Id Input textfield -------------------- */}
                             <input type="text" className="form-control" name="title"
@@ -73,11 +74,11 @@ function AddCourse() {
 
                     <div className='semester-fee-section'>
 
-                        {/* -------------- No of semester ----------------- */}
-                        <div className='ac-userid-section'>
+                        {/* -------------- semester ----------------- */}
+                        <div className='as-userid-section'>
                             <p>No Of Semesters</p>
 
-                            <div className="semester-dropdown">
+                            <div className="as-semester-dropdown">
 
                                 <select
                                     name="category-list"
@@ -93,17 +94,10 @@ function AddCourse() {
                             </div>
                         </div>
 
+                        <div className='add-subject-button-parent'>
+                    
+                            <button class="button" onClick={navigateToCoursePreview}>Add Subject</button>
 
-                        {/* -------------- Fees ----------------- */}
-
-                        <div className='ac-userid-section'>
-                            <p>Fees</p>
-
-                            {/* ------------ User Id Input textfield -------------------- */}
-                            <input type="text" className="form-control" name="title"
-                                value={fee}
-                                onChange={(e) => { setFees(e.target.value) }}
-                                placeholder="" />
                         </div>
 
 
@@ -118,8 +112,11 @@ function AddCourse() {
 
             </div>
             <div>
-                <div className='save-course-detail-button-parent'>
-                    <button class="button" onClick={addSubject}>Save Course Detail  & Continue</button>
+                <div className='cs-submit-button-parent'>
+                    <div className='cs-secondary-button'>
+                        <p>Save Subject Details</p>
+                    </div>
+                    <button class="button" onClick={navigateToCoursePreview}>Proceed</button>
 
                 </div>
             </div>
@@ -128,4 +125,4 @@ function AddCourse() {
     )
 }
 
-export default AddCourse
+export default AddSubject
