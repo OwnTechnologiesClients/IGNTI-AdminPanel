@@ -1,0 +1,108 @@
+.edit-course-parent{
+    display: flex;
+    justify-content: space-evenly;
+}
+.edit-student-button-parent button {
+    display: flex;
+    width: 10vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 7vw;
+
+}
+
+
+
+.edit-semester-dropdown{
+    margin-top: 2vw;
+    margin-left: 4vw;
+    
+
+
+}
+.edit-semester-dropdown select{
+    font-size: 0.9vw;
+    font-weight: 400;
+    padding: 0.8vw;
+    padding-right: 27vw;
+    border: 1px solid #ccc;
+}
+
+.edit-course-button-parent button {
+    display: flex;
+    width: 10vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5.5vw;
+    font-weight: 900;
+    font-size: 0.9vw;
+
+}
+
+.edit-course-duration-section{
+    width: 50%;
+}
+.edit-semester-fee-section{
+    width: 50%;
+}
+
+.edit-userid-section{
+    align-items: center;
+}
+.edit-userid-section p{
+    margin-left: 4vw;
+    margin-top: 2vw;
+    font-family: 'poppins';
+    font-weight: 600;
+    color: #8C9099;
+}
+.edit-userid-section input[type=text] {
+    width: 30vw;
+    height: 2.7vw;
+    padding-left: 2vw;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: black;
+    border: 1px solid #ccc;
+    margin-left: 4vw;
+}
+
+
+
+.edit-cancel-button {
+    width: 20vw;
+    height: 2vw;
+    border: 0.2vw solid #2F4E71;
+    border-radius: 0.5vw;
+    margin-right: 2vw;
+    cursor: pointer;
+    margin-top: 3vw;
+}
+
+
+.edit-cancel-button p {
+    width: 100%;
+    font-size: 1vw;
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins';
+    font-weight: 500;
+    margin: auto;
+    margin-top: 0.3vw;
+
+
+}
+.edit-submit-button-parent {
+    display: flex;
+    margin-top: 5vw;
+    margin-left: 5vw;
+}
+
+.edit-submit-button-parent button {
+    width: 20vw;
+    font-size: 0.9vw;
+    font-weight: 600;
+
+}

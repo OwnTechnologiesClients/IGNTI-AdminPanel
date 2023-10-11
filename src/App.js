@@ -8,6 +8,8 @@ import AddCourse from './pages/course/addcourse/AddCourse';
 import CoursePreview from './pages/course/addcourse/coursePreview/CoursePreview';
 import CourseAddSuccess from './pages/course/addcourse/courseAddSuccess/CourseAddSuccess';
 import AddSubject from './pages/course/addcourse/addSubject/AddSubject';
+import AllCourse from './pages/course/editCourseDetail/allCourse/AllCourse';
+import EditCourse from './pages/course/editCourseDetail/editCourse/EditCourse';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
       <Route path='/add-subject' element={<AddSubject />} />
       <Route path='/course-preview' element={<CoursePreview />} />
       <Route path='/course-add-successful' element={<CourseAddSuccess />} />
+      <Route path='/all-course' element={<AllCourse />} />
+      <Route path='/edit-course' element={<EditCourse />} />
       
     </Routes>
   );

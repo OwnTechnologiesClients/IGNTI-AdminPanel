@@ -13,6 +13,11 @@ const Course = () => {
         navigate('/add-course');
     };
 
+    const navigateToEditCourse = () => {
+        // 👇️ navigate to /contacts
+        navigate('/all-course');
+    };
+
 
     return (
         <div>
@@ -34,7 +39,7 @@ const Course = () => {
 
 
                         <div className='course-parent'>
-                            <div className='course-square'>
+                            <div className='course-square' onClick={navigateToEditCourse}>
                                 <p>Edit Course</p>
                             </div>
                         </div>
