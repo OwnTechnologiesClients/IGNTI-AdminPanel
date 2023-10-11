@@ -10,6 +10,7 @@ import CourseAddSuccess from './pages/course/addcourse/courseAddSuccess/CourseAd
 import AddSubject from './pages/course/addcourse/addSubject/AddSubject';
 import AllCourse from './pages/course/editCourseDetail/allCourse/AllCourse';
 import EditCourse from './pages/course/editCourseDetail/editCourse/EditCourse';
+import EditCoursePreview from './pages/course/editCourseDetail/editCoursePreview/EditCoursePreview';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path='/course-add-successful' element={<CourseAddSuccess />} />
       <Route path='/all-course' element={<AllCourse />} />
       <Route path='/edit-course' element={<EditCourse />} />
+      <Route path='/edit-course-preview' element={<EditCoursePreview />} />
       
     </Routes>
   );

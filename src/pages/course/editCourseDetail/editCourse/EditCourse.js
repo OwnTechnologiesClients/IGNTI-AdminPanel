@@ -20,7 +20,7 @@ function EditCourse() {
         navigate('/all-course');
     };
     const updateCourseDetail = () => {
-        navigate('/all-course');
+        navigate('/edit-course-preview');
     };
 
     const [courseName, setCourseName] = useState("");
