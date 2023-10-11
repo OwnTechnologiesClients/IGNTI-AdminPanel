@@ -19,6 +19,11 @@ const Course = () => {
     };
 
 
+    const navigateToDeleteCourse = () => {
+        // 👇️ navigate to /contacts
+        navigate('/delete-all-course');
+    };
+
     return (
         <div>
 
@@ -46,7 +51,7 @@ const Course = () => {
 
 
                         <div className='course-parent'>
-                            <div className='course-square'>
+                            <div className='course-square' onClick={navigateToDeleteCourse}>
                                 <p>Delete Course</p>
                             </div>
                         </div>
