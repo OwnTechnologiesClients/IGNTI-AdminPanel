@@ -10,7 +10,7 @@ function DeleteAllCourse() {
     const navigate = useNavigate();
 
     const editCourse = () => {
-        navigate('/edit-course');
+        navigate('/delete-course-status');
     };
 
 
@@ -30,7 +30,7 @@ function DeleteAllCourse() {
                         <p>Diploma in Computer Application (DCA)</p>
 
                     </div>
-                    <img src="/img/delete.png" alt="success" />
+                    <img src="/img/delete.png" alt="success" onClick={editCourse} />
 
                 </div>
 
