@@ -19,8 +19,8 @@ function SetExamDetail() {
     const cancel = () => {
         navigate('/type');
     };
-    const updateCourseDetail = () => {
-        navigate('/edit-course-preview');
+    const setQuestions = () => {
+        navigate('/set-questions');
     };
 
 
@@ -112,7 +112,7 @@ function SetExamDetail() {
                 <div className='set-exam-secondary-button' onClick={cancel}>
                     <p>Cancel</p>
                 </div>
-                <button class="button" onClick={updateCourseDetail}>Proceed To Set Questions</button>
+                <button class="button" onClick={setQuestions}>Proceed To Set Questions</button>
 
             </div>
 
