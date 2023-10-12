@@ -18,6 +18,12 @@ const Type = () => {
         // 👇️ navigate to /contacts
         navigate('/set-exam-detail');
     };
+
+    const navigateToSetResult = () => {
+        // 👇️ navigate to /contacts
+        navigate('/select-result');
+    };
+
     return (
         <div>
 
@@ -52,7 +58,7 @@ const Type = () => {
                         </div>
 
                         <div className='type-parent'>
-                            <div className='type-square'>
+                            <div className='type-square' onClick={navigateToSetResult}>
                                 <p>Result Set</p>
                             </div>
                         </div>

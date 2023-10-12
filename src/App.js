@@ -19,6 +19,7 @@ import SetExamDetail from './pages/setExam/setExamDetail/SetExamDetail';
 import SetQuestions from './pages/setExam/setExamDetail/setQuestions/SetQuestions';
 import Publish from './pages/setExam/setExamDetail/publish/Publish';
 import ExamPublishSuccess from './pages/setExam/setExamDetail/examPublishSuccess/ExamPublishSuccess';
+import SelectResultDetail from './pages/setResult/selectResultDetail/SelectResultDetail';
 
 function App() {
   return (
@@ -44,6 +45,8 @@ function App() {
       <Route path='/set-questions' element={<SetQuestions />} />
       <Route path='/publish-questions' element={<Publish />} />
       <Route path='/exam-published' element={<ExamPublishSuccess />} />
+
+      <Route path='/select-result' element={<SelectResultDetail />} />
       
       
     </Routes>
