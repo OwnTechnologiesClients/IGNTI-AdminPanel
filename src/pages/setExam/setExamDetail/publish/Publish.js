@@ -41,7 +41,7 @@ function Publish() {
   const navigate = useNavigate();
 
   const publishButton = () => {
-    navigate('/publish-questions');
+    navigate('/exam-published');
   };
 
 
