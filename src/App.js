@@ -21,6 +21,7 @@ import Publish from './pages/setExam/setExamDetail/publish/Publish';
 import ExamPublishSuccess from './pages/setExam/setExamDetail/examPublishSuccess/ExamPublishSuccess';
 import SelectResultDetail from './pages/setResult/selectResultDetail/SelectResultDetail';
 import AllStudents from './pages/setResult/allStudents/AllStudent';
+import StudentResult from './pages/setResult/studentResult/StudentResult';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
 
       <Route path='/select-result' element={<SelectResultDetail />} />
       <Route path='/all-students' element={<AllStudents />} />
+      <Route path='/student-result' element={<StudentResult />} />
       
       
     </Routes>
