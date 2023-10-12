@@ -24,6 +24,7 @@ import AllStudents from './pages/setResult/allStudents/AllStudent';
 import StudentResult from './pages/setResult/studentResult/StudentResult';
 import NewStudent from './pages/addStudent/newStudent/NewStudent';
 import ProfilePreview from './pages/addStudent/profile/ProfilePreview';
+import StudentAddSuccess from './pages/addStudent/studentAddSuccess/StudentAddSuccess';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
 
       <Route path='/new-student' element={<NewStudent />} />
       <Route path='/profile-preview' element={<ProfilePreview />} />
+      <Route path='/student-added' element={<StudentAddSuccess />} />
       
       
     </Routes>

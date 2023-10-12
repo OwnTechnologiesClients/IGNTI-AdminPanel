@@ -9,13 +9,13 @@ import { NavLink, Link, useNavigate } from "react-router-dom"
 const ProfilePreview = () => {
     const navigate = useNavigate();
 
-    const home = () => {
+    const submit = () => {
+        // 👇️ navigate to /contacts
+        navigate('/student-added');
+    };
+    const cancel = () => {
         // 👇️ navigate to /contacts
         navigate('/type');
-    };
-    const addMoreCourse = () => {
-        // 👇️ navigate to /contacts
-        navigate('/add-course');
     };
 
 
@@ -104,10 +104,10 @@ const ProfilePreview = () => {
             </div>
 
             <div className='preview-submit-button-parent'>
-                <div className='preview-cancel-button' onClick={addMoreCourse}>
+                <div className='preview-cancel-button' onClick={cancel}>
                     <p>Cancel</p>
                 </div>
-                <button class="button" onClick={home}>Submit</button>
+                <button class="button" onClick={submit}>Submit</button>
 
             </div>
 
