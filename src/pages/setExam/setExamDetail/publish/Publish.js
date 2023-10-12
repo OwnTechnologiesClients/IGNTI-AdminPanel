@@ -1,10 +1,10 @@
-import './SetQuestions.css';
+import './Publish.css';
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"
 
 
 
-function SetQuestions() {
+function Publish() {
   const [optionOne, setOptionOne] = useState("OptionOne")
   const [optionTwo, setOptionTwo] = useState("OptionTwo")
   const [optionThree, setOptionThree] = useState("OptionThree")
@@ -40,13 +40,10 @@ function SetQuestions() {
 
   const navigate = useNavigate();
 
-  const continueToPublish = () => {
+  const publishButton = () => {
     navigate('/publish-questions');
   };
 
-  const cancel = () => {
-    navigate('/publish-questions');
-  };
 
 
   return (
@@ -55,18 +52,12 @@ function SetQuestions() {
         <h2>Fundamentals of Computer</h2>
       </div>
 
-      <div className='quesion-section'>
+      <div>
 
 
-        <div className='set-quesions'>
+        <div className='publish-quesions'>
 
           <p>1. Question #1</p>
-          <input type="text" className="form-control" name="title"
-            value={question}
-            onChange={(e) => { setQuestion(e.target.value) }}
-            placeholder="" />
-
-
 
           {/* -------------- Answer One ------------------------- */}
           <div className='set-answer-form'>
@@ -76,10 +67,8 @@ function SetQuestions() {
                 value="OptionOne"
                 checked={optionOne === "OptionOne"}
                 onChange={onValueChangeOne} />
-              <input type="text" className="form-control" name="title"
-                value={answerOne}
-                onChange={(e) => { setAnswerOne(e.target.value) }}
-                placeholder="Answer One" />
+              <span>Answer Choice #1</span>
+
             </label>
             <br />
 
@@ -89,10 +78,7 @@ function SetQuestions() {
                 value="OptionTwo"
                 checked={optionTwo === "OptionTwo"}
                 onChange={onValueChangeTwo} />
-              <input type="text" className="form-control" name="title"
-                value={answerTwo}
-                onChange={(e) => { setAnswerTwo(e.target.value) }}
-                placeholder="Answer Two" />
+              <span>Answer Choice #2</span>
             </label>
             <br />
 
@@ -102,10 +88,7 @@ function SetQuestions() {
                 value="OptionThree"
                 checked={optionThree === "OptionThree"}
                 onChange={onValueChangeThree} />
-              <input type="text" className="form-control" name="title"
-                value={answerThree}
-                onChange={(e) => { setAnswerThree(e.target.value) }}
-                placeholder="Answer Three" />
+              <span>Answer Choice #3</span>
             </label>
             <br />
 
@@ -115,24 +98,70 @@ function SetQuestions() {
                 value="OptionFour"
                 checked={optionFour === "OptionFour"}
                 onChange={onValueChangeFour} />
-              <input type="text" className="form-control" name="title"
-                value={answerFour}
-                onChange={(e) => { setAnswerFour(e.target.value) }}
-                placeholder="Answer Four" />
+              <span>Answer Choice #4</span>
             </label>
             <br />
-
-
-          </div>
-
-          <div className='set-answer-add-button-parent'>
-            <button class="button" onClick={continueToPublish}>Continue</button>
-          </div>
-
-          <div className='set-answer-check-all-Ques-Ans-parent'>
-            <button class="button" onClick={continueToPublish}>Check All Added Questions</button>
           </div>
         </div>
+
+
+
+      </div>
+
+
+      <div className='publish-quesions'>
+
+        <p>2. Question #2</p>
+
+        {/* -------------- Answer One ------------------------- */}
+        <div className='set-answer-form'>
+          <label >
+            <input
+              type="radio"
+              value="OptionOne"
+              checked={optionOne === "OptionOne"}
+              onChange={onValueChangeOne} />
+            <span>Answer Choice #1</span>
+
+          </label>
+          <br />
+
+          <label >
+            <input
+              type="radio"
+              value="OptionTwo"
+              checked={optionTwo === "OptionTwo"}
+              onChange={onValueChangeTwo} />
+            <span>Answer Choice #2</span>
+          </label>
+          <br />
+
+          <label >
+            <input
+              type="radio"
+              value="OptionThree"
+              checked={optionThree === "OptionThree"}
+              onChange={onValueChangeThree} />
+            <span>Answer Choice #3</span>
+          </label>
+          <br />
+
+          <label >
+            <input
+              type="radio"
+              value="OptionFour"
+              checked={optionFour === "OptionFour"}
+              onChange={onValueChangeFour} />
+            <span>Answer Choice #4</span>
+          </label>
+          <br />
+        </div>
+      </div>
+
+
+
+      <div className='publish-button'>
+        <button class="button" onClick={publishButton}>PUBLISH</button>
       </div>
     </div>
 
@@ -140,4 +169,4 @@ function SetQuestions() {
   )
 }
 
-export default SetQuestions
+export default Publish
