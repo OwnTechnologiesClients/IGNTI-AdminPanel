@@ -29,8 +29,7 @@ function DeleteSubject() {
 
 
     const [courseName, setCourseName] = useState("");
-    const [duration, setDuration] = useState("");
-    const [fee, setFees] = useState("");
+    
 
     return (
         <div>

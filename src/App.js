@@ -15,6 +15,7 @@ import CourseUpdateSuccess from './pages/course/editCourseDetail/courseUpdateSuc
 import DeleteAllCourse from './pages/course/deleteCourse/deleteAllCourse/DeleteAllCourse';
 import CourseDeleteSuccess from './pages/course/deleteCourse/courseDeleteSuccess/CourseDeleteSuccess';
 import DeleteSubject from './pages/course/deleteCourse/deleteSubject/DeleteSubject';
+import SetExamDetail from './pages/setExam/setExamDetail/SetExamDetail';
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
       <Route path='/delete-all-course' element={<DeleteAllCourse />} />
       <Route path='/delete-subject' element={<DeleteSubject />} />
       <Route path='/delete-course-status' element={<CourseDeleteSuccess />} />
+
+      <Route path='/set-exam-detail' element={<SetExamDetail />} />
       
       
     </Routes>
