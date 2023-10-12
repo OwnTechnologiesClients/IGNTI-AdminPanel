@@ -13,6 +13,9 @@ function DeleteAllCourse() {
         navigate('/delete-course-status');
     };
 
+    const deleteSubject = () => {
+        navigate('/delete-subject');
+    };
 
 
     return (
@@ -26,7 +29,7 @@ function DeleteAllCourse() {
 
 
                 <div className='delete-course-parent'>
-                    <div className='delete-course-square' onClick={editCourse}>
+                    <div className='delete-course-square' onClick={deleteSubject}>
                         <p>Diploma in Computer Application (DCA)</p>
 
                     </div>
@@ -35,7 +38,7 @@ function DeleteAllCourse() {
                 </div>
 
                 <div className='delete-course-parent'>
-                    <div className='delete-course-square' onClick={editCourse}>
+                    <div className='delete-course-square' onClick={deleteSubject}>
                         <p>Advance Diploma in Computer Application (ADCA)-Old</p>
                     </div>
                     <img src="/img/delete.png" alt="success" />
