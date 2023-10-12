@@ -14,6 +14,12 @@ const StudentResult = () => {
         navigate('/all-students');
     };
 
+
+    const homeButton = () => {
+        // 👇️ navigate to /contacts
+        navigate('/type');
+    };
+
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
 
@@ -163,7 +169,7 @@ const StudentResult = () => {
                                 </div>
 
 
-                                
+
 
                             </div>
                         </div>
@@ -201,7 +207,16 @@ const StudentResult = () => {
 
             </div>
 
-           
+
+            <div className='home-button-section' onClick={homeButton}>
+
+                <div className='home-button'>
+                    <p>HOME</p>
+                </div>
+
+            </div>
+
+
         </div>
     )
 }

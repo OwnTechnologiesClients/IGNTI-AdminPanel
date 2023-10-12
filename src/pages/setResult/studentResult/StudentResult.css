@@ -350,8 +350,6 @@
 
 
 }
-
-
 .publish-button p {
     width: 100%;
     font-size: 1.2vw;
@@ -364,38 +362,39 @@
     font-weight: 600;
 }
 
-.logout-section {
+
+
+.home-button-section {
     width: 100%;
     align-items: center;
     justify-content: center;
     display: flex;
+    cursor: pointer;
 }
 
-.logout-button {
+.home-button {
     width: 50vw;
     height: 3.2vw;
-    background-color: #F46A6F;
+    background-color: #FF878B;
     border-radius: 10vw;
-    margin-top: 2vw;
-    margin-bottom: 2vw;
-
-
+    margin-bottom: 3vw;
 }
 
-
-.logout-button p {
+.home-button p {
     width: 100%;
     font-size: 1.2vw;
-    margin: auto;
     display: flex;
     color: white;
+    margin: auto;
+    margin-top: 0.7vw;
     justify-content: center;
     align-items: center;
-    padding-top: 0.9vw;
     font-family: 'Poppins';
-    font-weight: 900;
-
+    font-weight: 600;
 }
+
+
+
 
 
 

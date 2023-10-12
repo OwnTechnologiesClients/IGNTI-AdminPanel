@@ -8,6 +8,12 @@ import { Link, NavLink, useNavigate } from "react-router-dom"
 const Type = () => {
     const navigate = useNavigate();
 
+
+    const navigateToNewStudent = () => {
+        // 👇️ navigate to /contacts
+        navigate('/new-student');
+    };
+
     const navigateToCourse = () => {
         // 👇️ navigate to /contacts
         navigate('/course');
@@ -36,12 +42,11 @@ const Type = () => {
                 <div className='type-parent'>
                     <div className='type-child'>
 
-                        <div className='type-parent'>
+                        <div className='type-parent' onClick={navigateToNewStudent}>
                             <div className='type-square'>
                                 <p>Add Students</p>
                             </div>
                         </div>
-
 
 
                         <div className='type-parent' >
