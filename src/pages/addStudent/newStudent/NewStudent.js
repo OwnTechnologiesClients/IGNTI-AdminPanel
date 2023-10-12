@@ -19,8 +19,8 @@ function NewStudent() {
 
     const navigate = useNavigate();
 
-    const navigateToContacts = () => {
-        navigate('/test-subjects');
+    const addStudentButton = () => {
+        navigate('/profile-preview');
     };
 
     const [selectedCategory, setSelectedCategory] = useState();
@@ -121,7 +121,7 @@ function NewStudent() {
 
 
                     <div className='new-student-signup-button'>
-                        <button class="button" onClick={navigateToContacts}>Add Student</button>
+                        <button class="button" onClick={addStudentButton}>Add Student</button>
 
 
                     </div>

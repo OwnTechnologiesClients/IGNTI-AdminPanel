@@ -23,6 +23,7 @@ import SelectResultDetail from './pages/setResult/selectResultDetail/SelectResul
 import AllStudents from './pages/setResult/allStudents/AllStudent';
 import StudentResult from './pages/setResult/studentResult/StudentResult';
 import NewStudent from './pages/addStudent/newStudent/NewStudent';
+import ProfilePreview from './pages/addStudent/profile/ProfilePreview';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
       <Route path='/student-result' element={<StudentResult />} />
 
       <Route path='/new-student' element={<NewStudent />} />
+      <Route path='/profile-preview' element={<ProfilePreview />} />
       
       
     </Routes>

@@ -174,18 +174,7 @@ const StudentResult = () => {
                             </div>
                         </div>
 
-
-
-
-
-
-
-
-
                     </div>
-
-
-
 
 
                 </div>
