@@ -19,8 +19,8 @@ function SelectResultDetail() {
     const cancel = () => {
         navigate('/type');
     };
-    const setQuestions = () => {
-        navigate('/set-questions');
+    const proceedToAllStudents = () => {
+        navigate('/all-students');
     };
 
 
@@ -112,7 +112,7 @@ function SelectResultDetail() {
                 <div className='set-result-secondary-button' onClick={cancel}>
                     <p>Cancel</p>
                 </div>
-                <button class="button" onClick={setQuestions}>Proceed To Set Questions</button>
+                <button class="button" onClick={proceedToAllStudents}>Proceed To Set Result</button>
 
             </div>
 

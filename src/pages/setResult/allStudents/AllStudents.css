@@ -1,0 +1,48 @@
+.ph-appbar {
+    width: 100%;
+    height: 4vw;
+    border-top: 4px;
+    background-color: #2D8EFF;
+    position: relative;
+
+    
+}
+
+.ph-appbar h2 {
+    font-size: 1.4vw;
+    color: white;
+    font-family: Arial;
+    font-weight: 400;
+    position: absolute;
+    top: 30%;
+    margin-left: 2vw;
+}
+.ph-course-parent {
+    margin-left: 4vw;
+    margin-top: 2vw;
+    display: flex;
+    margin-bottom: 2vw;
+
+}
+.ph-course-parent img{
+    width: 13vw;
+    height: 13vw;
+}
+
+.ph-course-detail {
+    position: relative;
+
+   
+}
+
+.ph-course-detail h3 {
+    font-size: 1.2vw;
+    color: black;
+    font-family: "poppins";
+    font-weight: 400;
+    margin-left: 2vw;
+}
+
+.ph-course-name {
+    margin-top: 1vw;
+}
