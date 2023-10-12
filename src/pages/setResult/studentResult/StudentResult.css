@@ -333,7 +333,7 @@
 
 }
 
-.publish-section {
+.publish-result-section {
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -341,7 +341,7 @@
     cursor: pointer;
 }
 
-.publish-button {
+.publish-result-button {
     width: 50vw;
     height: 3.2vw;
     background-color: #2F4E71;
@@ -350,12 +350,13 @@
 
 
 }
-.publish-button p {
+.publish-result-button p {
     width: 100%;
     font-size: 1.2vw;
-    margin: auto;
     display: flex;
     color: white;
+    margin: auto;
+    margin-top: 0.7vw;
     justify-content: center;
     align-items: center;
     font-family: 'Poppins';
@@ -370,6 +371,7 @@
     justify-content: center;
     display: flex;
     cursor: pointer;
+    margin-top: 2vw;
 }
 
 .home-button {

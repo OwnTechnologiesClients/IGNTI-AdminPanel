@@ -188,9 +188,9 @@ const StudentResult = () => {
                 </div>
             </div>
 
-            <div className='publish-section' onClick={publishButton}>
+            <div className='publish-result-section' onClick={publishButton}>
 
-                <div className='publish-button'>
+                <div className='publish-result-button'>
                     <p>PUBLISH</p>
                 </div>
 

@@ -57,13 +57,13 @@
 }
 
 
-.publish-button {
+.exam-publish-button {
     display: flex;
     justify-content: center;
     margin-bottom: 4vw;
 }
 
-.publish-button button {
+.exam-publish-button button {
     width: 30vw;
     text-align: center;
     align-items: center;

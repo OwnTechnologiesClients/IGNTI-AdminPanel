@@ -52,7 +52,7 @@ const Type = () => {
                         <div className='type-parent' >
 
                             <div className='type-square' onClick={navigateToCourse}>
-                                <p>Add Courses</p>
+                                <p>Courses</p>
                             </div>
                         </div>
 

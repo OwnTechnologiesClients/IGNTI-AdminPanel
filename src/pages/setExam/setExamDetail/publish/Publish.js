@@ -160,7 +160,7 @@ function Publish() {
 
 
 
-      <div className='publish-button'>
+      <div className='exam-publish-button'>
         <button class="button" onClick={publishButton}>PUBLISH</button>
       </div>
     </div>
