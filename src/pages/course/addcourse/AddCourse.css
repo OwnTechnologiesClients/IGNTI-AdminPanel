@@ -1,0 +1,89 @@
+.add-course-parent{
+    display: flex;
+    justify-content: space-evenly;
+}
+.student-button-parent button {
+    display: flex;
+    width: 10vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 7vw;
+
+}
+
+
+
+.semester-dropdown{
+    margin-top: 2vw;
+    margin-left: 4vw;
+    
+
+
+}
+.semester-dropdown select{
+    font-size: 0.9vw;
+    font-weight: 400;
+    padding: 0.8vw;
+    padding-right: 27vw;
+    border: 1px solid #ccc;
+}
+
+.course-button-parent button {
+    display: flex;
+    width: 10vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5.5vw;
+    font-weight: 900;
+    font-size: 0.9vw;
+
+}
+
+.course-duration-section{
+    width: 50%;
+}
+.semester-fee-section{
+    width: 50%;
+}
+
+.ac-userid-section{
+    align-items: center;
+}
+.ac-userid-section p{
+    margin-left: 4vw;
+    margin-top: 2vw;
+    font-family: 'poppins';
+    font-weight: 600;
+    color: #8C9099;
+}
+.ac-userid-section input[type=text] {
+    width: 30vw;
+    height: 2.7vw;
+    padding-left: 2vw;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: black;
+    border: 1px solid #ccc;
+    margin-left: 4vw;
+}
+
+
+.save-course-detail-button-parent{
+    margin-left: 1.5vw;
+    
+}
+
+.save-course-detail-button-parent button {
+    display: flex;
+    width: 20vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3vw;
+    font-size: 0.9vw;
+    margin-top: 10vw;
+    font-weight: 600;
+
+}

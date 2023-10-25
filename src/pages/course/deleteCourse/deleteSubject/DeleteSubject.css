@@ -1,0 +1,158 @@
+.delete-subject-parent{
+    display: flex;
+    justify-content: space-evenly;
+}
+.delete-subject-student-button-parent button {
+    display: flex;
+    width: 10vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 7vw;
+
+}
+
+
+
+.delete-subject-semester-dropdown{
+    margin-top: 2vw;
+    margin-left: 4vw;
+    
+
+
+}
+.delete-subject-semester-dropdown select{
+    font-size: 0.9vw;
+    font-weight: 400;
+    padding: 0.8vw;
+    padding-right: 27vw;
+    border: 1px solid #ccc;
+}
+
+.delete-subject-button-parent button {
+    display: flex;
+    width: 10vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5.5vw;
+    font-weight: 900;
+    font-size: 0.9vw;
+
+}
+
+.delete-subject-section{
+    width: 100%;
+    display: flex;
+
+}
+
+.delete-subject-course-name-section{
+    align-items: center;
+}
+.delete-subject-course-name-section p{
+    margin-left: 4vw;
+    margin-top: 2vw;
+    font-family: 'poppins';
+    font-weight: 600;
+    color: #8C9099;
+}
+.delete-subject-course-name-section input[type=text] {
+    width: 30vw;
+    height: 2.7vw;
+    padding-left: 2vw;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: black;
+    border: 1px solid #ccc;
+    margin-left: 4vw;
+}
+
+
+
+
+
+.delete-subject-list-section {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    margin-left: 2vw;
+
+}
+
+.delete-subject-list-section img{
+    width: 3vw;
+    height: 3vw;
+    margin-top: 2.5vw;
+    margin-left: 2vw;
+    cursor: pointer;
+}
+
+.delete-subject-square {
+    width: 50%;
+    height: 3.2vw;
+    border-radius: 0.5vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    background-color: white;
+    margin-left: 2vw;
+    margin-top: 5vh;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.delete-subject-square img{
+    width: 10vw;
+    height: 10vw;
+}
+
+.delete-subject-square p {
+    width: 100%;
+    font-size: 1.2vw;
+    margin: auto;
+    display: flex;
+    
+    padding-top: 0.9vw;
+    font-family: 'Poppins';
+    font-weight: 500;
+
+}
+
+
+.delete-subject-secondary-button {
+    width: 20vw;
+    height: 2vw;
+    border: 0.2vw solid #2F4E71;
+    border-radius: 0.5vw;
+    margin-right: 2vw;
+    cursor: pointer;
+    margin-top: 3vw;
+}
+
+
+.delete-subject-secondary-button p {
+    width: 100%;
+    font-size: 1vw;
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins';
+    font-weight: 500;
+    margin: auto;
+    margin-top: 0.3vw;
+
+
+}
+.delete-subject-primary-button-parent {
+    display: flex;
+    margin-top: 5vw;
+    margin-left: 5vw;
+}
+
+.delete-subject-primary-button-parent button {
+    width: 20vw;
+    font-size: 0.9vw;
+    font-weight: 600;
+
+}

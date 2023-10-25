@@ -1,0 +1,116 @@
+.add-subject-parent{
+    display: flex;
+    justify-content: space-evenly;
+}
+.student-button-parent button {
+    display: flex;
+    width: 10vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 7vw;
+
+}
+
+
+
+.as-semester-dropdown{
+    margin-top: 2vw;
+    margin-left: 4vw;
+    
+
+
+}
+.as-semester-dropdown select{
+    font-size: 0.9vw;
+    font-weight: 400;
+    padding: 0.8vw;
+    padding-right: 27vw;
+    border: 1px solid #ccc;
+}
+
+.subject-button-parent button {
+    display: flex;
+    width: 10vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5.5vw;
+    font-weight: 900;
+    font-size: 0.9vw;
+
+}
+
+.subject-duration-section{
+    width: 50%;
+}
+.as-semester-fee-section{
+    width: 50%;
+}
+
+.as-userid-section{
+    align-items: center;
+}
+.as-userid-section p{
+    margin-left: 4vw;
+    margin-top: 2vw;
+    font-family: 'poppins';
+    font-weight: 600;
+    color: #8C9099;
+}
+.as-userid-section input[type=text] {
+    width: 30vw;
+    height: 2.7vw;
+    padding-left: 2vw;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: black;
+    border: 1px solid #ccc;
+    margin-left: 4vw;
+}
+
+.add-subject-button-parent{
+    margin-top: 3vw;
+    margin-left: 4vw;
+}
+.add-subject-button-parent button{
+    width: 10vw;
+}
+
+
+.cs-secondary-button {
+    width: 20vw;
+    height: 2vw;
+    border: 0.2vw solid #2F4E71;
+    border-radius: 0.5vw;
+    margin-right: 2vw;
+    cursor: pointer;
+    margin-top: 3vw;
+}
+
+
+.cs-secondary-button p {
+    width: 100%;
+    font-size: 1vw;
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins';
+    font-weight: 500;
+    margin: auto;
+    margin-top: 0.3vw;
+
+
+}
+
+.cs-submit-button-parent {
+    display: flex;
+    margin-top: 5vw;
+    margin-left: 5vw;
+}
+
+.cs-submit-button-parent button {
+    width: 20vw;
+    font-size: 0.9vw;
+    font-weight: 600;
+
+}

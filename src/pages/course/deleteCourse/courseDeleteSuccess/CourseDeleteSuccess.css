@@ -1,0 +1,60 @@
+.cds-parent {
+    margin-left: 5vw;
+    margin-top: 5vw;
+}
+
+.cds-item-container img {
+    width: 10vw;
+    height: 10vw;
+}
+
+.cds-item-label {
+    font-size: 0.8vw;
+    font-family: 'Poppins', sans-serif;
+
+
+}
+
+.cds-item-heading {
+    font-size: 1.5vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+
+.cds-cancel-button {
+    width: 20vw;
+    height: 2vw;
+    border: 0.2vw solid #2F4E71;
+    border-radius: 0.5vw;
+    margin-right: 2vw;
+    cursor: pointer;
+    margin-top: 3vw;
+}
+
+
+.cds-cancel-button p {
+    width: 100%;
+    font-size: 1vw;
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins';
+    font-weight: 500;
+    margin: auto;
+    margin-top: 0.3vw;
+
+
+}
+
+.cds-submit-button-parent {
+    display: flex;
+    margin-top: 5vw;
+    margin-left: 5vw;
+}
+
+.cds-submit-button-parent button {
+    width: 20vw;
+    font-size: 0.9vw;
+    font-weight: 600;
+
+}
