@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from "react";
 import './Type.css';
 import { Link, NavLink, useNavigate } from "react-router-dom"
@@ -29,6 +29,12 @@ const Type = () => {
         // 👇️ navigate to /contacts
         navigate('/select-result');
     };
+
+    useEffect(() => {
+        if(!localStorage.getItem("adminToken")) {
+            navigate("/")
+        }
+    }, [])
 
     return (
         <div>
