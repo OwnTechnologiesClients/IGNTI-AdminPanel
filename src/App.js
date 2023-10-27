@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/login/Login";
@@ -26,13 +26,13 @@ import NewStudent from "./pages/addStudent/newStudent/NewStudent";
 import ProfilePreview from "./pages/addStudent/profile/ProfilePreview";
 import StudentAddSuccess from "./pages/addStudent/studentAddSuccess/StudentAddSuccess";
 import Spinner from "./load/Spinner";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 function App() {
   const { loading } = useSelector((state) => state.loaders);
   return (
     <div>
-      {loading && <Spinner/>}
+      {loading && <Spinner />}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/adminlogin" element={<Login />} />
@@ -61,7 +61,7 @@ function App() {
         <Route path="/student-result" element={<StudentResult />} />
 
         <Route path="/new-student" element={<NewStudent />} />
-        <Route path="/profile-preview" element={<ProfilePreview />} />
+        <Route path="/profile-preview/:id" element={<ProfilePreview />} />
         <Route path="/student-added" element={<StudentAddSuccess />} />
       </Routes>
     </div>

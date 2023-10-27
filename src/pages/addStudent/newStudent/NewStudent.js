@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { message } from "antd";
 import { useDispatch } from "react-redux";
 import { SetLoading } from "../../../redux/loaderSlice";
-import { SetCurrentUser } from "../../../redux/userSlice";
 
 function NewStudent() {
+  const [courses, setCourses] = useState([]);
   const [firstname, setFirstname] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
   const [contactNumber, setContactNumber] = useState("");
@@ -19,48 +19,48 @@ function NewStudent() {
   const [pincode, setPincode] = useState("");
   const [address, setAddress] = useState("");
   const [selectedCategory, setSelectedCategory] = useState();
+  const [image, setImage] = useState();
+  const [file, setFile] = useState(null);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const addStudentButton = async () => {
+  const addStudentButton = async (e) => {
+    e.preventDefault();
     try {
+      const formData = new FormData();
+      formData.append("fileName", file);
+      formData.append("studentName", firstname);
+      formData.append("email", emailAddress);
+      formData.append("fatherName", fatherName);
+      formData.append("dateOfBirth", dob);
+      formData.append("mobileNumber", contactNumber);
+      formData.append("city", city);
+      formData.append("state", state);
+      formData.append("pincode", pincode);
+      formData.append("address", address);
+      formData.append("courseName", selectedCategory);
+      // console.log(formData)
       dispatch(SetLoading(true));
-      const result = await axios({
+      const result = await axios.post(
+        "http://localhost:9000/api/students/register",
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
+      const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/students/register",
+        url: "http://localhost:9000/api/students/get-student-id",
         data: {
-          studentName: firstname,
           email: emailAddress,
-          fatherName: fatherName,
-          dateOfBirth: dob,
-          mobileNumber: contactNumber,
-          city: city,
-          state: state,
-          pincode: pincode,
-          address: address,
-          courseName: selectedCategory,
         },
       });
-      console.log(result);
+      // console.log(response);
       dispatch(SetLoading(false));
-      if (result.data.success) {
+      if (result.data.success && response.data.success) {
         message.success(result.data.message);
-        dispatch(
-          SetCurrentUser({
-            studentName: firstname,
-            email: emailAddress,
-            fatherName: fatherName,
-            dateOfBirth: dob,
-            mobileNumber: contactNumber,
-            city: city,
-            state: state,
-            pincode: pincode,
-            address: address,
-            courseName: selectedCategory,
-          })
-        );
-        navigate("/profile-preview");
+        navigate(`/profile-preview/${response.data.data._id}`);
       } else {
         throw new Error(result.data.message);
       }
@@ -74,10 +74,32 @@ function NewStudent() {
     setSelectedCategory(event.target.value);
   }
 
+  const getAllCoursesName = async () => {
+    try {
+      dispatch(SetLoading(true));
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/courses/name-Course-all",
+      });
+      dispatch(SetLoading(false));
+      console.log(response.data.data);
+      if (response.data.success) {
+        message.success(response.data.message);
+        setCourses(response.data.data);
+      } else {
+        throw new Error(response.data.message);
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
+  };
+
   useEffect(() => {
     if (!localStorage.getItem("adminToken")) {
       navigate("/");
     }
+    getAllCoursesName();
   }, []);
 
   return (
@@ -91,7 +113,6 @@ function NewStudent() {
           <input
             type="text"
             className="form-control"
-            name="title"
             value={firstname}
             onChange={(e) => {
               setFirstname(e.target.value);
@@ -101,9 +122,8 @@ function NewStudent() {
 
           {/* ------------ emailAddress Input textfield -------------------- */}
           <input
-            type="text"
+            type="email"
             className="form-control"
-            name="title"
             value={emailAddress}
             onChange={(e) => {
               setEmailAddress(e.target.value);
@@ -115,7 +135,6 @@ function NewStudent() {
           <input
             type="text"
             className="form-control"
-            name="title"
             value={fatherName}
             onChange={(e) => {
               setFatherName(e.target.value);
@@ -125,9 +144,8 @@ function NewStudent() {
 
           {/* ------------ DOB textfield -------------------- */}
           <input
-            type="text"
-            className="form-control"
-            name="title"
+            type="date"
+            className="form-control custom-date-input"
             value={dob}
             onChange={(e) => {
               setDob(e.target.value);
@@ -137,9 +155,8 @@ function NewStudent() {
 
           {/* ------------ contact Number Input textfield -------------------- */}
           <input
-            type="text"
+            type="number"
             className="form-control"
-            name="title"
             value={contactNumber}
             onChange={(e) => {
               setContactNumber(e.target.value);
@@ -151,7 +168,6 @@ function NewStudent() {
           <input
             type="text"
             className="form-control"
-            name="title"
             value={city}
             onChange={(e) => {
               setCity(e.target.value);
@@ -163,7 +179,6 @@ function NewStudent() {
           <input
             type="text"
             className="form-control"
-            name="title"
             value={state}
             onChange={(e) => {
               setState(e.target.value);
@@ -173,9 +188,8 @@ function NewStudent() {
 
           {/* ------------ Pincode Input textfield -------------------- */}
           <input
-            type="text"
+            type="number"
             className="form-control"
-            name="title"
             value={pincode}
             onChange={(e) => {
               setPincode(e.target.value);
@@ -187,7 +201,6 @@ function NewStudent() {
           <input
             type="text"
             className="form-control"
-            name="title"
             value={address}
             onChange={(e) => {
               setAddress(e.target.value);
@@ -195,39 +208,30 @@ function NewStudent() {
             placeholder="Enter Full Address"
           />
 
-          {/* ------------ Select Course textfield -------------------- */}
+          {/* ------------ Upload Image textfield -------------------- */}
           <input
-            type="text"
+            type="file"
             className="form-control"
-            name="title"
-            value="Image"
+            value={image}
             onChange={(e) => {
-              // setAddress(e.target.value);
+              setImage(e.target.value);
+              setFile(e.target.files[0]);
             }}
             placeholder="Upload Image"
+            accept="image/*"
           />
 
-          {/* ------------ Upload Image textfield -------------------- */}
-
+          {/* ------------ Select Course textfield -------------------- */}
           <div className="add-course-dropdown">
             <select
               name="category-list"
               id="category-list"
               onChange={handleCategoryChange}
             >
-              <option value="">Select Course</option>
-              <option value="Diploma in Computer Application (DCA)">
-                Diploma in Computer Application (DCA)
-              </option>
-              <option value="Advance Diploma in Computer Application (ADCA)-Old">
-                Advance Diploma in Computer Application (ADCA)-Old
-              </option>
-              <option value="X-Ray and ECG Technology">
-                X-Ray and ECG Technology
-              </option>
-              <option value="Certificate in Desktop Publication (CDTP)">
-                Certificate in Desktop Publication (CDTP)
-              </option>
+              <option disabled value="acd">Select Course</option>
+              {courses.map((course) => {
+                return <option value={course}>{course}</option>;
+              })}
             </select>
           </div>
 
