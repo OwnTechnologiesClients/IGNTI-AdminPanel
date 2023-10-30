@@ -1,24 +1,18 @@
 import React, { useEffect } from "react";
 import "./EditCourse.css";
-import { useNavigate } from "react-router-dom";
-import { useState, useMemo } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { SetLoading } from "../../../../redux/loaderSlice";
 import { message } from "antd";
 
 function EditCourse() {
+  const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  let { currentUser } = useSelector((state) => state.users);
-  if (currentUser == null) {
-    currentUser = {
-      courseName: "",
-    };
-  }
-  // console.log(currentUser)
-  const [courseName, setCourseName] = useState(currentUser.courseName);
+
+  const [courseName, setCourseName] = useState(id);
   const [duration, setDuration] = useState("");
   const [fee, setFees] = useState("");
   const [selectedCategory, setSelectedCategory] = useState();
@@ -54,7 +48,33 @@ function EditCourse() {
       console.log(response);
       if (response.data.success) {
         message.success(response.data.message);
-        navigate("/edit-course-preview");
+        navigate(`/edit-course-preview/${id}`);
+      } else {
+        throw new Error(response.data.message);
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
+  };
+
+  const getDetails = async () => {
+    try {
+      dispatch(SetLoading(true));
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/courses/get-course",
+        data: {
+          courseName: id,
+        },
+      });
+      dispatch(SetLoading(false));
+      if (response.data.success) {
+        message.success(response.data.message);
+        const course = response.data.data;
+        setFees(course.fees);
+        setDuration(course.duration);
+        setSelectedCategory(course.noOfSemester);
       } else {
         throw new Error(response.data.message);
       }
@@ -65,10 +85,12 @@ function EditCourse() {
   };
 
   useEffect(() => {
-    if (currentUser.courseName === "") {
-      navigate("/all-course");
+    if (!localStorage.getItem("adminToken")) {
+      navigate("/");
     }
+    getDetails();
   }, []);
+
   return (
     <div>
       <div className="edit-course-section">
@@ -120,6 +142,7 @@ function EditCourse() {
                 <select
                   name="category-list"
                   id="category-list"
+                  value={selectedCategory}
                   onChange={handleCategoryChange}
                 >
                   <option value="1">1</option>
@@ -146,7 +169,6 @@ function EditCourse() {
                 onChange={(e) => {
                   setFees(e.target.value);
                 }}
-                placeholder=""
               />
             </div>
           </div>

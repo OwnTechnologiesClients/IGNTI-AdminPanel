@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./AddCourse.css";
 import { useNavigate } from "react-router-dom";
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { SetLoading } from "../../../redux/loaderSlice";
-import { SetCurrentUser } from "../../../redux/userSlice";
 import { message } from "antd";
 
 function AddCourse() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [selectedCategory, setSelectedCategory] = useState();
+  const [selectedCategory, setSelectedCategory] = useState("1");
   const [courseName, setCourseName] = useState("");
   const [duration, setDuration] = useState("");
   const [fee, setFees] = useState("");
@@ -28,41 +27,37 @@ function AddCourse() {
         });
       }
       try {
-        dispatch(SetLoading(true))
+        dispatch(SetLoading(true));
         const response = await axios({
-            method: "post",
-            url: "http://localhost:9000/api/courses/add-course",
-            data: {
-              courseName: courseName,
-              noOfSemester: selectedCategory,
-              duration: duration,
-              fees: fee,
-              semesters: arr,
-            },
-          });
-          dispatch(SetLoading(false));
-        //   console.log(response);
-          if(response.data.success) {
-            message.success(response.data.message);
-            dispatch(SetCurrentUser({
-                courseName: courseName
-            }))
-            navigate("/add-subject");
-          }
-          else {
-            throw new Error(response.data.message);
-          }
+          method: "post",
+          url: "http://localhost:9000/api/courses/add-course",
+          data: {
+            courseName: courseName,
+            noOfSemester: selectedCategory,
+            duration: duration,
+            fees: fee,
+            semesters: arr,
+          },
+        });
+        dispatch(SetLoading(false));
+        if (response.data.success) {
+          message.success(response.data.message);
+          navigate(`/add-subject/${courseName}`);
+        } else {
+          throw new Error(response.data.message);
+        }
       } catch (error) {
         dispatch(SetLoading(false));
-      message.error(error.message);
-
+        message.error(error.message);
       }
     }
   };
 
-  const navigateToContacts = () => {
-    navigate("/test-subjects");
-  };
+  useEffect(() => {
+    if (!localStorage.getItem("adminToken")) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div>

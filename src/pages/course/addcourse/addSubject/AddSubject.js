@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./AddSubject.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { SetLoading } from "../../../../redux/loaderSlice";
 import { message } from "antd";
 
 function AddSubject() {
+  const { id } = useParams();
   const dispatch = useDispatch();
-  const { currentUser } = useSelector((state) => state.users);
-  const [selectedCategory, setSelectedCategory] = useState();
-  const [courseName, setCourseName] = useState(currentUser.courseName);
+  const [selectedCategory, setSelectedCategory] = useState("1");
+  const [courseName, setCourseName] = useState(id);
   const [duration, setDuration] = useState("");
 
   const navigateToCoursePreview = async () => {
@@ -32,14 +31,11 @@ function AddSubject() {
         },
       });
       dispatch(SetLoading(false));
-    //   console.log(response);
       if (response.data.success) {
         message.success(response.data.message);
       } else {
         throw new Error(response.data.message);
       }
-      // 👇️ navigate to /contacts
-      // navigate("/course-preview");
     } catch (error) {
       dispatch(SetLoading(false));
       message.error(error.message);
@@ -53,10 +49,14 @@ function AddSubject() {
   const navigate = useNavigate();
 
   const navigateToContacts = () => {
-    navigate("/course-preview");
+    navigate(`/course-preview/${id}`);
   };
 
-//   const [fee, setFees] = useState("");
+  useEffect(() => {
+    if (!localStorage.getItem("adminToken")) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div>
@@ -75,9 +75,8 @@ function AddSubject() {
               <input
                 type="text"
                 className="form-control"
-                name="title"
                 value={courseName}
-                placeholder=""
+                disabled
               />
             </div>
 
@@ -90,12 +89,10 @@ function AddSubject() {
               <input
                 type="text"
                 className="form-control"
-                name="title"
                 value={duration}
                 onChange={(e) => {
                   setDuration(e.target.value);
                 }}
-                placeholder=""
               />
             </div>
           </div>

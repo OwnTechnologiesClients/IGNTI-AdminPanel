@@ -1,7 +1,7 @@
 import React from "react";
 import "./DeleteAllCourse.css";
 import { useNavigate } from "react-router-dom";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { SetLoading } from "../../../../redux/loaderSlice";
@@ -28,13 +28,21 @@ function DeleteAllCourse() {
         method: "delete",
         url: `http://localhost:9000/api/courses/delete-course/${result.data.data._id}`,
       });
+      const res = await axios({
+        method: "post",
+        url: `http://localhost:9000/api/examSets/delete-exams-set`,
+        data: {
+          courseName: name,
+        },
+      });
+      console.log(res.data);
       getAllCoursesName();
-      console.log(response);
       dispatch(SetLoading(false));
-      //   console.log(result.data.data._id);
       if (response.data.success) {
         message.success(response.data.message);
-        navigate("/delete-course-status");
+        setTimeout(() => {
+          navigate("/delete-course-status");
+        }, 1000);
       } else {
         throw new Error(response.data.message);
       }
@@ -42,22 +50,10 @@ function DeleteAllCourse() {
       dispatch(SetLoading(false));
       message.error(error.message);
     }
-    // console.log(name)
   };
 
   const deleteSubject = async (name) => {
-    // const result = await axios({
-    //     method: "post",
-    //     url: "http://localhost:9000/api/courses/get-course",
-    //     data: {
-    //       courseName: name,
-    //     },
-    //   });
-    //   console.log(result)
-    dispatch(SetCurrentUser({
-        courseName : name
-    }))
-    navigate("/delete-subject");
+    navigate(`/delete-subject/${name}`);
   };
 
   const getAllCoursesName = async () => {
@@ -81,6 +77,9 @@ function DeleteAllCourse() {
   };
 
   useEffect(() => {
+    if (!localStorage.getItem("adminToken")) {
+      navigate("/");
+    }
     getAllCoursesName();
   }, []);
 
@@ -93,7 +92,10 @@ function DeleteAllCourse() {
         {courses.map((name) => {
           return (
             <div className="delete-course-parent">
-              <div className="delete-course-square" onClick={() => deleteSubject(name)}>
+              <div
+                className="delete-course-square"
+                onClick={() => deleteSubject(name)}
+              >
                 <p>{name}</p>
               </div>
               <img

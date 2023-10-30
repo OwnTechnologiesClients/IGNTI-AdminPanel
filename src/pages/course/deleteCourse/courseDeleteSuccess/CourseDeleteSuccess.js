@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './CourseDeleteSuccess.css';
 import { useNavigate } from "react-router-dom"
 
@@ -12,6 +12,11 @@ function CourseDeleteSuccess() {
     const updateMoreCourse = () => {
         navigate('/delete-all-course');
     };
+    useEffect(() => {
+        if (!localStorage.getItem("adminToken")) {
+          navigate("/");
+        }
+      }, []);
     return (
         <div>
             <div className='course-appbar-header'>

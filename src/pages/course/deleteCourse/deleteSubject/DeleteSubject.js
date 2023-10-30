@@ -1,20 +1,17 @@
 import React, { useEffect } from "react";
 import "./DeleteSubject.css";
-import { useNavigate } from "react-router-dom";
-import { useState, useMemo } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { SetLoading } from "../../../../redux/loaderSlice";
+import { useDispatch } from "react-redux";
+import { message } from "antd";
 
 function DeleteSubject() {
-  let { currentUser } = useSelector((state) => state.users);
-  if (currentUser == null) {
-    currentUser = {
-      courseName: "",
-    };
-  }
-  // console.log(currentUser)
+  const dispatch = useDispatch();
+  const { id } = useParams();
   const [selectedCategory, setSelectedCategory] = useState("1");
-  const [courseName, setCourseName] = useState(currentUser.courseName);
+  const [courseName, setCourseName] = useState(id);
   const [subjects, setSubjects] = useState([]);
   const [arr, setArr] = useState([]);
 
@@ -28,60 +25,83 @@ function DeleteSubject() {
     navigate("/delete-all-course");
   };
   const proceed = async () => {
-    const response = await axios({
-      method: "post",
-      url: "http://localhost:9000/api/courses/get-course",
-      data: {
-        courseName: courseName,
-      },
-    });
-    //   console.log(response.data.data);
-    if (response.data.success) {
-      setArr(response.data.data.semesters);
+    try {
+      dispatch(SetLoading(true))
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/courses/get-course",
+        data: {
+          courseName: courseName,
+        },
+      });
+      dispatch(SetLoading(false))
+      if (response.data.success) {
+        message.success(response.data.message);
+        setArr(response.data.data.semesters);
+      }
+      else {
+        throw new Error(response.data.message);
+      }
+      dispatch(SetLoading(true))
+      const result = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/subjects/get-subject",
+        data: {
+          courseName: courseName,
+          semesterNumber: selectedCategory,
+        },
+      });
+      dispatch(SetLoading(false))
+      if (result.data.success) {
+        setSubjects(result.data.data.subjects);
+      }
+      else {
+        throw new Error(response.data.message);
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
     }
-    const result = await axios({
-      method: "post",
-      url: "http://localhost:9000/api/subjects/get-subject",
-      data: {
-        courseName: courseName,
-        semesterNumber: selectedCategory,
-      },
-    });
-    if (result.data.success) {
-      setSubjects(result.data.data.subjects);
-    }
-    // console.log();
-    // const response = await axios({
-    //   method: "delete",
-    //   url: `http://localhost:9000/api/courses/delete-course/${result.data.data._id}`,
-    // });
-    // console.log(response);
-    // navigate('/delete-course-status');
   };
 
   const deleteSubject = async (name) => {
-    const response = await axios({
+    try {
+      dispatch(SetLoading(true));
+      const result = await axios({
         method: "delete",
         url: "http://localhost:9000/api/subjects/delete-one-subject",
         data: {
-            courseName: courseName,
-            semesterNumber: selectedCategory,
-            subjectName: name
+          courseName: courseName,
+          semesterNumber: selectedCategory,
+          subjectName: name,
         },
       });
-        console.log(response.data);
-    // navigate("/delete-subject");
+      dispatch(SetLoading(false));
+      if (result.data.success) {
+        message.success(result.data.message);
+      }
+      else {
+        throw new Error(result.data.message);
+      }
+      proceed();
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
   };
 
+  const getStatus = () => {
+    navigate('/delete-course-status');
+  };
+
+
   useEffect(() => {
-    if (currentUser.courseName === "") {
-      navigate("/delete-all-course");
+    if (!localStorage.getItem("adminToken")) {
+      navigate("/");
     }
   }, []);
 
   useEffect(() => {
-    // console.log("hello")
-    // console.log(selectedCategory)
     proceed();
   }, [selectedCategory]);
 
@@ -105,7 +125,6 @@ function DeleteSubject() {
                 name="title"
                 value={courseName}
                 disabled
-                placeholder=""
               />
             </div>
 
@@ -147,7 +166,7 @@ function DeleteSubject() {
         <div className="delete-subject-secondary-button" onClick={cancel}>
           <p>Cancel</p>
         </div>
-        <button class="button" onClick={proceed}>
+        <button class="button" onClick={getStatus}>
           Proceed
         </button>
       </div>

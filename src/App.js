@@ -39,26 +39,26 @@ function App() {
         <Route path="/type" element={<Type />} />
         <Route path="/course" element={<Course />} />
         <Route path="/add-course" element={<AddCourse />} />
-        <Route path="/add-subject" element={<AddSubject />} />
-        <Route path="/course-preview" element={<CoursePreview />} />
+        <Route path="/add-subject/:id" element={<AddSubject />} />
+        <Route path="/course-preview/:id" element={<CoursePreview />} />
         <Route path="/course-add-successful" element={<CourseAddSuccess />} />
         <Route path="/all-course" element={<AllCourse />} />
-        <Route path="/edit-course" element={<EditCourse />} />
-        <Route path="/edit-course-preview" element={<EditCoursePreview />} />
+        <Route path="/edit-course/:id" element={<EditCourse />} />
+        <Route path="/edit-course-preview/:id" element={<EditCoursePreview />} />
         <Route path="/update-course-status" element={<CourseUpdateSuccess />} />
 
         <Route path="/delete-all-course" element={<DeleteAllCourse />} />
-        <Route path="/delete-subject" element={<DeleteSubject />} />
+        <Route path="/delete-subject/:id" element={<DeleteSubject />} />
         <Route path="/delete-course-status" element={<CourseDeleteSuccess />} />
 
         <Route path="/set-exam-detail" element={<SetExamDetail />} />
-        <Route path="/set-questions" element={<SetQuestions />} />
+        <Route path="/set-questions/:courseName/:semesterNumber/:subjectName" element={<SetQuestions />} />
         <Route path="/publish-questions" element={<Publish />} />
         <Route path="/exam-published" element={<ExamPublishSuccess />} />
 
         <Route path="/select-result" element={<SelectResultDetail />} />
-        <Route path="/all-students" element={<AllStudents />} />
-        <Route path="/student-result" element={<StudentResult />} />
+        <Route path="/all-students/:courseName/:semesterNumber/:subjectName" element={<AllStudents />} />
+        <Route path="/student-result/:id/:semesterNumber/:courseName" element={<StudentResult />} />
 
         <Route path="/new-student" element={<NewStudent />} />
         <Route path="/profile-preview/:id" element={<ProfilePreview />} />
