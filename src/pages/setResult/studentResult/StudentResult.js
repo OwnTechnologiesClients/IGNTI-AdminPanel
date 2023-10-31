@@ -1,24 +1,141 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { message } from "antd";
 
 import { useState } from "react";
 import "./StudentResult.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { SetLoading } from "../../../redux/loaderSlice";
+import axios from "axios";
 
 const StudentResult = () => {
+  const { id, semesterNumber, courseName } = useParams();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  let [user, setUser] = useState();
+  if (!user) {
+    user = {
+      courseName: "",
+      studentName: "",
+      fatherName: "",
+      dateOfBirth: "",
+    };
+  }
+  let [data, setData] = useState([]);
+  if (data.length === 0) {
+    data = [
+      {
+        subjectResults: [
+          {
+            subjectName: "",
+            totalNumQuestions: "",
+            numCorrectAnswers: "",
+          },
+        ],
+      },
+    ];
+  }
 
-  const publishButton = () => {
+  const publishButton = async () => {
+    try {
+      dispatch(SetLoading(true));
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/resultSets/update-result-set-id",
+        data: {
+          courseName: courseName,
+          semesterNumber: semesterNumber,
+          studentId: id,
+          updatedSubjectResults: data[0].subjectResults,
+        },
+      });
+      dispatch(SetLoading(false));
+      if (response.data.success) {
+        getAllStudentIds();
+        message.success(response.data.message);
+      } else {
+        throw Error(response.data.message);
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
     // 👇️ navigate to /contacts
-    navigate("/all-students");
+    // navigate("/all-students");
   };
 
   const homeButton = () => {
-    // 👇️ navigate to /contacts
-    navigate("/type");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/type");
+    }, 600);
   };
 
-  const [userId, setUserId] = useState("");
-  const [password, setPassword] = useState("");
+  let totalCorrectAnswers = 0;
+  let totalTotalNumQuestions = 0;
+
+  data[0].subjectResults.forEach((subjectResult) => {
+    totalCorrectAnswers =
+      totalCorrectAnswers + +subjectResult.numCorrectAnswers;
+    totalTotalNumQuestions =
+      totalTotalNumQuestions + subjectResult.totalNumQuestions;
+  });
+
+  const overallPercentage =
+    (totalCorrectAnswers / totalTotalNumQuestions) * 100;
+
+  const getAllStudentIds = async () => {
+    try {
+      dispatch(SetLoading(true));
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/resultSets/get-result-set-id",
+        data: {
+          courseName: courseName,
+          semesterNumber: semesterNumber,
+          studentId: id,
+        },
+      });
+
+      const result = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/students/get-student-id-detail",
+        data: {
+          id: id,
+        },
+      });
+
+      dispatch(SetLoading(false));
+      if (response.data.success && result.data.success) {
+        message.success(response.data.message);
+        message.success(result.data.message);
+        setData(response.data.data);
+        setUser(result.data.data);
+      } else {
+        throw Error(response.data.message);
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
+  };
+
+  const handleInputChange = (resIndex, event) => {
+    if (!data[0].isDeclared) {
+      const updatedData = [...data];
+      updatedData[0].subjectResults[resIndex].numCorrectAnswers =
+        event.target.value;
+      setData(updatedData);
+    }
+  };
+
+  useEffect(() => {
+    if (!localStorage.getItem("adminToken")) {
+      navigate("/");
+    }
+    getAllStudentIds();
+  }, []);
 
   return (
     <div>
@@ -31,24 +148,24 @@ const StudentResult = () => {
             {/* <h2>BECOME A MEMBER</h2> */}
             <div className="border-1"></div>
             <div className="result-user-information-section">
-              <p>Diploma in Computer Application (DCA)</p>
+              <p>{user.courseName}</p>
             </div>
 
             <div className="student-information-section">
               <div className="section-one">
                 <div className="student-info">
                   <p1>Name: </p1>
-                  <p2>Gaurav Sharma</p2>
+                  <p2>{user.studentName}</p2>
                 </div>
 
                 <div className="student-info">
                   <p1>Father Name: </p1>
-                  <p2>VISHWAJEET SHARMA</p2>
+                  <p2>{user.fatherName}</p2>
                 </div>
 
                 <div className="student-info">
                   <p1>Date Of Birth: </p1>
-                  <p2>12-05-2014</p2>
+                  <p2>{user.dateOfBirth}</p2>
                 </div>
 
                 <div className="student-info">
@@ -58,7 +175,7 @@ const StudentResult = () => {
               </div>
 
               <div className="section-two">
-                <img src="/img/teacher1.png" />
+                <img src={`http://localhost:9000/public/${user.imageFile}`} alt="" />
               </div>
             </div>
           </div>
@@ -74,119 +191,85 @@ const StudentResult = () => {
                   <span>Obtained Marks</span>
                   <span>Grade</span>
                 </div>
-                <div className="child-row">
-                  <span>1</span>
-                  <span>COMPUTER FUNDAMENTALS </span>
-                  <span>200</span>
 
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="title"
-                    value={userId}
-                    onChange={(e) => {
-                      setUserId(e.target.value);
-                    }}
-                    placeholder="50"
-                  />
+                {data[0].subjectResults.map((res, resIndex) => {
+                  return (
+                    <div className="child-row">
+                      <span>{resIndex + 1}</span>
+                      <span>{res.subjectName}</span>
+                      <span>{res.totalNumQuestions}</span>
 
-                  <span>A</span>
-                </div>
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="title"
+                        value={res.numCorrectAnswers}
+                        onChange={(event) => handleInputChange(resIndex, event)}
+                        placeholder="60"
+                      />
 
-                <div className="child-row">
-                  <span>1</span>
-                  <span>COMPUTER FUNDAMENTALS </span>
-                  <span>200</span>
-
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="title"
-                    value={userId}
-                    onChange={(e) => {
-                      setUserId(e.target.value);
-                    }}
-                    placeholder="60"
-                  />
-
-                  <span>A</span>
-                </div>
-
-                <div className="child-row">
-                  <span>1</span>
-                  <span>COMPUTER FUNDAMENTALS </span>
-                  <span>200</span>
-
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="title"
-                    value={userId}
-                    onChange={(e) => {
-                      setUserId(e.target.value);
-                    }}
-                    placeholder="79"
-                  />
-
-                  <span>A</span>
-                </div>
-
-                <div className="child-row">
-                  <span>1</span>
-                  <span>COMPUTER FUNDAMENTALS </span>
-                  <span>200</span>
-
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="title"
-                    value={userId}
-                    onChange={(e) => {
-                      setUserId(e.target.value);
-                    }}
-                    placeholder="79"
-                  />
-
-                  <span>A</span>
-                </div>
-
-                <div className="child-row">
-                  <span>1</span>
-                  <span>COMPUTER FUNDAMENTALS </span>
-                  <span>200</span>
-
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="title"
-                    value={userId}
-                    onChange={(e) => {
-                      setUserId(e.target.value);
-                    }}
-                    placeholder="79"
-                  />
-
-                  <span>A</span>
-                </div>
+                      {(res.numCorrectAnswers / res.totalNumQuestions) * 100 <=
+                      30 ? (
+                        <span>D</span>
+                      ) : (res.numCorrectAnswers / res.totalNumQuestions) *
+                          100 <=
+                        50 ? (
+                        <span>C</span>
+                      ) : (res.numCorrectAnswers / res.totalNumQuestions) *
+                          100 <=
+                        80 ? (
+                        <span>B</span>
+                      ) : (
+                        <span>A</span>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
         </div>
 
-        <div className="percentage-square-dashboard">
-          <p1>Percentage : 78</p1>
+        {overallPercentage <= 30 ? (
+          <div className="percentage-square-dashboard-fail">
+            <p1>Percentage : {overallPercentage}%</p1>
 
-          <p1>Grade : A</p1>
+            <p1>Grade : D</p1>
 
-          <p1>Result : Pass</p1>
-        </div>
+            <p1>Result : Fail</p1>
+          </div>
+        ) : (
+          <div className="percentage-square-dashboard">
+            <p1>Percentage : {overallPercentage}%</p1>
+
+            {overallPercentage <= 30 ? (
+              <p1>Grade : D</p1>
+            ) : overallPercentage <= 50 ? (
+              <p1>Grade : C</p1>
+            ) : overallPercentage <= 80 ? (
+              <p1>Grade : B</p1>
+            ) : (
+              <p1>Grade : A</p1>
+            )}
+
+            <p1>Result : Pass</p1>
+          </div>
+        )}
       </div>
 
-      <div className="publish-result-section" onClick={publishButton}>
-        <div className="publish-result-button">
-          <p>PUBLISH</p>
+      {!data[0].isDeclared ? (
+        <div className="publish-result-section" onClick={publishButton}>
+          <div className="publish-result-button">
+            <p>PUBLISH</p>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="publish-result-section">
+          <div className="publish-result-button">
+            <p>Result updated successfully</p>
+          </div>
+        </div>
+      )}
 
       <div className="home-button-section" onClick={homeButton}>
         <div className="home-button">

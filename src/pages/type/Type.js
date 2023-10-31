@@ -1,28 +1,43 @@
 import React, { useEffect } from "react";
 import "./Type.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { SetLoading } from "../../redux/loaderSlice";
 
 const Type = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const navigateToNewStudent = () => {
-    // 👇️ navigate to /contacts
-    navigate("/new-student");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/new-student");
+    }, 600);
   };
 
   const navigateToCourse = () => {
-    // 👇️ navigate to /contacts
-    navigate("/course");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/course");
+    }, 600);
   };
 
   const navigateToSetExam = () => {
-    // 👇️ navigate to /contacts
-    navigate("/set-exam-detail");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/set-exam-detail");
+    }, 600);
   };
 
   const navigateToSetResult = () => {
-    // 👇️ navigate to /contacts
-    navigate("/select-result");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/select-result");
+    }, 600);
   };
 
   useEffect(() => {

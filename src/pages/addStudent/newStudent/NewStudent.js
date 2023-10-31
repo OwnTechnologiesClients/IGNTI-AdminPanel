@@ -18,7 +18,7 @@ function NewStudent() {
   const [city, setCity] = useState("");
   const [pincode, setPincode] = useState("");
   const [address, setAddress] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState();
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [image, setImage] = useState();
   const [file, setFile] = useState(null);
 
@@ -28,6 +28,9 @@ function NewStudent() {
   const addStudentButton = async (e) => {
     e.preventDefault();
     try {
+      if(selectedCategory == "") {
+        throw new Error("course not selected");
+      }
       const formData = new FormData();
       formData.append("fileName", file);
       formData.append("studentName", firstname);
@@ -228,8 +231,8 @@ function NewStudent() {
               id="category-list"
               onChange={handleCategoryChange}
             >
-              <option disabled value="acd">Select Course</option>
-              {courses.map((course) => {
+              <option disabled value="">Select Course</option>
+              {courses.map((course, index) => {
                 return <option value={course}>{course}</option>;
               })}
             </select>

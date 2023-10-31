@@ -89,8 +89,9 @@ const AllStudents = () => {
                 {detail[index] && (
                   <div
                     className="ph-course-parent"
-                    onClick={() => navigateToStudentResult(value)}
+                    onClick={() => navigateToStudentResult(detail[index]._id)}
                   >
+                    <p className="set-index">{index+1}.</p>
                     <img
                       src={`http://localhost:9000/public/${detail[index].imageFile}`}
                       alt="success"

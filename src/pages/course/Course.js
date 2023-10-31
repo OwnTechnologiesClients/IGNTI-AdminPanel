@@ -1,23 +1,35 @@
 import React, { useEffect } from "react";
 import "./Course.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { SetLoading } from "../../redux/loaderSlice";
 
 const Course = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const navigateToAddCourse = () => {
-    // 👇️ navigate to /contacts
-    navigate("/add-course");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/add-course");
+    }, 600);
   };
 
   const navigateToEditCourse = () => {
-    // 👇️ navigate to /contacts
-    navigate("/all-course");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/all-course");
+    }, 600);
   };
 
   const navigateToDeleteCourse = () => {
-    // 👇️ navigate to /contacts
-    navigate("/delete-all-course");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/delete-all-course");
+    }, 600);
   };
 
   useEffect(() => {
