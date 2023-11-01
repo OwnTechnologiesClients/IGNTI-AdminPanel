@@ -28,12 +28,19 @@ function CoursePreview() {
   }
 
   const navigateToSuccessAddCourse = () => {
-    // 👇️ navigate to /contacts
-    navigate("/course-add-successful");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/course-add-successful");
+    }, 600);
   };
+
   const cancelButton = () => {
-    // 👇️ navigate to /contacts
-    navigate("/add-course");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/add-course");
+    }, 600);
   };
 
   const getDetails = async () => {

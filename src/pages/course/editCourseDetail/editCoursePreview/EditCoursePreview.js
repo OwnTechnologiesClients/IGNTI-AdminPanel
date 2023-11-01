@@ -28,12 +28,19 @@ function EditCoursePreview() {
   }
 
   const navigateToSuccessUpdateCourse = () => {
-    // 👇️ navigate to /contacts
-    navigate("/update-course-status");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/update-course-status");
+    }, 600);
   };
+  
   const cancelButton = () => {
-    // 👇️ navigate to /contacts
-    navigate("/add-course");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/add-course");
+    }, 600);
   };
 
   const getDetails = async () => {

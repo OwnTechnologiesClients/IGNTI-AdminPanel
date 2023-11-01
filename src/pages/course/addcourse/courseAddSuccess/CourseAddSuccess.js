@@ -1,17 +1,27 @@
 import React, { useEffect } from "react";
 import "./CourseAddSuccess.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { SetLoading } from "../../../../redux/loaderSlice";
 
 function CourseAddSuccess() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const home = () => {
-    // 👇️ navigate to /contacts
-    navigate("/type");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/type");
+    }, 600);
   };
+
   const addMoreCourse = () => {
-    // 👇️ navigate to /contacts
-    navigate("/add-course");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/add-course");
+    }, 600);
   };
 
   useEffect(() => {

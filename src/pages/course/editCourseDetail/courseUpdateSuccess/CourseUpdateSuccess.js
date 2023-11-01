@@ -1,18 +1,29 @@
 import React, { useEffect } from "react";
 import "./CourseUpdateSuccess.css";
 import { useNavigate } from "react-router-dom";
+import { SetLoading } from "../../../../redux/loaderSlice";
+import { useDispatch } from "react-redux";
 
 function CourseUpdateSuccess() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const home = () => {
-    // 👇️ navigate to /contacts
-    navigate("/type");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/type");
+    }, 600);
   };
+
   const updateMoreCourse = () => {
-    // 👇️ navigate to /contacts
-    navigate("/all-course");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/all-course");
+    }, 600);
   };
+
   useEffect(() => {
     if (!localStorage.getItem("adminToken")) {
       navigate("/");

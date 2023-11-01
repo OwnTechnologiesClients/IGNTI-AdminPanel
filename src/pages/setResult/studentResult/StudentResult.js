@@ -64,6 +64,33 @@ const StudentResult = () => {
     // navigate("/all-students");
   };
 
+  const updatedButton = async () => {
+    try {
+      dispatch(SetLoading(true));
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/resultSets/update-declared",
+        data: {
+          courseName: courseName,
+          semesterNumber: semesterNumber,
+          studentId: id,
+        },
+      });
+      dispatch(SetLoading(false));
+      if (response.data.success) {
+        getAllStudentIds();
+        message.success(response.data.message);
+      } else {
+        throw Error(response.data.message);
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
+    // 👇️ navigate to /contacts
+    // navigate("/all-students");
+  };
+
   const homeButton = () => {
     dispatch(SetLoading(true));
     setTimeout(() => {
@@ -175,7 +202,10 @@ const StudentResult = () => {
               </div>
 
               <div className="section-two">
-                <img src={`http://localhost:9000/public/${user.imageFile}`} alt="" />
+                <img
+                  src={`http://localhost:9000/public/${user.imageFile}`}
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -264,11 +294,18 @@ const StudentResult = () => {
           </div>
         </div>
       ) : (
-        <div className="publish-result-section">
-          <div className="publish-result-button">
-            <p>Result updated successfully</p>
+        <>
+          <div className="publish-result-section">
+            <div className="publish-result-button">
+              <p>Result updated successfully</p>
+            </div>
           </div>
-        </div>
+          <div className="publish-result-section" onClick={updatedButton}>
+            <div className="publish-result-button">
+              <p>Click here for Updated Again</p>
+            </div>
+          </div>
+        </>
       )}
 
       <div className="home-button-section" onClick={homeButton}>

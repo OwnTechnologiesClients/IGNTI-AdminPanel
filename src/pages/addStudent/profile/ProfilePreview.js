@@ -11,7 +11,7 @@ const ProfilePreview = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   let [user, setUser] = useState();
-  if(!user) {
+  if (!user) {
     user = {
       courseName: "",
       studentName: "",
@@ -19,17 +19,24 @@ const ProfilePreview = () => {
       dateOfBirth: "",
       city: "",
       state: "",
-      pincode: ""
-    }
+      pincode: "",
+    };
   }
 
   const submit = () => {
-    // 👇️ navigate to /contacts
-    navigate("/student-added");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/student-added");
+    }, 600);
   };
+
   const cancel = () => {
-    // 👇️ navigate to /contacts
-    navigate("/type");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/type");
+    }, 600);
   };
 
   const getDetails = async () => {
@@ -39,13 +46,13 @@ const ProfilePreview = () => {
         method: "post",
         url: "http://localhost:9000/api/students/get-student-id-detail",
         data: {
-          id: id
+          id: id,
         },
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
         message.success(response.data.message);
-        setUser(response.data.data)
+        setUser(response.data.data);
       } else {
         throw new Error(response.data.message);
       }
@@ -120,7 +127,10 @@ const ProfilePreview = () => {
               </div>
 
               <div className="preview-section-two">
-                <img src={`http://localhost:9000/public/${user.imageFile}`} alt="" />
+                <img
+                  src={`http://localhost:9000/public/${user.imageFile}`}
+                  alt=""
+                />
               </div>
             </div>
           </div>

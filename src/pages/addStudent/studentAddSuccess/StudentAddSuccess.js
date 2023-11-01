@@ -1,17 +1,27 @@
 import React, { useEffect } from "react";
 import "./StudentAddSuccess.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { SetLoading } from "../../../redux/loaderSlice";
 
 function StudentAddSuccess() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const moreStudentButton = () => {
-    // 👇️ navigate to /contacts
-    navigate("/new-student");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/new-student");
+    }, 600);
   };
+
   const home = () => {
-    // 👇️ navigate to /contacts
-    navigate("/type");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/type");
+    }, 600);
   };
 
   useEffect(() => {

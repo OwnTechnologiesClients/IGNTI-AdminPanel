@@ -22,8 +22,13 @@ function DeleteSubject() {
   const navigate = useNavigate();
 
   const cancel = () => {
-    navigate("/delete-all-course");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/delete-all-course");
+    }, 600);
   };
+
   const proceed = async () => {
     try {
       dispatch(SetLoading(true))
@@ -91,7 +96,11 @@ function DeleteSubject() {
   };
 
   const getStatus = () => {
-    navigate('/delete-course-status');
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate('/delete-course-status');
+    }, 600);
   };
 
 

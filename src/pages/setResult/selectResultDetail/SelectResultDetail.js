@@ -31,7 +31,11 @@ function SelectResultDetail() {
   const navigate = useNavigate();
 
   const cancel = () => {
-    navigate("/type");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/type");
+    }, 600);
   };
   const proceedToAllStudents = () => {
     if (subject == "" || !num || !selectedCategory) {
@@ -163,6 +167,7 @@ function SelectResultDetail() {
                   onChange={handleCategorySubject}
                   value={subject}
                 >
+                  <option value="" disabled>Select Subject</option>
                   {subjects.map((subject) => {
                     return (
                       <option value={`${subject.subjectName}`}>
@@ -187,6 +192,7 @@ function SelectResultDetail() {
                   onChange={handleCategorySemester}
                   value={num}
                 >
+                  <option value="" disabled>Select Semester Number</option>
                   {arr.map((item, index) => {
                     return <option value={`${index + 1}`}>{index + 1}</option>;
                   })}

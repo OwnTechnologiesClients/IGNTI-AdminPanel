@@ -22,7 +22,11 @@ function EditCourse() {
   }
 
   const cancel = () => {
-    navigate("/all-course");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/all-course");
+    }, 600);
   };
   const updateCourseDetail = async () => {
     try {

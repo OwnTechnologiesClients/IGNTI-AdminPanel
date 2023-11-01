@@ -49,7 +49,11 @@ function AddSubject() {
   const navigate = useNavigate();
 
   const navigateToContacts = () => {
-    navigate(`/course-preview/${id}`);
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate(`/course-preview/${id}`);
+    }, 600);
   };
 
   useEffect(() => {

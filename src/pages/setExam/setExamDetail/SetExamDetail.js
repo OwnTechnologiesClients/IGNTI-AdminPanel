@@ -31,8 +31,13 @@ function SetExamDetail() {
   const navigate = useNavigate();
 
   const cancel = () => {
-    navigate("/type");
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/type");
+    }, 600);
   };
+
   const setQuestions = () => {
     if(subject == "" || !num || !selectedCategory) {
         message.error("Please fill all the details");

@@ -28,7 +28,7 @@ function NewStudent() {
   const addStudentButton = async (e) => {
     e.preventDefault();
     try {
-      if(selectedCategory == "") {
+      if (selectedCategory === "") {
         throw new Error("course not selected");
       }
       const formData = new FormData();
@@ -75,6 +75,10 @@ function NewStudent() {
 
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value);
+  }
+
+  function handleContactChange(event) {
+    setContactNumber(event.target.value);
   }
 
   const getAllCoursesName = async () => {
@@ -162,7 +166,8 @@ function NewStudent() {
             className="form-control"
             value={contactNumber}
             onChange={(e) => {
-              setContactNumber(e.target.value);
+              // setContactNumber(e.target.valu((e);
+              handleContactChange(e);
             }}
             placeholder="Contact Number"
           />
@@ -231,7 +236,9 @@ function NewStudent() {
               id="category-list"
               onChange={handleCategoryChange}
             >
-              <option disabled value="">Select Course</option>
+              <option disabled value="">
+                Select Course
+              </option>
               {courses.map((course, index) => {
                 return <option value={course}>{course}</option>;
               })}
