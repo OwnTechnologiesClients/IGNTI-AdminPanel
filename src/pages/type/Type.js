@@ -40,6 +40,14 @@ const Type = () => {
     }, 600);
   };
 
+  const navigateToStudent = () => {
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/student-course");
+    }, 600);
+  };
+
   useEffect(() => {
     if (!localStorage.getItem("adminToken")) {
       navigate("/");
@@ -76,6 +84,12 @@ const Type = () => {
             <div className="type-parent">
               <div className="type-square" onClick={navigateToSetResult}>
                 <p>Result Set</p>
+              </div>
+            </div>
+
+            <div className="type-parent">
+              <div className="type-square" onClick={navigateToStudent}>
+                <p>Student Enrollment Number</p>
               </div>
             </div>
           </div>

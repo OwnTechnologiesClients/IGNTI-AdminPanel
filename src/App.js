@@ -27,6 +27,7 @@ import ProfilePreview from "./pages/addStudent/profile/ProfilePreview";
 import StudentAddSuccess from "./pages/addStudent/studentAddSuccess/StudentAddSuccess";
 import Spinner from "./load/Spinner";
 import { useSelector } from "react-redux";
+import GetStudent from "./pages/get-student-ids/GetStudent";
 
 function App() {
   const { loading } = useSelector((state) => state.loaders);
@@ -63,6 +64,8 @@ function App() {
         <Route path="/new-student" element={<NewStudent />} />
         <Route path="/profile-preview/:id" element={<ProfilePreview />} />
         <Route path="/student-added" element={<StudentAddSuccess />} />
+
+        <Route path="/student-course" element={<GetStudent />} />
       </Routes>
     </div>
   );
