@@ -16,6 +16,7 @@ function EditCourse() {
   const [duration, setDuration] = useState("");
   const [fee, setFees] = useState("");
   const [selectedCategory, setSelectedCategory] = useState();
+  const [pass, setPass] = useState("");
 
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value);
@@ -46,6 +47,7 @@ function EditCourse() {
           noOfSemester: selectedCategory,
           duration: duration,
           fees: fee,
+          coursePassword: pass,
         },
       });
       dispatch(SetLoading(false));
@@ -76,6 +78,7 @@ function EditCourse() {
       if (response.data.success) {
         message.success(response.data.message);
         const course = response.data.data;
+        setPass(course.coursePassword);
         setFees(course.fees);
         setDuration(course.duration);
         setSelectedCategory(course.noOfSemester);
@@ -172,6 +175,22 @@ function EditCourse() {
                 value={fee}
                 onChange={(e) => {
                   setFees(e.target.value);
+                }}
+              />
+            </div>
+
+
+            <div className="edit-userid-section">
+              <p>Password</p>
+
+              {/* ------------ User Id Input textfield -------------------- */}
+              <input
+                type="text"
+                className="form-control"
+                name="title"
+                value={pass}
+                onChange={(e) => {
+                  setPass(e.target.value);
                 }}
               />
             </div>

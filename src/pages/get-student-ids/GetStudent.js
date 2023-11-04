@@ -59,11 +59,13 @@ const GetStudent = () => {
       dispatch(SetLoading(false));
       if (response.data.success) {
         message.success(response.data.message);
-        setId(response.data.data);
+        setDetail([])
         response.data.data.map((xx) => {
           getDetailsById(xx);
         });
+        setId(response.data.data);
       } else {
+        setId([]);
         throw Error(response.data.message);
       }
     } catch (error) {
@@ -147,7 +149,7 @@ const GetStudent = () => {
                     />
                     <div className="ph-course-detail">
                       <h3>Name: {detail[index].studentName}</h3>
-                      <h3>EnrollNo : {detail[index]._id}</h3>
+                      <h3>EnrollNo : {detail[index].enrollNo}</h3>
                     </div>
                   </div>
                 )}

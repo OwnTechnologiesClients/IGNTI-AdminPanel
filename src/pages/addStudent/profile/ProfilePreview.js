@@ -116,14 +116,10 @@ const ProfilePreview = () => {
                 </div>
 
                 <div className="preview-student-info">
-                  <p1>User Id:</p1>
-                  <p2>Neha008792</p2>
+                  <p1>Enrollment No:</p1>
+                  <p2>{user.enrollNo}</p2>
                 </div>
 
-                <div className="preview-student-info">
-                  <p1>Password:</p1>
-                  <p2>Neha1234</p2>
-                </div>
               </div>
 
               <div className="preview-section-two">
