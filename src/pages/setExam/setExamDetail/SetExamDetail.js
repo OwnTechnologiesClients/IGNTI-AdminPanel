@@ -21,7 +21,7 @@ function SetExamDetail() {
   }
 
   function handleCategorySubject(event) {
-    setSubject(event.target.value);
+    setSubject(event.target.value);   
   }
 
   function handleCategorySemester(event) {
