@@ -197,7 +197,7 @@ const StudentResult = () => {
 
                 <div className="student-info">
                   <p1>Enroll No:</p1>
-                  <p2>01-08-2014-005</p2>
+                  <p2>{user.enrollNo}</p2>
                 </div>
               </div>
 
