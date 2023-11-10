@@ -104,7 +104,7 @@ function AddSubject() {
           <div className="semester-fee-section">
             {/* -------------- semester ----------------- */}
             <div className="as-userid-section">
-              <p>No Of Semesters</p>
+              <p>Select Semester For Add Subject</p>
 
               <div className="as-semester-dropdown">
                 <select
@@ -132,9 +132,9 @@ function AddSubject() {
       </div>
       <div>
         <div className="cs-submit-button-parent">
-          <div className="cs-secondary-button">
+          {/* <div className="cs-secondary-button">
             <p>Save Subject Details</p>
-          </div>
+          </div> */}
           <button class="button" onClick={navigateToContacts}>
             Proceed
           </button>

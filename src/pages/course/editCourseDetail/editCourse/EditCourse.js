@@ -124,7 +124,7 @@ function EditCourse() {
             {/* -------------- Duration ----------------- */}
 
             <div className="edit-userid-section">
-              <p>Duration</p>
+              <p>Duration In Year</p>
 
               {/* ------------ User Id Input textfield -------------------- */}
               <input

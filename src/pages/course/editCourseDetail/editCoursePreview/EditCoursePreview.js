@@ -86,7 +86,7 @@ function EditCoursePreview() {
               return (
                 <>
                   <div className="cp-item-label">
-                    SEMESTER - {semester.semesterNumber}
+                    <h4>SEMESTER - {semester.semesterNumber}</h4>
                   </div>
 
                   {semester.subjects.map((subject) => {

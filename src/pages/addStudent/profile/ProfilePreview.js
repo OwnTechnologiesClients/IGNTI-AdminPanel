@@ -80,7 +80,7 @@ const ProfilePreview = () => {
             {/* <h2>BECOME A MEMBER</h2> */}
             <div className="border-1"></div>
             <div className="preview-user-information-section">
-              <p>{user.courseName}</p>
+              <h2>Course: {user.courseName}</h2>
             </div>
 
             <div className="preview-student-information-section">

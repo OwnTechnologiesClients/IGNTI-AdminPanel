@@ -88,7 +88,7 @@ function AddCourse() {
             {/* -------------- Duration ----------------- */}
 
             <div className="ac-userid-section">
-              <p>Duration</p>
+              <p>Duration In Years</p>
 
               {/* ------------ User Id Input textfield -------------------- */}
               <input

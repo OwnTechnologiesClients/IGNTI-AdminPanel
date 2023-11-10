@@ -3,6 +3,9 @@
   justify-content: center;
   display: flex;
 }
+.home-button{
+  justify-content: end;
+}
 
 .new-student-query-square {
   width: 37vw;

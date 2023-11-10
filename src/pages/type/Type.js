@@ -71,7 +71,7 @@ const Type = () => {
 
             <div className="type-parent">
               <div className="type-square" onClick={navigateToCourse}>
-                <p>Courses</p>
+                <p> Course & Exam Password</p>
               </div>
             </div>
 
