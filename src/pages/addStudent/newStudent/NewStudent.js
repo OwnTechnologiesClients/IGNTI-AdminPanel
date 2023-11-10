@@ -31,6 +31,12 @@ function NewStudent() {
       if (selectedCategory === "") {
         throw new Error("course not selected");
       }
+      if(file === null) {
+        throw new Error("No file is chosen! Please select the file.");
+      }
+      if(firstname === "" || emailAddress === "" || fatherName === "" || dob === "" || contactNumber === "" || city === "" || state === "" || pincode === "" || address == "") {
+        throw new Error("Please fill all details");
+      }
       const formData = new FormData();
       formData.append("fileName", file);
       formData.append("studentName", firstname);
@@ -69,6 +75,7 @@ function NewStudent() {
       }
     } catch (error) {
       dispatch(SetLoading(false));
+      // message.error("Hello");
       message.error(error.message);
     }
   };
@@ -91,7 +98,7 @@ function NewStudent() {
       dispatch(SetLoading(false));
       console.log(response.data.data);
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
         setCourses(response.data.data);
       } else {
         throw new Error(response.data.message);
@@ -234,6 +241,7 @@ function NewStudent() {
             <select
               name="category-list"
               id="category-list"
+              value={selectedCategory}
               onChange={handleCategoryChange}
             >
               <option disabled value="">

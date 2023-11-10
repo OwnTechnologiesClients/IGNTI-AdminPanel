@@ -59,6 +59,18 @@ const Type = () => {
       <div className="type-section">
         <div className="appbar-header">
           <h2>Admin Panel</h2>
+          <button
+            onClick={() => {
+              localStorage.clear();
+              dispatch(SetLoading(true));
+              setTimeout(() => {
+                dispatch(SetLoading(false));
+                navigate("/");
+              }, 600);
+            }}
+          >
+            Logout
+          </button>
         </div>
 
         <div className="type-parent">

@@ -1,7 +1,6 @@
-.type-section{
-    width: 100%;
-    position: relative;
-    
+.type-section {
+  width: 100%;
+  position: relative;
 }
 
 /* .type-parent{
@@ -13,64 +12,80 @@
 
 
 } */
-.type-child{
-    justify-content: center;
-    margin-top: 20vh;
+.type-child {
+  justify-content: center;
+  margin-top: 20vh;
 }
 
-.appbar-header{
-    width: 100%;
-    height: 4vw;
-    border-top: 4px;
-    background-color: #F46A6F;
-    position: relative;
+.appbar-header {
+  width: 100%;
+  height: 4vw;
+  border-top: 4px;
+  background-color: #f46a6f;
+  position: relative;
+  display: flex;
+  justify-content: space-between; /* Added for better alignment */
+  align-items: center; /* Added for better alignment */
 }
 
-.appbar-header h2{
-    font-size: 1.2vw;
-    color: white;
-    font-family: 'Poppins';
-    font-weight: 900;
-    vertical-align: middle;
-    margin: 0;
-    position: absolute;
-    top: 30%;
-    margin-left: 2vw;
-
+.appbar-header h2 {
+  font-size: 1.2vw;
+  color: white;
+  font-family: "Poppins";
+  font-weight: 900;
+  vertical-align: middle;
+  margin: 0;
+  /* position: absolute; */
+  top: 30%;
+  margin-left: 2vw;
 }
 
-.type-parent{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    display: flex;
-    
+.appbar-header button {
+  /* Button styling */
+  padding: 10px 15px;
+  background-color: #4285f4; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
 }
 
-.type-square{
-    width: 30vw;
-    height: 3.2vw;
-    border: 1px solid #8C9099;
-    border-radius: 10vw;
-    margin-left: 2vw;
-    margin-top: 1vw;
-    margin-top: 5vh;
-    cursor: pointer;
+.appbar-header button:hover {
+  /* Hover effect */
+  background-color: #357ae8; /* Button background color on hover */
 }
 
+.type-parent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  display: flex;
+}
 
-.type-square p{
-    width: 100%;
-    font-size: 1.2vw;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
-    padding-top: 0.9vw;
-    font-family: 'Poppins';
-    font-weight: 500;
-    
+.type-square {
+  width: 30vw;
+  height: 3.2vw;
+  border: 1px solid #8c9099;
+  border-radius: 10vw;
+  margin-left: 2vw;
+  margin-top: 1vw;
+  margin-top: 5vh;
+  cursor: pointer;
+}
+
+.type-square p {
+  width: 100%;
+  font-size: 1.2vw;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.9vw;
+  font-family: "Poppins";
+  font-weight: 500;
 }

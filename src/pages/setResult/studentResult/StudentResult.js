@@ -9,18 +9,6 @@ import { SetLoading } from "../../../redux/loaderSlice";
 import axios from "axios";
 
 const StudentResult = () => {
-  const { id, semesterNumber, courseName } = useParams();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  let [user, setUser] = useState();
-  if (!user) {
-    user = {
-      courseName: "",
-      studentName: "",
-      fatherName: "",
-      dateOfBirth: "",
-    };
-  }
   let [data, setData] = useState([]);
   if (data.length === 0) {
     data = [
@@ -34,6 +22,18 @@ const StudentResult = () => {
         ],
       },
     ];
+  }
+  const { id, semesterNumber, courseName } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  let [user, setUser] = useState();
+  if (!user) {
+    user = {
+      courseName: "",
+      studentName: "",
+      fatherName: "",
+      dateOfBirth: "",
+    };
   }
 
   const publishButton = async () => {
@@ -109,8 +109,11 @@ const StudentResult = () => {
       totalTotalNumQuestions + subjectResult.totalNumQuestions;
   });
 
-  const overallPercentage =
-    (totalCorrectAnswers / totalTotalNumQuestions) * 100;
+  const roundedNumber = (totalCorrectAnswers / totalTotalNumQuestions) * 100;
+  const overallPercentage = roundedNumber.toFixed(2);
+
+  // const overallPercentage =
+  //   (totalCorrectAnswers / totalTotalNumQuestions) * 100;
 
   const getAllStudentIds = async () => {
     try {

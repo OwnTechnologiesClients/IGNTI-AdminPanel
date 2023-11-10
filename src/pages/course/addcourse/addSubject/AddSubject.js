@@ -13,6 +13,7 @@ function AddSubject() {
   const [selectedCategory, setSelectedCategory] = useState("1");
   const [courseName, setCourseName] = useState(id);
   const [duration, setDuration] = useState("");
+  const [arr, setArr] = useState([]);
 
   const navigateToCoursePreview = async () => {
     try {
@@ -32,6 +33,7 @@ function AddSubject() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
+        getSemester();
         message.success(response.data.message);
       } else {
         throw new Error(response.data.message);
@@ -49,17 +51,60 @@ function AddSubject() {
   const navigate = useNavigate();
 
   const navigateToContacts = () => {
-    dispatch(SetLoading(true));
-    setTimeout(() => {
-      dispatch(SetLoading(false));
-      navigate(`/course-preview/${id}`);
-    }, 600);
+    try {
+      arr.map((data, index) => {
+        if (data.subjects.length === 0) {
+          throw new Error(`Add minimum one subject in ${index + 1} semester`);
+        }
+      });
+      dispatch(SetLoading(true));
+      setTimeout(() => {
+        dispatch(SetLoading(false));
+        navigate(`/course-preview/${id}`);
+      }, 600);
+    } catch (error) {
+      // dispatch(SetLoading(false));
+      message.error(error.message);
+    }
+    // console.log(arr);
+    // dispatch(SetLoading(true));
+    // setTimeout(() => {
+    //   dispatch(SetLoading(false));
+    //   navigate(`/course-preview/${id}`);
+    // }, 600);
   };
+
+  const getSemester = async () => {
+    try {
+      dispatch(SetLoading(true));
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/courses/get-course",
+        data: {
+          courseName: id,
+        },
+      });
+      dispatch(SetLoading(false));
+      if (response.data.success) {
+        message.success(response.data.message);
+        setArr(response.data.data.semesters);
+        setSelectedCategory(response.data.data.semesters[0].semesterNumber);
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    setDuration("");
+  }, [selectedCategory]);
 
   useEffect(() => {
     if (!localStorage.getItem("adminToken")) {
       navigate("/");
     }
+    getSemester();
   }, []);
 
   return (
@@ -111,13 +156,11 @@ function AddSubject() {
                   name="category-list"
                   id="category-list"
                   onChange={handleCategoryChange}
+                  value={selectedCategory}
                 >
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
+                  {arr.map((item, index) => {
+                    return <option value={`${index + 1}`}>{index + 1}</option>;
+                  })}
                 </select>
               </div>
             </div>
