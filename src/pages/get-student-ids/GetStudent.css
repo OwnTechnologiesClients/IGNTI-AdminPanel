@@ -1,76 +1,133 @@
 .ph-appbar {
-    width: 100%;
-    height: 4vw;
-    border-top: 4px;
-    background-color: #2d8eff;
-    position: relative;
-  }
-  
-  .ph-appbar h2 {
-    font-size: 1.4vw;
-    color: white;
-    font-family: Arial;
-    font-weight: 400;
-    position: absolute;
-    top: 30%;
-    margin-left: 2vw;
-  }
-  .ph-course-parent {
-    margin-left: 4vw;
-    width: 40vw;
-    margin-top: 2vw;
-    display: flex;
-    margin-bottom: 2vw;
-    padding: 10px;
-    cursor: pointer;
-    border: 5px solid black;
-  }
-  .ph-course-parent img {
-    width: 13vw;
-    height: 13vw;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  
-  .grid-item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-    background-color: #f9f9f9;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .ph-course-detail {
-    position: relative;
-  }
-  
-  .ph-course-detail h3 {
-    font-size: 1.2vw;
-    color: black;
-    font-family: "poppins";
-    font-weight: 400;
-    margin-left: 2vw;
-  }
+  width: 100%;
+  height: 4vw;
+  border-top: 4px;
+  background-color: #2d8eff;
+  position: relative;
+}
 
-  .course-list {
-    /* border: 10px solid red; */
-    margin-top: 20px;
-    height: 20px;
-    margin-bottom: 50px;
-  }
+.ph-appbar h2 {
+  font-size: 1.4vw;
+  color: white;
+  font-family: Arial;
+  font-weight: 400;
+  position: absolute;
+  top: 30%;
+  margin-left: 2vw;
+}
+.ph-course-parent {
+  margin-left: 4vw;
+  width: 40vw;
+  margin-top: 2vw;
+  display: flex;
+  margin-bottom: 2vw;
+  padding: 10px;
+  cursor: pointer;
+  border: 5px solid black;
+}
+.ph-course-parent img {
+  width: 13vw;
+  height: 13vw;
+}
 
-  .course-list select {
-    /* border: 10px solid red; */
-    width: 30%;
-    height: 5vh;
-    margin-left: 10%;
-  }
-  
-  .ph-course-name {
-    margin-top: 1vw;
-  }
-  
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ph-course-detail {
+  position: relative;
+}
+
+.ph-course-detail h3 {
+  font-size: 1.2vw;
+  color: black;
+  font-family: "poppins";
+  font-weight: 400;
+  margin-left: 2vw;
+}
+
+.course-list {
+  margin-top: 20px;
+  height: 20px;
+  margin-bottom: 50px;
+}
+
+.course-list select {
+  width: 30%;
+  height: 5vh;
+  margin-left: 10%;
+}
+
+.ph-course-name {
+  margin-top: 1vw;
+}
+
+.course-list {
+  margin-top: 20px;
+}
+
+.text-set {
+  width: 90vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#category-list {
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Style for the select options */
+#category-list option {
+  font-size: 16px;
+}
+
+.aaa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; /* Add margin as needed */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  padding: 8px;
+  margin-right: 10px; /* Adjust as needed */
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #007bff; /* Adjust color as needed */
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3; /* Adjust color as needed */
+}
+
+/* Adjust styles for "Show all students" button as needed */
+
