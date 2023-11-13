@@ -41,10 +41,9 @@
 }
 
 .appbar-header button {
-  /* Button styling */
   padding: 10px 15px;
-  background-color: #4285f4; /* Button background color */
-  color: #fff; /* Button text color */
+  background-color: #fff; 
+  color: black; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -53,8 +52,8 @@
 }
 
 .appbar-header button:hover {
-  /* Hover effect */
-  background-color: #357ae8; /* Button background color on hover */
+  background-color: black; 
+  color: white;
 }
 
 .type-parent {
@@ -89,3 +88,4 @@
   font-family: "Poppins";
   font-weight: 500;
 }
+

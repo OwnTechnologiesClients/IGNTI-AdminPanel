@@ -52,6 +52,15 @@ const Type = () => {
     if (!localStorage.getItem("adminToken")) {
       navigate("/");
     }
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      window.history.pushState(null, null, window.location.href);
+    };
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.onpopstate = null;
+    };
   }, [navigate]);
 
   return (

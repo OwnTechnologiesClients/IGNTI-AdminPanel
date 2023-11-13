@@ -32,13 +32,17 @@ const GetStudent = () => {
   // });
 
   const filteredStudents = () => {
-    const filteredStudent = detail.filter((student) => {
-      // console.log(student);
-      return student.enrollNo && student.enrollNo.includes(searchEnrollNo);
-    });
-    setFilter(true);
-    setData(filteredStudent);
-    // console.log(filteredStudent)
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      const filteredStudent = detail.filter((student) => {
+        // console.log(student);
+        return student.enrollNo && student.enrollNo.includes(searchEnrollNo);
+      });
+      setFilter(true);
+      setData(filteredStudent);
+      // console.log(filteredStudent)
+    }, 600);
   };
 
   const handleSearchEnrollNoChange = (event) => {

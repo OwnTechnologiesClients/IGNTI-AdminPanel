@@ -1,10 +1,11 @@
+
+
 .new-student-detail-parent {
+  box-sizing: border-box;
   width: 100%;
+  height: auto;
   justify-content: center;
   display: flex;
-}
-.home-button{
-  justify-content: end;
 }
 
 .new-student-query-square {
@@ -12,13 +13,7 @@
   height: 56vw;
   background: #eaeaea;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-left: 2vw;
-  margin-right: 2vw;
-  margin-top: 5vw;
-  margin-bottom: 5vw;
-  position: relative;
   border-radius: 10px;
-  justify-content: center;
 }
 
 .new-student-query-card-parent {

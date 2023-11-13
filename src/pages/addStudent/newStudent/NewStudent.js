@@ -49,7 +49,7 @@ function NewStudent() {
       formData.append("pincode", pincode);
       formData.append("address", address);
       formData.append("courseName", selectedCategory);
-      // console.log(formData)
+
       dispatch(SetLoading(true));
       const result = await axios.post(
         "http://localhost:9000/api/students/register",
@@ -65,7 +65,6 @@ function NewStudent() {
           email: emailAddress,
         },
       });
-      // console.log(response);
       dispatch(SetLoading(false));
       if (result.data.success && response.data.success) {
         message.success(result.data.message);
@@ -75,7 +74,6 @@ function NewStudent() {
       }
     } catch (error) {
       dispatch(SetLoading(false));
-      // message.error("Hello");
       message.error(error.message);
     }
   };
@@ -98,7 +96,6 @@ function NewStudent() {
       dispatch(SetLoading(false));
       console.log(response.data.data);
       if (response.data.success) {
-        // message.success(response.data.message);
         setCourses(response.data.data);
       } else {
         throw new Error(response.data.message);
@@ -123,6 +120,7 @@ function NewStudent() {
           <h2>Student Details</h2>
         </div>
         <div className="new-student-query-card-parent">
+          
           {/* ------------ First name Input textfield -------------------- */}
           <input
             type="text"

@@ -299,12 +299,12 @@ const StudentResult = () => {
       ) : (
         <>
           <div className="publish-result-section">
-            <div className="publish-result-button">
-              <p>Result updated successfully</p>
+            <div className="publish-result-button" onClick={homeButton}>
+              <p>Result updated successfully(CONTINUE)</p>
             </div>
           </div>
-          <div className="publish-result-section" onClick={updatedButton}>
-            <div className="publish-result-button">
+          <div className="publish-result-section">
+            <div className="publish-result-button" onClick={updatedButton}>
               <p>Click here for Updated Again</p>
             </div>
           </div>
