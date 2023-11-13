@@ -31,6 +31,12 @@ function NewStudent() {
       if (selectedCategory === "") {
         throw new Error("course not selected");
       }
+      if(file === null) {
+        throw new Error("No file is chosen! Please select the file.");
+      }
+      if(firstname === "" || emailAddress === "" || fatherName === "" || dob === "" || contactNumber === "" || city === "" || state === "" || pincode === "" || address == "") {
+        throw new Error("Please fill all details");
+      }
       const formData = new FormData();
       formData.append("fileName", file);
       formData.append("studentName", firstname);
@@ -43,7 +49,7 @@ function NewStudent() {
       formData.append("pincode", pincode);
       formData.append("address", address);
       formData.append("courseName", selectedCategory);
-      // console.log(formData)
+
       dispatch(SetLoading(true));
       const result = await axios.post(
         "http://localhost:9000/api/students/register",
@@ -59,7 +65,6 @@ function NewStudent() {
           email: emailAddress,
         },
       });
-      // console.log(response);
       dispatch(SetLoading(false));
       if (result.data.success && response.data.success) {
         message.success(result.data.message);
@@ -91,7 +96,6 @@ function NewStudent() {
       dispatch(SetLoading(false));
       console.log(response.data.data);
       if (response.data.success) {
-        message.success(response.data.message);
         setCourses(response.data.data);
       } else {
         throw new Error(response.data.message);
@@ -116,6 +120,7 @@ function NewStudent() {
           <h2>Student Details</h2>
         </div>
         <div className="new-student-query-card-parent">
+          
           {/* ------------ First name Input textfield -------------------- */}
           <input
             type="text"
@@ -234,6 +239,7 @@ function NewStudent() {
             <select
               name="category-list"
               id="category-list"
+              value={selectedCategory}
               onChange={handleCategoryChange}
             >
               <option disabled value="">

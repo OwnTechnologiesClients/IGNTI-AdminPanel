@@ -9,18 +9,6 @@ import { SetLoading } from "../../../redux/loaderSlice";
 import axios from "axios";
 
 const StudentResult = () => {
-  const { id, semesterNumber, courseName } = useParams();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  let [user, setUser] = useState();
-  if (!user) {
-    user = {
-      courseName: "",
-      studentName: "",
-      fatherName: "",
-      dateOfBirth: "",
-    };
-  }
   let [data, setData] = useState([]);
   if (data.length === 0) {
     data = [
@@ -34,6 +22,18 @@ const StudentResult = () => {
         ],
       },
     ];
+  }
+  const { id, semesterNumber, courseName } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  let [user, setUser] = useState();
+  if (!user) {
+    user = {
+      courseName: "",
+      studentName: "",
+      fatherName: "",
+      dateOfBirth: "",
+    };
   }
 
   const publishButton = async () => {
@@ -109,8 +109,11 @@ const StudentResult = () => {
       totalTotalNumQuestions + subjectResult.totalNumQuestions;
   });
 
-  const overallPercentage =
-    (totalCorrectAnswers / totalTotalNumQuestions) * 100;
+  const roundedNumber = (totalCorrectAnswers / totalTotalNumQuestions) * 100;
+  const overallPercentage = roundedNumber.toFixed(2);
+
+  // const overallPercentage =
+  //   (totalCorrectAnswers / totalTotalNumQuestions) * 100;
 
   const getAllStudentIds = async () => {
     try {
@@ -197,7 +200,7 @@ const StudentResult = () => {
 
                 <div className="student-info">
                   <p1>Enroll No:</p1>
-                  <p2>01-08-2014-005</p2>
+                  <p2>{user.enrollNo}</p2>
                 </div>
               </div>
 
@@ -296,12 +299,12 @@ const StudentResult = () => {
       ) : (
         <>
           <div className="publish-result-section">
-            <div className="publish-result-button">
-              <p>Result updated successfully</p>
+            <div className="publish-result-button" onClick={homeButton}>
+              <p>Result updated successfully(CONTINUE)</p>
             </div>
           </div>
-          <div className="publish-result-section" onClick={updatedButton}>
-            <div className="publish-result-button">
+          <div className="publish-result-section">
+            <div className="publish-result-button" onClick={updatedButton}>
               <p>Click here for Updated Again</p>
             </div>
           </div>

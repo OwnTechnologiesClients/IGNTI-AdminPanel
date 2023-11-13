@@ -27,6 +27,9 @@ function AddCourse() {
         });
       }
       try {
+        if(courseName === "" || duration === "" || fee === "") {
+          throw new Error("Please fill All Fields!");
+        }
         dispatch(SetLoading(true));
         const response = await axios({
           method: "post",

@@ -31,12 +31,28 @@ const ProfilePreview = () => {
     }, 600);
   };
 
-  const cancel = () => {
-    dispatch(SetLoading(true));
-    setTimeout(() => {
+  const cancel = async () => {
+    try {
+      dispatch(SetLoading(true));
+      const response = await axios({
+        method: "delete",
+        url: `http://localhost:9000/api/students/delete-student-by-id/${id}`,
+      });
       dispatch(SetLoading(false));
-      navigate("/type");
-    }, 600);
+      if (response.data.success) {
+        message.success(response.data.message);
+        dispatch(SetLoading(true));
+        setTimeout(() => {
+          dispatch(SetLoading(false));
+          navigate("/new-student");
+        }, 600);
+      } else {
+        throw new Error(response.data.message);
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
   };
 
   const getDetails = async () => {
@@ -119,7 +135,6 @@ const ProfilePreview = () => {
                   <p1>Enrollment No:</p1>
                   <p2>{user.enrollNo}</p2>
                 </div>
-
               </div>
 
               <div className="preview-section-two">

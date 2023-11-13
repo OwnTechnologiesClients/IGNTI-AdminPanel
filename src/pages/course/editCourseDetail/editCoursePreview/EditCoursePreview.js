@@ -34,6 +34,14 @@ function EditCoursePreview() {
       navigate("/update-course-status");
     }, 600);
   };
+
+  const navigateToSubject = () => {
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate(`/add-subject/${id}`);
+    }, 600);
+  };
   
   const cancelButton = () => {
     dispatch(SetLoading(true));
@@ -109,6 +117,10 @@ function EditCoursePreview() {
           </div>
           <button class="button" onClick={navigateToSuccessUpdateCourse}>
             Submit
+          </button>
+
+          <button class="button asdf" onClick={navigateToSubject}>
+            Add Subject
           </button>
         </div>
       </div>

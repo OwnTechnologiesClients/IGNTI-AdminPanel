@@ -121,6 +121,7 @@ function SetExamDetail() {
 
   useEffect(() => {
     getSemester();
+    getSubject();
   }, [selectedCategory]);
 
   useEffect(() => {

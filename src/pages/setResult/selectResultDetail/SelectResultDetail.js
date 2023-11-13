@@ -115,6 +115,7 @@ function SelectResultDetail() {
   }, [num]);
   useEffect(() => {
     getSemester();
+    getSubject();
   }, [selectedCategory]);
   useEffect(() => {
     if (!localStorage.getItem("adminToken")) {
