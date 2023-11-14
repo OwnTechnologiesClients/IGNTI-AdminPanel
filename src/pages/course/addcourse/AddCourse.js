@@ -14,6 +14,7 @@ function AddCourse() {
   const [courseName, setCourseName] = useState("");
   const [duration, setDuration] = useState("");
   const [fee, setFees] = useState("");
+  const [pass, setPass] = useState("");
   const arr = [];
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value);
@@ -40,6 +41,7 @@ function AddCourse() {
             duration: duration,
             fees: fee,
             semesters: arr,
+            coursePassword: pass,
           },
         });
         dispatch(SetLoading(false));
@@ -145,6 +147,23 @@ function AddCourse() {
                 placeholder=""
               />
             </div>
+
+            <div className="edit-userid-section">
+              <p>Password</p>
+
+              {/* ------------ User Id Input textfield -------------------- */}
+              <input
+                type="text"
+                className="form-control"
+                name="title"
+                value={pass}
+                onChange={(e) => {
+                  setPass(e.target.value);
+                }}
+              />
+            </div>
+
+
           </div>
         </div>
       </div>

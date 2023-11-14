@@ -9,7 +9,6 @@ import axios from "axios";
 const GetStudent = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  //   const { courseName, semesterNumber, subjectName } = useParams();
 
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchEnrollNo, setSearchEnrollNo] = useState("");
@@ -22,26 +21,15 @@ const GetStudent = () => {
   }
   const [detail, setDetail] = useState([]);
 
-  const navigateToStudentResult = (id) => {
-    // navigate(`/student-result/${id}/${semesterNumber}/${courseName}`);
-  };
-
-  //  detail.filter((student) => {
-  //   console.log(student);
-  //   // return student.enrollNo && student.enrollNo.includes(searchEnrollNo);
-  // });
-
   const filteredStudents = () => {
     dispatch(SetLoading(true));
     setTimeout(() => {
       dispatch(SetLoading(false));
       const filteredStudent = detail.filter((student) => {
-        // console.log(student);
         return student.enrollNo && student.enrollNo.includes(searchEnrollNo);
       });
       setFilter(true);
       setData(filteredStudent);
-      // console.log(filteredStudent)
     }, 600);
   };
 
@@ -61,7 +49,6 @@ const GetStudent = () => {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        // message.success(response.data.message);
         setDetail((prevDetail) => [...prevDetail, response.data.data]);
       } else {
         throw new Error(response.data.message);
@@ -131,15 +118,12 @@ const GetStudent = () => {
     if (!localStorage.getItem("adminToken")) {
       navigate("/");
     }
-    //   getAllStudentIds();
     getAllCoursesName();
   }, []);
 
   useEffect(() => {
     getAllStudentIds();
   }, [selectedCategory]);
-
-  // console.log(data);
 
   return (
     <div className="set-width">
@@ -225,7 +209,6 @@ const GetStudent = () => {
                   {detail[index] && (
                     <div
                       className="ph-course-parent"
-                      onClick={() => navigateToStudentResult(detail[index]._id)}
                     >
                       <p className="set-index">{index + 1}.</p>
                       <img

@@ -17,9 +17,14 @@ function EditCourse() {
   const [fee, setFees] = useState("");
   const [selectedCategory, setSelectedCategory] = useState();
   const [pass, setPass] = useState("");
+  const [value, setValue] = useState("");
+  const [high, setHigh] = useState(false);
 
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value);
+    if (event.target.value > value) {
+      setHigh(true);
+    }
   }
 
   const cancel = () => {
@@ -54,7 +59,12 @@ function EditCourse() {
       console.log(response);
       if (response.data.success) {
         message.success(response.data.message);
-        navigate(`/edit-course-preview/${id}`);
+        if(high) {
+          navigate(`/add-subject/${id}`);
+        }
+        else {
+          navigate(`/edit-course-preview/${id}`);
+        }
       } else {
         throw new Error(response.data.message);
       }
@@ -82,6 +92,7 @@ function EditCourse() {
         setFees(course.fees);
         setDuration(course.duration);
         setSelectedCategory(course.noOfSemester);
+        setValue(course.noOfSemester);
       } else {
         throw new Error(response.data.message);
       }
@@ -188,7 +199,6 @@ function EditCourse() {
               />
             </div>
 
-
             <div className="edit-userid-section">
               <p>Password</p>
 
@@ -210,9 +220,17 @@ function EditCourse() {
         <div className="cas-cancel-button" onClick={cancel}>
           <p>Cancel</p>
         </div>
-        <button class="button" onClick={updateCourseDetail}>
-          Update Course Detail & Continue
-        </button>
+        {!high && (
+          <button class="button" onClick={updateCourseDetail}>
+            Update Course Detail & Continue
+          </button>
+        )}
+
+        {high && (
+          <button class="button" onClick={updateCourseDetail}>
+            Add subjects
+          </button>
+        )}
       </div>
     </div>
   );
