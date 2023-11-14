@@ -55,11 +55,9 @@ const Login = () => {
             <h2>Login</h2>
           </div>
           <div className="login-card-parent">
-            {/* <h2>BECOME A MEMBER</h2> */}
             <div className="userid-section">
               <p>UserName</p>
 
-              {/* ------------ User Id Input textfield -------------------- */}
               <input
                 type="text"
                 className="form-control"
@@ -68,23 +66,20 @@ const Login = () => {
                 onChange={(e) => {
                   setUserId(e.target.value);
                 }}
-                placeholder=""
               />
             </div>
 
             <div className="userid-section">
               <p>Password</p>
 
-              {/* ------------ Password Input textfield -------------------- */}
               <input
-                type="text"
+                type="password"
                 className="form-control"
                 name="title"
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
-                placeholder=""
               />
             </div>
 

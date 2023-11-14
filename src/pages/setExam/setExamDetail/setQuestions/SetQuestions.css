@@ -1,94 +1,82 @@
 .test-subject-section {
-    width: 100%;
-    height: 5vw;
-    background: #F46A6F;
-    position: relative;
+  width: 100%;
+  height: 5vw;
+  background: #f46a6f;
+  position: relative;
 }
 
 .test-subject-parent {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .quesion-section {
-    display: flex;
-
+  display: flex;
 }
 
 .quesions-numbers {
-    height: 90vh;
-    width: 10%;
-    background-color: #E5E7EB;
-    margin-top: 0.8vw;
-    position: absolute;
+  height: 90vh;
+  width: 10%;
+  background-color: #e5e7eb;
+  margin-top: 0.8vw;
+  position: absolute;
 }
 
 .quesions-numbers p {
-    font-size: 1.2vw;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    margin-top: 2vw;
-
+  font-size: 1.2vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 2vw;
 }
 
 .set-quesions {
-    width: 100%;
-    height: 90vh;
-    margin-top: 1vw;
-    margin-left: 9vw;
-    padding-left: 10px;
+  width: 100%;
+  height: 90vh;
+  margin-top: 1vw;
+  margin-left: 9vw;
+  padding-left: 10px;
 }
 
 .set-quesions p {
-    font-size: 1.5vw;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    margin-left: 5vw;
-    margin-top: 2vw;
-
+  font-size: 1.5vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  margin-left: 5vw;
+  margin-top: 2vw;
 }
 
 .set-answer-form {
-    margin-left: 4vw;
-
+  margin-left: 4vw;
 }
 
 .set-answer-form span {
-    display: inline-block;
-    margin-left: 1vw;
-    margin-top: 1.5vw;
-}
-
-.set-answer-form label {
-    font-size: 1.2vw;
+  display: inline-block;
+  margin-left: 1vw;
+  margin-top: 1.5vw;
 }
 
 
 .set-answer-add-button-parent button {
-    width: 20vw;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5vw;
-    font-weight: 900;
-    font-size: 0.9vw;
-    margin-top: 5vw;
-
+  width: 20vw;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5vw;
+  font-weight: 900;
+  font-size: 0.9vw;
+  margin-top: 5vw;
 }
 
 .set-answer-check-all-Ques-Ans-parent button {
-    width: 20vw;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5vw;
-    font-weight: 900;
-    font-size: 0.9vw;
-    background-color: #FF878B;
-
-
-
+  width: 20vw;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5vw;
+  font-weight: 900;
+  font-size: 0.9vw;
+  background-color: #ff878b;
 }

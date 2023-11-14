@@ -35,7 +35,6 @@ function DeleteAllCourse() {
           courseName: name,
         },
       });
-      console.log(res.data);
       getAllCoursesName();
       dispatch(SetLoading(false));
       if (response.data.success) {

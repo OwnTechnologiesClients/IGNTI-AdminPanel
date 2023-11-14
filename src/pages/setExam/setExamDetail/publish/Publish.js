@@ -79,6 +79,12 @@ function Publish() {
     setEditedData(updatedData);
   };
 
+  const handleOptionTextChang = (questionIndex, optionIndex, newText) => {
+    const updatedData = [...editedData];
+    updatedData[questionIndex].correctOption = newText;
+    setEditedData(updatedData);
+  };
+
   const handleDeleteQuestion = (index) => {
     const updatedData = [...editedData];
     updatedData.splice(index, 1);
@@ -117,7 +123,10 @@ function Publish() {
                         handleQuestionTextChange(index, e.target.value);
                       }}
                     />
-                    <button className="delete-button" onClick={() => handleDeleteQuestion(index)}>
+                    <button
+                      className="delete-button"
+                      onClick={() => handleDeleteQuestion(index)}
+                    >
                       Delete
                     </button>
                   </div>
@@ -137,6 +146,20 @@ function Publish() {
                       >
                         {editMode ? (
                           <div className="updated-input-field">
+
+                            <input
+                              type="radio"
+                              value={optionIndex + 1}
+                              checked={optionIndex + 1 === +item.correctOption}
+                              onChange={(e) => {
+                                handleOptionTextChang(
+                                  index,
+                                  optionIndex,
+                                  e.target.value
+                                );
+                              }}
+                            />
+
                             <input
                               type="text"
                               value={option.optionText}
