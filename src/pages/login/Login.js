@@ -44,7 +44,6 @@ const Login = () => {
   }, []);
 
   return (
-    <div>
       <div className="login-section">
         <div className="login-appbar-header">
           <h2>Admin Panel</h2>
@@ -60,6 +59,7 @@ const Login = () => {
 
               <input
                 type="text"
+                autocomplete="off"
                 className="form-control"
                 name="title"
                 value={userId}
@@ -74,6 +74,7 @@ const Login = () => {
 
               <input
                 type="password"
+                autocomplete="off"
                 className="form-control"
                 name="title"
                 value={password}
@@ -93,7 +94,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
