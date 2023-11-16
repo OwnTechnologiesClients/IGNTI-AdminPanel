@@ -50,6 +50,25 @@
 
 .set-answer-form {
   margin-left: 4vw;
+  /* border: 10px solid red; */
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.set-answer-form label {
+  /* border: 10px solid red; */
+  display: flex;
+  width: 60%;
+}
+
+.set-answer-form label input {
+  /* border: 10px solid red; */
+  margin-left: -100px;
+}
+
+.set-answer-form label input[type="radio"] {
+  height: 20px;
 }
 
 .set-answer-form span {

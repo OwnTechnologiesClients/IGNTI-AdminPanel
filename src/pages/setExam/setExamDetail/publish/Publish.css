@@ -79,7 +79,6 @@
   font-size: 1.5vw;
   font-family: "Poppins", sans-serif;
   font-weight: 900;
-  margin-left: 5vw;
   margin-top: 2vw;
 }
 
@@ -113,4 +112,12 @@
   font-size: 0.9vw;
   background-color: #2f4e71;
   border-radius: 4vw;
+}
+
+.updated-input-field {
+  display: flex;
+}
+
+.updated-input-field input[type="radio"] {
+  height: 20px;
 }
