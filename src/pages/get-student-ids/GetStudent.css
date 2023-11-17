@@ -74,6 +74,13 @@
 
 .course-list {
   margin-top: 20px;
+  border: 2px solid black;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  background: #007bff;
 }
 
 .text-set {
@@ -85,13 +92,36 @@
 }
 
 #category-list {
-  width: 70%;
+  width: 30%;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category-div {
+  /* border: 10px solid red; */
+  width: 50%;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-around; */
+}
+
+.category-div select {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category-div button {
+  background-color: black;
+  margin-left: 20px;
 }
 
 /* Optional: Style for the select options */
@@ -101,19 +131,50 @@
 
 .aaa {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  margin-bottom: 20px; /* Add margin as needed */
+  border: 1px solid black;
+  background: rgba(27, 192, 79, 0.854);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .search-bar {
+  width: 25%;
+  /* margin-bottom: 15px; */
+  /* border: 2px solid blueviolet; */
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.search-bar select {
+  width: 60%;
+  height: 50px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.baba .hello {
+  margin-right: 60px;
+  /* border: 10px solid red; */
+}
+
+.all-button {
+  background: lightblue;
+  padding: 10px;
 }
 
 input {
+  width: 60%;
+  height: 20%;
   padding: 8px;
-  margin-right: 10px; /* Adjust as needed */
+  margin-bottom: 15px;
 }
 
 button {
@@ -131,3 +192,10 @@ button:hover {
 
 /* Adjust styles for "Show all students" button as needed */
 
+.status-authorized {
+  display: flex;
+  justify-content: space-between;
+}
+.status-authorized button {
+  margin-left: 10px;
+}
