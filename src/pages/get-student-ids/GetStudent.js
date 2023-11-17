@@ -11,7 +11,11 @@ const GetStudent = () => {
   const navigate = useNavigate();
 
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [arr, setArr] = useState([]);
+  const [num, setNum] = useState("");
   const [searchEnrollNo, setSearchEnrollNo] = useState("");
+  const [searchName, setSearchName] = useState("");
+  const [selectStatus, setSelectStatus] = useState("");
   const [filter, setFilter] = useState(false);
   const [courses, setCourses] = useState([]);
   const [data, setData] = useState([]);
@@ -25,16 +29,144 @@ const GetStudent = () => {
     dispatch(SetLoading(true));
     setTimeout(() => {
       dispatch(SetLoading(false));
-      const filteredStudent = detail.filter((student) => {
-        return student.enrollNo && student.enrollNo.includes(searchEnrollNo);
-      });
-      setFilter(true);
-      setData(filteredStudent);
+      if (filter) {
+        const filteredStudent = data.filter((student) => {
+          return student.enrollNo && student.enrollNo.includes(searchEnrollNo);
+        });
+        setData(filteredStudent);
+      } else {
+        const filteredStudent = detail.filter((student) => {
+          return student.enrollNo && student.enrollNo.includes(searchEnrollNo);
+        });
+        setFilter(true);
+        setData(filteredStudent);
+      }
     }, 600);
+  };
+
+  const filteredStudentsBySemester = async () => {
+    try {
+      if (num === "") {
+        throw Error("Select Semester Number!");
+      }
+      if (num === "cancel") {
+        getAllStudentIds();
+        setNum("");
+      } else {
+        dispatch(SetLoading(true));
+        const response = await axios({
+          method: "post",
+          url: "http://localhost:9000/api/resultSets/get-result-set-set",
+          data: {
+            courseName: selectedCategory,
+            semesterNumber: num,
+          },
+        });
+        dispatch(SetLoading(false));
+        if (response.data.success) {
+          message.success(response.data.message);
+
+          setDetail([]);
+          response.data.data.map((xx) => {
+            getDetailsById(xx);
+          });
+          setId(response.data.data);
+        } else {
+          setId([]);
+          throw Error(response.data.message);
+        }
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
+  };
+
+  const filteredStudentsByName = () => {
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      if (filter) {
+        const filteredStudent = data.filter((student) => {
+          return (
+            student.studentName && student.studentName.includes(searchName)
+          );
+        });
+        setData(filteredStudent);
+      } else {
+        const filteredStudent = detail.filter((student) => {
+          return (
+            student.studentName && student.studentName.includes(searchName)
+          );
+        });
+        setFilter(true);
+        setData(filteredStudent);
+      }
+    }, 600);
+  };
+
+  const filteredStudentsByStatus = () => {
+    if (selectStatus === "") {
+      message.error("Please select category");
+    } else {
+      dispatch(SetLoading(true));
+      setTimeout(() => {
+        dispatch(SetLoading(false));
+        if (filter) {
+          const filteredStudent = data.filter((student) => {
+            return student.authorized === (selectStatus === "authorized");
+          });
+          setData(filteredStudent);
+        } else {
+          const filteredStudent = detail.filter((student) => {
+            return student.authorized === (selectStatus === "authorized");
+          });
+          setFilter(true);
+          setData(filteredStudent);
+        }
+      }, 600);
+    }
   };
 
   const handleSearchEnrollNoChange = (event) => {
     setSearchEnrollNo(event.target.value);
+  };
+
+  const handleNameChange = (event) => {
+    setSearchName(event.target.value);
+  };
+
+  function handleCategorySemester(event) {
+    setNum(event.target.value);
+  }
+
+  function handleChangeStatus(event) {
+    setSelectStatus(event.target.value);
+  }
+
+  const statusChange = async (enrollmentNo, index) => {
+    try {
+      dispatch(SetLoading(true));
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/students/change-status",
+        data: {
+          enrollNo: enrollmentNo,
+        },
+      });
+      dispatch(SetLoading(false));
+      if (response.data.success) {
+        message.success(response.data.message);
+        const updatedDetail = [...detail];
+        updatedDetail[index].authorized = !updatedDetail[index].authorized;
+        setDetail(updatedDetail);
+      } else {
+        throw new Error(response.data.message);
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
   };
 
   const getDetailsById = async (x) => {
@@ -114,6 +246,28 @@ const GetStudent = () => {
     }
   };
 
+  const getSemester = async () => {
+    try {
+      dispatch(SetLoading(true));
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/courses/get-course",
+        data: {
+          courseName: selectedCategory,
+        },
+      });
+      dispatch(SetLoading(false));
+      if (response.data.success) {
+        message.success(response.data.message);
+        setArr(response.data.data.semesters);
+        setNum(response.data.data.semesters[0].semesterNumber);
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
+  };
+
   useEffect(() => {
     if (!localStorage.getItem("adminToken")) {
       navigate("/");
@@ -123,6 +277,7 @@ const GetStudent = () => {
 
   useEffect(() => {
     getAllStudentIds();
+    getSemester();
   }, [selectedCategory]);
 
   return (
@@ -142,6 +297,23 @@ const GetStudent = () => {
             return <option value={`${course}`}>{course}</option>;
           })}
         </select>
+
+        <div className="category-div">
+          <select
+            name="category-list"
+            onChange={handleCategorySemester}
+            value={num}
+          >
+            <option value="" disabled>
+              Select Semester Number
+            </option>
+            {arr.map((item, index) => {
+              return <option value={`${index + 1}`}>{index + 1}</option>;
+            })}
+            <option value="cancel">Cancel</option>
+          </select>
+          <button onClick={filteredStudentsBySemester}>Click</button>
+        </div>
       </div>
 
       {id.length !== 0 && (
@@ -155,14 +327,43 @@ const GetStudent = () => {
             />
             <button onClick={filteredStudents}>Click</button>
           </div>
-          <button
-            onClick={() => {
-              setFilter(false);
-              setSearchEnrollNo("");
-            }}
-          >
-            Show all students
-          </button>
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search by Name"
+              value={searchName}
+              onChange={handleNameChange}
+            />
+            <button onClick={filteredStudentsByName}>Click</button>
+          </div>
+          <div className="search-bar baba">
+            <select
+              name="category-list"
+              onChange={handleChangeStatus}
+              value={selectStatus}
+            >
+              <option value="" disabled>
+                Select Category
+              </option>
+              <option value="authorized">Authorized</option>
+              <option value="restricted">Restricted</option>
+            </select>
+            <button className="hello" onClick={filteredStudentsByStatus}>
+              Click
+            </button>
+          </div>
+          <div className="all-button">
+            <button
+              onClick={() => {
+                setFilter(false);
+                setSearchEnrollNo("");
+                setSearchName("");
+                setSelectStatus("");
+              }}
+            >
+              Show all students
+            </button>
+          </div>
         </div>
       )}
 
@@ -195,6 +396,19 @@ const GetStudent = () => {
                   <div className="ph-course-detail">
                     <h3>Name: {value.studentName}</h3>
                     <h3>EnrollNo : {value.enrollNo}</h3>
+                    <div className="status-authorized">
+                      <h3>
+                        Status :{" "}
+                        {value.authorized ? "Authorized" : "Restricted"}
+                      </h3>
+                      <button
+                        onClick={() =>
+                          statusChange(value.enrollNo, index)
+                        }
+                      >
+                        Change
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -207,9 +421,7 @@ const GetStudent = () => {
               <div className="grid-item" key={index}>
                 <div>
                   {detail[index] && (
-                    <div
-                      className="ph-course-parent"
-                    >
+                    <div className="ph-course-parent">
                       <p className="set-index">{index + 1}.</p>
                       <img
                         src={`http://localhost:9000/public/${detail[index].imageFile}`}
@@ -218,6 +430,21 @@ const GetStudent = () => {
                       <div className="ph-course-detail">
                         <h3>Name: {detail[index].studentName}</h3>
                         <h3>EnrollNo : {detail[index].enrollNo}</h3>
+                        <div className="status-authorized">
+                          <h3>
+                            Status :{" "}
+                            {detail[index].authorized
+                              ? "Authorized"
+                              : "Restricted"}
+                          </h3>
+                          <button
+                            onClick={() =>
+                              statusChange(detail[index].enrollNo, index)
+                            }
+                          >
+                            Change
+                          </button>
+                        </div>
                       </div>
                     </div>
                   )}
