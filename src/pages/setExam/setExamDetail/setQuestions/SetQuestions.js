@@ -124,7 +124,7 @@ function SetQuestions() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/examSets/get-exams-set",
+        url: "https://igti-backend.onrender.com/api/examSets/get-exams-set",
         data: {
           courseName: courseName,
           semesterNumber: semesterNumber,

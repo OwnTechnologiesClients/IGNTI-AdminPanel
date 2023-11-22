@@ -20,7 +20,7 @@ function AddSubject() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/subjects/add-subject",
+        url: "https://igti-backend.onrender.com/api/subjects/add-subject",
         data: {
           courseName: courseName,
           semesterNumber: selectedCategory,
@@ -79,7 +79,7 @@ function AddSubject() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/courses/get-course",
+        url: "https://igti-backend.onrender.com/api/courses/get-course",
         data: {
           courseName: id,
         },

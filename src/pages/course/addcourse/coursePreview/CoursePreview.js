@@ -48,7 +48,7 @@ function CoursePreview() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/courses/get-course",
+        url: "https://igti-backend.onrender.com/api/courses/get-course",
         data: {
           courseName: id,
         },

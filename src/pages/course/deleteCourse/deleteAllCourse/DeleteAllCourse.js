@@ -19,18 +19,18 @@ function DeleteAllCourse() {
       dispatch(SetLoading(true));
       const result = await axios({
         method: "post",
-        url: "http://localhost:9000/api/courses/get-course",
+        url: "https://igti-backend.onrender.com/api/courses/get-course",
         data: {
           courseName: name,
         },
       });
       const response = await axios({
         method: "delete",
-        url: `http://localhost:9000/api/courses/delete-course/${result.data.data._id}`,
+        url: `https://igti-backend.onrender.com/api/courses/delete-course/${result.data.data._id}`,
       });
       const res = await axios({
         method: "post",
-        url: `http://localhost:9000/api/examSets/delete-exams-set`,
+        url: `https://igti-backend.onrender.com/api/examSets/delete-exams-set`,
         data: {
           courseName: name,
         },
@@ -60,7 +60,7 @@ function DeleteAllCourse() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/courses/name-Course-all",
+        url: "https://igti-backend.onrender.com/api/courses/name-Course-all",
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
