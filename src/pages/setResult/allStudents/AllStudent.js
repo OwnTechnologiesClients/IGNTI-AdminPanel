@@ -43,7 +43,7 @@ const AllStudents = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/students/get-student-id-detail",
+        url: "https://igti-backend.onrender.com/api/students/get-student-id-detail",
         data: {
           id: x,
         },
@@ -66,7 +66,7 @@ const AllStudents = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/resultSets/get-result-set",
+        url: "https://igti-backend.onrender.com/api/resultSets/get-result-set",
         data: {
           courseName: courseName,
           semesterNumber: semesterNumber,
@@ -147,7 +147,7 @@ const AllStudents = () => {
                 <div className="ph-course-parent">
                   <p className="set-index">{index + 1}.</p>
                   <img
-                    src={`http://localhost:9000/public/${value.imageFile}`}
+                    src={`https://igti-backend.onrender.com/public/${value.imageFile}`}
                     alt="success"
                   />
                   <div className="ph-course-detail">
@@ -171,7 +171,7 @@ const AllStudents = () => {
                     >
                       <p className="set-index">{index + 1}.</p>
                       <img
-                        src={`http://localhost:9000/public/${detail[index].imageFile}`}
+                        src={`https://igti-backend.onrender.com/public/${detail[index].imageFile}`}
                         alt="success"
                       />
                       <div className="ph-course-detail">
