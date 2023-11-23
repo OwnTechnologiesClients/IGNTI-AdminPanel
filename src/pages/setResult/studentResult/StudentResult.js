@@ -220,6 +220,8 @@ const StudentResult = () => {
                 <div className="parent-row">
                   <span>S.No</span>
                   <span>Exam Name</span>
+                  <span>Total Questions</span>
+                  <span>Correct Questions</span>
                   <span>Maximum Marks</span>
                   <span>Obtained Marks</span>
                   <span>Grade</span>
@@ -240,6 +242,9 @@ const StudentResult = () => {
                         onChange={(event) => handleInputChange(resIndex, event)}
                         placeholder="60"
                       />
+
+                      <span>{res.totalNumQuestions*2}</span>
+                      <span>{res.numCorrectAnswers*2}</span>
 
                       {(res.numCorrectAnswers / res.totalNumQuestions) * 100 <=
                       30 ? (
