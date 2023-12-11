@@ -72,6 +72,12 @@
     margin-top: 3vw;
 }
 
+.form-controls{
+    width: 50%;
+    font-size: 1vw;
+    padding: 1vw;
+}
+
 
 .set-exam-secondary-button p {
     width: 100%;

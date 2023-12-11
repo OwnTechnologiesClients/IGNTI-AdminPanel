@@ -6,8 +6,7 @@
 }
 
 .quesions-numbers {
-  height: 90vh;
-  width: 10%;
+
   background-color: #e5e7eb;
   margin-top: 0.8vw;
   position: absolute;
@@ -66,16 +65,12 @@
 }
 
 .publish-quesions {
-  width: 80vh;
-  height: 50vh;
-  margin-top: 1vw;
-  padding-bottom: 2vw;
-  margin-left: 5vw;
-  padding-left: 10px;
+  padding: 2vw;
   border: 5px solid black;
 }
 
 .publish-quesions p {
+  text-align: start;
   font-size: 1.5vw;
   font-family: "Poppins", sans-serif;
   font-weight: 900;
