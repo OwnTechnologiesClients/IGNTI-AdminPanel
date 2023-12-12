@@ -3,36 +3,23 @@
     position: relative;
     
 } */
-.square-header {
+/* .square-header {
   width: 100%;
   height: 4vw;
   border-top: 4px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  background-color: #ff878b;
   position: relative;
-}
+} */
 
 .result-square {
-  width: 90%;
-  height: 61vw;
-  margin-left: auto;
-  margin-right: auto;
-  /* background: #FAFAFB; */
-  border-style: solid;
-  border-color: #ccc;
-  /* box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.19); */
-  margin-bottom: 8vw;
-  margin-top: 8vw;
-  border-radius: 10px;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  margin-bottom: 3vw;
+  border: 3px solid #ccc;
 }
 
 .square-header h2 {
-  font-size: 1.2vw;
-  color: white;
+  font-size: 1.7vw;
+  color: black;
   font-family: "Poppins";
   font-weight: 900;
   vertical-align: middle;
@@ -93,38 +80,37 @@
 }
 
 .section-two img {
-  width: 20vw;
-  height: 40vh;
+  height: 13.5vw;
+  width: 13.5vw;
   margin-right: 10vw;
-  margin-top: -3vw;
 }
 
 .student-info {
   display: flex;
   margin-top: 1vw;
+  line-height: 2vw;
 }
 
 .student-info p1 {
-  font-size: 1vw;
-  width: 30%;
+  font-size: 1.3vw;
+  font-weight: 700;
+  font-family: Verdana;
+  width: 35%;
 }
 
 .student-info p2 {
   margin-left: 4vw;
-  font-size: 1vw;
-  font-weight: bold;
+  font-size: 1.3vw;
+  font-family: Verdana;
+  font-weight: 700;
 }
 
 .square-dashboard {
-  width: 100%;
-  height: 4vw;
-  border-top: 4px;
-  background-color: #ff878b;
-  position: absolute;
-  margin-top: 5vw;
+  margin: 2.5vw;
+  border: 3px solid #a39a9a;
 }
 
-.square-dashboard h2 {
+/* .square-dashboard h2 {
   font-size: 1.2vw;
   color: white;
   font-family: "Poppins";
@@ -134,17 +120,15 @@
   position: absolute;
   top: 30%;
   margin-left: 2vw;
-}
+} */
 
 .result-fields {
   display: flex;
   justify-content: space-between;
-  margin-top: 2vw;
+  margin-top: -2vw;
 }
 
 .sno-examname {
-  width: 60%;
-  display: flex;
   margin-top: 5vw;
 }
 
@@ -189,17 +173,11 @@
 }
 
 .result-border {
-  width: 100%;
-  height: 0.1vw;
-  margin-top: 2vw;
-  background: #ccc;
+  border: 1.8px solid #ccc;
 }
 
 .result-border-2 {
-  width: 100%;
-  height: 0.1vw;
-  margin-top: 1vw;
-  background: #ccc;
+  border: 1.8px solid #ccc;
 }
 
 /* left side */
@@ -209,11 +187,12 @@
 }
 
 .marking p1 {
-  font-size: 0.8vw;
-  font-family: "Poppins";
+  font-size: 1vw;
+  font-family: Verdana;
   font-weight: 900;
   margin-top: 5vw;
-  margin-left: 5vw;
+  margin-left: 9.5vw;
+  color: black;
 }
 
 .sno-examname-result-fields {
@@ -257,12 +236,13 @@
 }
 
 .other-result-fields p1 {
-  width: 40%;
-  font-size: 0.8vw;
-  font-family: "Poppins";
+  width: 60%;
+  font-size: 1vw;
+  font-family: Verdana;
   font-weight: 900;
   margin-top: 5vw;
-  margin-right: 7.5vw;
+  margin-right: 10vw;
+  color: black;
   position: relative;
 }
 
@@ -284,8 +264,6 @@
 .percentage-square-dashboard {
   width: 100%;
   height: 4vw;
-  margin-top: -3vw;
-  background-color: #e9f7e7;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -294,98 +272,97 @@
 .percentage-square-dashboard p1 {
   font-size: 0.8vw;
   color: black;
+  font-family: Verdana;
+  font-weight: 900;
+  vertical-align: middle;
+  padding: 0.7vw;
+  border: 2px solid #999494;
+  position: relative;
+  margin-left: 8vw;
+  color: black;
+  margin-right: 8vw;
+}
+
+.percentage-square-dashboard-fail {
+  width: 100%;
+  height: 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.percentage-square-dashboard-fail p1 {
+  font-size: 1vw;
+  color: black;
   font-family: "Poppins";
   font-weight: 900;
   vertical-align: middle;
-
   position: relative;
   margin-left: 8vw;
   margin-right: 8vw;
 }
 
-.percentage-square-dashboard-fail {
-    width: 100%;
-    height: 4vw;
-    margin-top: -3vw;
-    background-color: red;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .percentage-square-dashboard-fail p1 {
-    font-size: 0.8vw;
-    color: black;
-    font-family: "Poppins";
-    font-weight: 900;
-    vertical-align: middle;
-  
-    position: relative;
-    margin-left: 8vw;
-    margin-right: 8vw;
-  }
-
-.publish-result-section {
-  width: 100%;
+.result-container-parent {
+  padding: 4vw;
+}
+.publish-result-sections {
+  padding: 0.1vw 1.2vw;
+  background-color: #2f4e71;
+  border-radius: 3vw;
+  cursor: pointer;
+  display: flex;
   align-items: center;
   justify-content: center;
+  width: 17.2vw;
+  margin-left: 35.5vw;
+}
+.publish-result-buttons p {
+  font-size: 1vw;
+  color: white;
+  font-family: Verdana;
+}
+.public-button {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5vw;
 }
 
 .publish-result-button {
-  width: 50vw;
-  height: 3.2vw;
+  padding: 0.1vw 1.2vw;
   background-color: #2f4e71;
-  border-radius: 10vw;
-  margin-top: 8vw;
+  border-radius: 3vw;
   cursor: pointer;
 }
 .publish-result-button p {
-  width: 100%;
-  font-size: 1.2vw;
-  display: flex;
+  font-size: 1vw;
   color: white;
-  margin: auto;
-  margin-top: 0.7vw;
-  justify-content: center;
-  align-items: center;
-  font-family: "Poppins";
-  font-weight: 600;
+  font-family: Verdana;
 }
 
 .home-button-section {
-  width: 100%;
-  align-items: center;
+  padding: 0.1vw 1.2vw;
+  border-radius: 3vw;
   justify-content: center;
   display: flex;
-  cursor: pointer;
   margin-top: 2vw;
 }
 
 .home-button {
-  width: 50vw;
-  height: 3.2vw;
+  width: 20vw;
+  text-align: center;
   background-color: #ff878b;
   border-radius: 10vw;
-  margin-bottom: 3vw;
 }
 
 .home-button p {
-  width: 100%;
-  font-size: 1.2vw;
-  display: flex;
+  font-size: 1vw;
   color: white;
-  margin: auto;
-  margin-top: 0.7vw;
-  justify-content: center;
-  align-items: center;
-  font-family: "Poppins";
-  font-weight: 600;
 }
 
 .course-table {
-  margin-top: 4vw;
-  border: 1px solid #707070;
+  margin-top: 2vw;
 }
 
 .course-table h1 {
@@ -397,79 +374,42 @@
 
 .parent-row {
   display: flex;
-  font-weight: 700;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   padding: 1vw 3vw;
-  border-bottom: 1px solid #707070;
+  border-bottom: 2.5px solid #ccc;
 }
 
 .parent-row span {
   font-size: 1.1vw;
-
-  &:first-child {
-    width: 5vw;
-  }
-
-  &:nth-child(2) {
-    width: 40vw;
-  }
-
-  &:nth-child(3) {
-    width: 15vw;
-  }
-
-  &:nth-child(4) {
-    width: 15vw;
-  }
-
-  &:nth-child(5) {
-    width: 15vw;
-  }
+  font-family: Verdana;
+  font-weight: 900;
+  color: black;
 }
 
 .child-row {
   display: flex;
-  border-bottom: 2px solid #707070;
-  padding: 1vw 3vw;
-
-  &:last-child {
-    border: none;
-  }
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0vw 3vw;
+  border-bottom: 2.5px solid #ccc;
 }
 
 .child-row span {
-  margin: auto 0;
-  width: 10%;
-  font-size: 1.1vw;
-
-  &:first-child {
-    width: 5vw;
-  }
-
-  &:nth-child(2) {
-    width: 45vw;
-  }
-
-  &:nth-child(3) {
-    width: 10vw;
-  }
-
-  &:nth-child(4) {
-    width: 15vw;
-  }
-
-  &:nth-child(5) {
-    width: 15vw;
-    margin-left: 2vw;
-  }
+  font-size: 1vw;
+  font-family: Verdana;
+  font-weight: 900;
+  color: black;
 }
 
-.child-row input[type="text"] {
-  width: 18%;
-
-  height: 2vw;
+.forms-inputs {
+  width: 5%;
   box-sizing: border-box;
   border-radius: 4px;
   color: black;
+  position: relative;
+  right: 48px;
   border: 1px solid #ccc;
-  margin: 0vw;
 }

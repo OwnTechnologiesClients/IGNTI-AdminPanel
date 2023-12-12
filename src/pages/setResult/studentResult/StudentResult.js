@@ -168,18 +168,13 @@ const StudentResult = () => {
   }, []);
 
   return (
-    <div>
+    <div className="result-container-parent">
       <div className="result-section">
         <div className="result-square">
-          <div className="square-header">
-            <h2>STUDENT DETAILS</h2>
-          </div>
+          <div className="square-header">{/* <h2>STUDENT DETAILS</h2> */}</div>
           <div className="result-card-parent">
             {/* <h2>BECOME A MEMBER</h2> */}
             <div className="border-1"></div>
-            <div className="result-user-information-section">
-              <p>{user.courseName}</p>
-            </div>
 
             <div className="student-information-section">
               <div className="section-one">
@@ -199,6 +194,11 @@ const StudentResult = () => {
                 </div>
 
                 <div className="student-info">
+                  <p1>Course: </p1>
+                  <p2>{user.courseName}</p2>
+                </div>
+
+                <div className="student-info">
                   <p1>Enroll No:</p1>
                   <p2>{user.enrollNo}</p2>
                 </div>
@@ -213,7 +213,7 @@ const StudentResult = () => {
             </div>
           </div>
           <div className="square-dashboard">
-            <h2>DASHBOARD</h2>
+            {/* <h2>DASHBOARD</h2>*/}
 
             <div className="course-table">
               <div className="dashboard">
@@ -230,21 +230,21 @@ const StudentResult = () => {
                 {data[0].subjectResults.map((res, resIndex) => {
                   return (
                     <div className="child-row">
-                      <span>{resIndex + 1}</span>
+                      <span>{resIndex + 1})</span>
                       <span>{res.subjectName}</span>
                       <span>{res.totalNumQuestions}</span>
 
                       <input
+                        className="forms-inputs"
                         type="text"
-                        className="form-control"
                         name="title"
                         value={res.numCorrectAnswers}
                         onChange={(event) => handleInputChange(resIndex, event)}
                         placeholder="60"
                       />
 
-                      <span>{res.totalNumQuestions*2}</span>
-                      <span>{res.numCorrectAnswers*2}</span>
+                      <span>{res.totalNumQuestions * 2}</span>
+                      <span>{res.numCorrectAnswers * 2}</span>
 
                       {(res.numCorrectAnswers / res.totalNumQuestions) * 100 <=
                       30 ? (
@@ -266,51 +266,52 @@ const StudentResult = () => {
               </div>
             </div>
           </div>
-        </div>
+          {overallPercentage <= 30 ? (
+            <div className="percentage-square-dashboard-fail">
+              <p1>Percentage : {overallPercentage}%</p1>
 
-        {overallPercentage <= 30 ? (
-          <div className="percentage-square-dashboard-fail">
-            <p1>Percentage : {overallPercentage}%</p1>
-
-            <p1>Grade : D</p1>
-
-            <p1>Result : Fail</p1>
-          </div>
-        ) : (
-          <div className="percentage-square-dashboard">
-            <p1>Percentage : {overallPercentage}%</p1>
-
-            {overallPercentage <= 30 ? (
               <p1>Grade : D</p1>
-            ) : overallPercentage <= 50 ? (
-              <p1>Grade : C</p1>
-            ) : overallPercentage <= 80 ? (
-              <p1>Grade : B</p1>
-            ) : (
-              <p1>Grade : A</p1>
-            )}
 
-            <p1>Result : Pass</p1>
-          </div>
-        )}
+              <p1>Result : Fail</p1>
+            </div>
+          ) : (
+            <div className="percentage-square-dashboard">
+              <p1>Percentage : {overallPercentage}%</p1>
+
+              {overallPercentage <= 30 ? (
+                <p1>Grade : D</p1>
+              ) : overallPercentage <= 50 ? (
+                <p1>Grade : C</p1>
+              ) : overallPercentage <= 80 ? (
+                <p1>Grade : B</p1>
+              ) : (
+                <p1>Grade : A</p1>
+              )}
+
+              <p1>Result : Pass</p1>
+            </div>
+          )}
+        </div>
       </div>
 
       {!data[0].isDeclared ? (
-        <div className="publish-result-section" onClick={publishButton}>
-          <div className="publish-result-button">
+        <div className="publish-result-sections" onClick={publishButton}>
+          <div className="publish-result-buttons">
             <p>PUBLISH</p>
           </div>
         </div>
       ) : (
         <>
-          <div className="publish-result-section">
-            <div className="publish-result-button" onClick={homeButton}>
-              <p>Result updated successfully(CONTINUE)</p>
+          <div className="public-button">
+            <div className="publish-result-section">
+              <div className="publish-result-button" onClick={homeButton}>
+                <p>Result updated successfully(CONTINUE)</p>
+              </div>
             </div>
-          </div>
-          <div className="publish-result-section">
-            <div className="publish-result-button" onClick={updatedButton}>
-              <p>Click here for Updated Again</p>
+            <div className="publish-result-section">
+              <div className="publish-result-button" onClick={updatedButton}>
+                <p>Click here for Updated Again</p>
+              </div>
             </div>
           </div>
         </>
