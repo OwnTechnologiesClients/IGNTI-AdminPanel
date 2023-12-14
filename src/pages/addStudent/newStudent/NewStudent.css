@@ -11,14 +11,17 @@
 .new-student-query-square {
   width: 37vw;
   height: 56vw;
-  background: #eaeaea;
+  background-color: #c3c4c4;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
 }
 
 .new-student-query-card-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
   margin-top: 2vw;
-  margin-left: -1.3vw;
+  margin-left: -1.3vw
 }
 
 .new-student-query-card-parent p {
@@ -61,7 +64,7 @@
 }
 
 .new-student-query-card-parent input[type="date"] {
-  width: 30vw;
+  width: 12vw;
   height: 2.7vw;
   padding-left: 1vw;
   box-sizing: border-box;
@@ -98,9 +101,7 @@ input::placeholder {
   width: 100%;
   height: 4vw;
   border-top: 4px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  background-color: #263342;
+  background-color: #325691;
   position: relative;
 }
 
@@ -141,5 +142,27 @@ input::placeholder {
   font-size: 0.9vw;
   color: white;
   padding: 0.6vw;
+  position: relative;
+  left: 7vw;
+  top: 2vw;
   background-color: #2f4e71;
+}
+
+.dob-course{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  right: 4vw;
+
+}
+
+#category-list-1 {
+  width: 132%;
+  height: 2.8vw;
+  padding: 10px;
+  font-size: 14px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

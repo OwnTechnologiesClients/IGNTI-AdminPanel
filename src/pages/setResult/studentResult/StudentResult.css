@@ -298,7 +298,10 @@
   font-weight: 900;
   vertical-align: middle;
   position: relative;
+  padding: 0.5vw 2vw;
+  margin-bottom: 2vw;
   margin-left: 8vw;
+  border: 3px solid #cccccc9c;
   margin-right: 8vw;
 }
 
@@ -383,6 +386,7 @@
 
 .parent-row span {
   font-size: 1.1vw;
+
   font-family: Verdana;
   font-weight: 900;
   color: black;
@@ -397,9 +401,15 @@
   border-bottom: 2.5px solid #ccc;
 }
 
+.post{
+  position: relative;
+  right: 4vw;
+}
+
 .child-row span {
   font-size: 1vw;
   font-family: Verdana;
+  width: 2vw;
   font-weight: 900;
   color: black;
 }

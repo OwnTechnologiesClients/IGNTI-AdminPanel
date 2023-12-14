@@ -231,7 +231,7 @@ const StudentResult = () => {
                   return (
                     <div className="child-row">
                       <span>{resIndex + 1})</span>
-                      <span>{res.subjectName}</span>
+                      <span className="post">{res.subjectName}</span>
                       <span>{res.totalNumQuestions}</span>
 
                       <input

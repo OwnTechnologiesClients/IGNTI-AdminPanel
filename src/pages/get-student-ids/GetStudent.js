@@ -1,15 +1,33 @@
 import React, { useEffect, useState } from "react";
 import "./GetStudent.css";
-import { useNavigate } from "react-router-dom";
+
+import { useNavigate, Link } from "react-router-dom";
 import { SetLoading } from "../../redux/loaderSlice";
 import { useDispatch } from "react-redux";
 import { message } from "antd";
 import axios from "axios";
 
 const GetStudent = () => {
+  const currentYear = new Date().getFullYear();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [selectedYear, setSelectedYear] = useState("");
+  const [years, setYears] = useState([]);
+  const [selectedMonth, setSelectedMonth] = useState("");
+  const [months, setMonths] = useState([
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [arr, setArr] = useState([]);
   const [num, setNum] = useState("");
@@ -143,6 +161,14 @@ const GetStudent = () => {
   function handleChangeStatus(event) {
     setSelectStatus(event.target.value);
   }
+
+  const handleYearChange = (event) => {
+    setSelectedYear(event.target.value);
+  };
+
+  const handleMonthChange = (event) => {
+    setSelectedMonth(event.target.value);
+  };
 
   const statusChange = async (enrollmentNo, index) => {
     try {
@@ -280,8 +306,18 @@ const GetStudent = () => {
     getSemester();
   }, [selectedCategory]);
 
+  useEffect(() => {
+    // Dynamically generate the list of years starting from the current year
+    const currentYear = new Date().getFullYear();
+    const yearOptions = [];
+    for (let year = currentYear; year >= currentYear - 100; year--) {
+      yearOptions.push(year.toString());
+    }
+    setYears(yearOptions);
+  }, []);
+
   return (
-    <div className="set-width">
+    <div className="set-width" style={{ overflow: "hidden" }}>
       <div className="course-appbar-header">
         <h2>All Students</h2>
       </div>
@@ -336,6 +372,35 @@ const GetStudent = () => {
             />
             <button onClick={filteredStudentsByName}>Click</button>
           </div>
+
+          <div className="search-bar baba">
+            <select value={selectedYear} onChange={handleYearChange}>
+              <option value="">Select Year</option>
+              {years.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+            <button className="hello" onClick={filteredStudentsByStatus}>
+              Click
+            </button>
+          </div>
+
+          <div className="search-bar baba">
+            <select value={selectedMonth} onChange={handleMonthChange}>
+              <option value="">Select Month</option>
+              {months.map((month, index) => (
+                <option key={index} value={month}>
+                  {month}
+                </option>
+              ))}
+            </select>
+            <button className="hello" onClick={filteredStudentsByName}>
+              Click
+            </button>
+          </div>
+
           <div className="search-bar baba">
             <select
               name="category-list"
@@ -402,9 +467,7 @@ const GetStudent = () => {
                         {value.authorized ? "Authorized" : "Restricted"}
                       </h3>
                       <button
-                        onClick={() =>
-                          statusChange(value.enrollNo, index)
-                        }
+                        onClick={() => statusChange(value.enrollNo, index)}
                       >
                         Change
                       </button>
@@ -444,6 +507,14 @@ const GetStudent = () => {
                           >
                             Change
                           </button>
+                        </div>
+
+                        <div className="status-authorized">
+                          <h3>Student Update</h3>
+
+                          <Link to= "/studentform">
+                            <button>Form</button>
+                          </Link>
                         </div>
                       </div>
                     </div>

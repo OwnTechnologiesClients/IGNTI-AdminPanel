@@ -29,6 +29,7 @@ import ProtectedPage from "./load/ProtectedPage";
 import Spinner from "./load/Spinner";
 import { useSelector } from "react-redux";
 import GetStudent from "./pages/get-student-ids/GetStudent";
+import Studentform from "./pages/studentform/Studentform";
 
 function App() {
   const { loading } = useSelector((state) => state.loaders);
@@ -37,6 +38,7 @@ function App() {
       {loading && <Spinner />}
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/studentform" element={<Studentform />} />
         {/* <Route path="/adminlogin" element={<Login />} /> */}
         <Route path="/type" element={<ProtectedPage><Type /></ProtectedPage>} />
         <Route path="/course" element={<ProtectedPage><Course /></ProtectedPage>} />
