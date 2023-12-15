@@ -48,6 +48,14 @@ const Type = () => {
     }, 600);
   };
 
+  const navigateToNotification = () => {
+    dispatch(SetLoading(true));
+    setTimeout(() => {
+      dispatch(SetLoading(false));
+      navigate("/notification&youtubelink");
+    }, 600);
+  };
+
   useEffect(() => {
     if (!localStorage.getItem("adminToken")) {
       navigate("/");
@@ -111,6 +119,12 @@ const Type = () => {
             <div className="type-parent">
               <div className="type-square" onClick={navigateToStudent}>
                 <p>Student Enrollment Number</p>
+              </div>
+            </div>
+
+            <div className="type-parent">
+              <div className="type-square" onClick={navigateToNotification}>
+                <p>Add Notification & Youtube</p>
               </div>
             </div>
           </div>
