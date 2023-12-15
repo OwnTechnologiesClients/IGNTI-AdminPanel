@@ -91,7 +91,7 @@ function Studentform() {
       dispatch(SetLoading(false));
       if (result.data.success) {
         message.success(result.data.message);
-        navigate("/student-course")
+        navigate("/student-course");
       } else {
         throw new Error(result.data.message);
       }
@@ -233,7 +233,7 @@ function Studentform() {
               />
 
               <input
-                type="number"
+                type="numberss"
                 style={{ marginRight: "6vw" }}
                 className="form-control-11"
                 value={pincode}
@@ -271,6 +271,8 @@ function Studentform() {
         <div className="buttons-submitt">
           <button onClick={(e) => addStudentButton(e)}>Update</button>
           <button onClick={() => handleReset()}>Reset</button>
+        </div>
+        <div className="back-button">
           <button onClick={() => navigate("/student-course")}>Back</button>
         </div>
       </div>

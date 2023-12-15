@@ -38,14 +38,11 @@
   margin-left: 4vw;
 }
 .form-link-1 {
-  box-shadow: 4px 6px 5px #ccc;
-  border: none;
   height: 8vw;
   width: 40%;
 }
 
 .form-link {
-  box-shadow: 4px 6px 5px #ccc;
   height: 3vw;
   width: 40%;
 }
@@ -56,5 +53,5 @@
   margin-top: 2.8vw;
   font-weight: 600;
   margin-left: 8vw;
-  font-size: 1.2vw;;
+  font-size: 1.2vw;
 }

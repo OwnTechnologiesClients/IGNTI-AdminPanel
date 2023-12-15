@@ -67,6 +67,15 @@
   border: 2px #b9bac8;
   margin-top: 1vw;
 }
+.form-control-11[type="numberss"] {
+  width: 11.2vw;
+  height: 2.7vw;
+  padding-left: 1vw;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 2px #b9bac8;
+  margin-top: 1vw;
+}
 
 .form-control-11[type="email"] {
   width: 30vw;
@@ -138,4 +147,10 @@
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-button{
+  position: relative;
+  bottom: 54vw;
+  right: 27vw;
 }

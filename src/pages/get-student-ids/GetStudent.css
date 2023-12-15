@@ -201,6 +201,7 @@ button:hover {
 }
 .status-authorized button {
   margin-left: 10px;
+  margin-top: 1vw;
   height: 2.4vw;
   width: 6vw;
 }
