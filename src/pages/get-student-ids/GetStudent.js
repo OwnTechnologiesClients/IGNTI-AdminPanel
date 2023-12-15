@@ -272,6 +272,12 @@ const GetStudent = () => {
     }
   };
 
+  const handleUpdate = (e, id, studentData) => {
+    e.preventDefault();
+    console.log(studentData);
+    navigate("/studentform", { state: { studentData: studentData, id: id } });
+  };
+
   const getSemester = async () => {
     try {
       dispatch(SetLoading(true));
@@ -307,7 +313,6 @@ const GetStudent = () => {
   }, [selectedCategory]);
 
   useEffect(() => {
-    // Dynamically generate the list of years starting from the current year
     const currentYear = new Date().getFullYear();
     const yearOptions = [];
     for (let year = currentYear; year >= currentYear - 100; year--) {
@@ -472,6 +477,12 @@ const GetStudent = () => {
                         Change
                       </button>
                     </div>
+                    <div className="status-authorized">
+                      <h3>Student Update</h3>
+                      <Link to="/studentform">
+                        <button>Form</button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -511,8 +522,11 @@ const GetStudent = () => {
 
                         <div className="status-authorized">
                           <h3>Student Update</h3>
-
-                          <Link to= "/studentform">
+                          <Link
+                            onClick={(e) =>
+                              handleUpdate(e, value, detail[index])
+                            }
+                          >
                             <button>Form</button>
                           </Link>
                         </div>
