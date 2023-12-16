@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+}
+.not-header {
+  width: 100%;
+  height: 4vw;
+  border-top: 4px;
+  background-color: #f46a6f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-panel p {
+  font-size: 1.2vw;
+  color: white;
+  font-family: "Poppins";
+  font-weight: 900;
+  vertical-align: middle;
+  top: 30%;
+  margin-left: 2vw;
+}
+
+.link p {
+  font-size: 2.2vw;
+  color: white;
+  margin-right: 2vw;
+  text-decoration: underline;
+}
+
+.bottom-header {
+  padding-top: 2vw;
+  padding-left: 5vw;
+  padding-bottom: 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 5vw;
+}
+.notification {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+.notification-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2.5vw;
+}
+
+.youtubelink-notification h5 {
+  color: #9c9ea1;
+  font-size: 1.5vw;
+  margin-bottom: 5vw;
+}
+
+.notification-link img {
+  width: 3vw;
+  height: 3vw;
+  cursor: pointer;
+}
+
+.notification-link p{
+    box-shadow: 4px 6px 5px #ccc;
+    border-radius: 12px;
+    width: 35%;
+    height: 3.3vw;
+    font-size: 1.3vw;
+    font-weight: 500;
+    padding-top: 0.5vw;
+    text-align: center;
+}

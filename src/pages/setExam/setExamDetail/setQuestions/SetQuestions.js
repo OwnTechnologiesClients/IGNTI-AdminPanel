@@ -165,9 +165,9 @@ function SetQuestions() {
       <div className="quesion-section">
         <div className="set-quesions">
           <p> Question #{questions.length + 1}</p>
-          <input
+          <textarea
             type="text"
-            className="form-control"
+            className="form-controls"
             name="title"
             value={question}
             onChange={(e) => {

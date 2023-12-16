@@ -31,6 +31,7 @@ function ProtectedPage({ children }) {
         dispatch(SetCurrentUser(response.data.data));
       } else {
         localStorage.clear();
+        navigate("/");
       }
     } catch (error) {
       dispatch(SetLoading(false));

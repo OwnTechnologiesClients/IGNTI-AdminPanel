@@ -31,10 +31,20 @@ function NewStudent() {
       if (selectedCategory === "") {
         throw new Error("course not selected");
       }
-      if(file === null) {
+      if (file === null) {
         throw new Error("No file is chosen! Please select the file.");
       }
-      if(firstname === "" || emailAddress === "" || fatherName === "" || dob === "" || contactNumber === "" || city === "" || state === "" || pincode === "" || address == "") {
+      if (
+        firstname === "" ||
+        emailAddress === "" ||
+        fatherName === "" ||
+        dob === "" ||
+        contactNumber === "" ||
+        city === "" ||
+        state === "" ||
+        pincode === "" ||
+        address == ""
+      ) {
         throw new Error("Please fill all details");
       }
       const formData = new FormData();
@@ -120,7 +130,6 @@ function NewStudent() {
           <h2>Student Details</h2>
         </div>
         <div className="new-student-query-card-parent">
-          
           {/* ------------ First name Input textfield -------------------- */}
           <input
             type="text"
@@ -155,15 +164,33 @@ function NewStudent() {
           />
 
           {/* ------------ DOB textfield -------------------- */}
-          <input
-            type="date"
-            className="form-control custom-date-input"
-            value={dob}
-            onChange={(e) => {
-              setDob(e.target.value);
-            }}
-            placeholder="Date Of Birth"
-          />
+          <div className="dob-course">
+            <input
+              type="date"
+              className="form-control custom-date-input"
+              value={dob}
+              onChange={(e) => {
+                setDob(e.target.value);
+              }}
+              placeholder="Date Of Birth"
+            />
+
+            <div className="add-course-dropdown">
+              <select
+                name="category-list"
+                id="category-list-1"
+                value={selectedCategory}
+                onChange={handleCategoryChange}
+              >
+                <option disabled value="">
+                  Select Course
+                </option>
+                {courses.map((course, index) => {
+                  return <option value={course}>{course}</option>;
+                })}
+              </select>
+            </div>
+          </div>
 
           {/* ------------ contact Number Input textfield -------------------- */}
           <input
@@ -235,21 +262,6 @@ function NewStudent() {
           />
 
           {/* ------------ Select Course textfield -------------------- */}
-          <div className="add-course-dropdown">
-            <select
-              name="category-list"
-              id="category-list"
-              value={selectedCategory}
-              onChange={handleCategoryChange}
-            >
-              <option disabled value="">
-                Select Course
-              </option>
-              {courses.map((course, index) => {
-                return <option value={course}>{course}</option>;
-              })}
-            </select>
-          </div>
 
           <div className="new-student-signup-button">
             <button class="button" onClick={addStudentButton}>
