@@ -155,6 +155,7 @@ function Studentform() {
             />
 
             <input
+          
               type="email"
               className="form-control-11"
               value={emailAddress}
@@ -270,10 +271,10 @@ function Studentform() {
 
         <div className="buttons-submitt">
           <button onClick={(e) => addStudentButton(e)}>Update</button>
-          <button onClick={() => handleReset()}>Reset</button>
+          <button style={{backgroundColor: "red"}} onClick={() => handleReset()}>Delete Data</button>
         </div>
         <div className="back-button">
-          <button onClick={() => navigate("/student-course")}>Back</button>
+          <div onClick={() => navigate("/student-course")}> <img src="/img/arrow.png" alt="" /> </div>
         </div>
       </div>
     </div>

@@ -324,6 +324,9 @@ const GetStudent = () => {
   return (
     <div className="set-width" style={{ overflow: "hidden" }}>
       <div className="course-appbar-header">
+        <Link style={{ textDecoration: "none" }} to="/">
+          <img style={{ margin: "1vw" }} src="/img/arrow.png" alt="" />
+        </Link>
         <h2>All Students</h2>
       </div>
 
@@ -359,26 +362,28 @@ const GetStudent = () => {
 
       {id.length !== 0 && (
         <div className="aaa">
-          <div className="search-bar">
+          <div className="search-bars">
             <input
+              className="controls"
               type="text"
               placeholder="Search by Enroll No"
               value={searchEnrollNo}
               onChange={handleSearchEnrollNoChange}
             />
-            <button onClick={filteredStudents}>Click</button>
+            <button className="click" onClick={filteredStudents}>Click</button>
           </div>
-          <div className="search-bar">
+          <div className="search-barss">
             <input
+              className="controls"
               type="text"
               placeholder="Search by Name"
               value={searchName}
               onChange={handleNameChange}
             />
-            <button onClick={filteredStudentsByName}>Click</button>
+            <button className="click" onClick={filteredStudentsByName}>Click</button>
           </div>
 
-          <div className="search-bar baba">
+          <div className="search-bar-1 baba">
             <select value={selectedYear} onChange={handleYearChange}>
               <option value="">Select Year</option>
               {years.map((year) => (
@@ -392,7 +397,7 @@ const GetStudent = () => {
             </button>
           </div>
 
-          <div className="search-bar baba">
+          <div className="search-bar-2 baba">
             <select value={selectedMonth} onChange={handleMonthChange}>
               <option value="">Select Month</option>
               {months.map((month, index) => (
@@ -406,7 +411,7 @@ const GetStudent = () => {
             </button>
           </div>
 
-          <div className="search-bar baba">
+          <div className="search-bar-3 baba">
             <select
               name="category-list"
               onChange={handleChangeStatus}
@@ -464,12 +469,11 @@ const GetStudent = () => {
                     alt="success"
                   />
                   <div className="ph-course-detail">
-                    <h3>Name: {value.studentName}</h3>
+                    <h3>Name : {value.studentName}</h3>
                     <h3>EnrollNo : {value.enrollNo}</h3>
                     <div className="status-authorized">
                       <h3>
-                        Status :{" "}
-                        {value.authorized ? "Authorized" : "Restricted"}
+                        Status :{value.authorized ? "Authorized" : "Restricted"}
                       </h3>
                       <button
                         onClick={() => statusChange(value.enrollNo, index)}
@@ -478,7 +482,7 @@ const GetStudent = () => {
                       </button>
                     </div>
                     <div className="status-authorized">
-                      <h3>Student Update</h3>
+                      <h3>Student Update :</h3>
                       <Link to="/studentform">
                         <button>Form</button>
                       </Link>

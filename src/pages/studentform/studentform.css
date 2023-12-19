@@ -26,6 +26,7 @@
 
 .student-form1 {
   display: flex;
+  height: 38vw;
   flex-direction: column;
 }
 
@@ -110,7 +111,9 @@
   align-items: center;
   gap: 2vw;
   font-size: 1vw;
-  margin-left: 12vw;
+  margin-left: 10vw;
+  position: relative;
+    bottom: 80px;
   margin-top: 2vw;
   padding: 0.5vw 2vw;
 }
@@ -151,6 +154,7 @@
 
 .back-button{
   position: relative;
-  bottom: 54vw;
+  cursor: pointer;
+  bottom: 49vw;
   right: 27vw;
 }
