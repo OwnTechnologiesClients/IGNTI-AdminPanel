@@ -56,13 +56,13 @@ function App() {
           }
         />
         <Route
-        path="/add-data"
-        element={
-          <ProtectedPage>
-            <AddData />
-          </ProtectedPage>
-        }
-      />
+          path="/add-data"
+          element={
+            <ProtectedPage>
+              <AddData />
+            </ProtectedPage>
+          }
+        />
         {/* <Route path="/adminlogin" element={<Login />} /> */}
         <Route
           path="/type"
