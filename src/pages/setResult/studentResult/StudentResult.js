@@ -41,7 +41,7 @@ const StudentResult = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/resultSets/update-result-set-id",
+        url: "https://igti-backend-5bgl.onrender.com/api/resultSets/update-result-set-id",
         data: {
           courseName: courseName,
           semesterNumber: semesterNumber,
@@ -69,7 +69,7 @@ const StudentResult = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/resultSets/update-declared",
+        url: "https://igti-backend-5bgl.onrender.com/api/resultSets/update-declared",
         data: {
           courseName: courseName,
           semesterNumber: semesterNumber,
@@ -120,7 +120,7 @@ const StudentResult = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/resultSets/get-result-set-id",
+        url: "https://igti-backend-5bgl.onrender.com/api/resultSets/get-result-set-id",
         data: {
           courseName: courseName,
           semesterNumber: semesterNumber,
@@ -130,7 +130,7 @@ const StudentResult = () => {
 
       const result = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/students/get-student-id-detail",
+        url: "https://igti-backend-5bgl.onrender.com/api/students/get-student-id-detail",
         data: {
           id: id,
         },
@@ -206,7 +206,7 @@ const StudentResult = () => {
 
               <div className="section-two">
                 <img
-                  src={`https://igti-backend.onrender.com/public/${user.imageFile}`}
+                  src={`https://igti-backend-5bgl.onrender.com/public/${user.imageFile}`}
                   alt=""
                 />
               </div>
@@ -247,14 +247,14 @@ const StudentResult = () => {
                       <span>{res.numCorrectAnswers * 2}</span>
 
                       {(res.numCorrectAnswers / res.totalNumQuestions) * 100 <=
-                      30 ? (
+                        30 ? (
                         <span>D</span>
                       ) : (res.numCorrectAnswers / res.totalNumQuestions) *
-                          100 <=
+                        100 <=
                         50 ? (
                         <span>C</span>
                       ) : (res.numCorrectAnswers / res.totalNumQuestions) *
-                          100 <=
+                        100 <=
                         80 ? (
                         <span>B</span>
                       ) : (

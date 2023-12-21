@@ -21,7 +21,7 @@ function SetExamDetail() {
   }
 
   function handleCategorySubject(event) {
-    setSubject(event.target.value);   
+    setSubject(event.target.value);
   }
 
   function handleCategorySemester(event) {
@@ -39,12 +39,12 @@ function SetExamDetail() {
   };
 
   const setQuestions = () => {
-    if(subject == "" || !num || !selectedCategory) {
-        message.error("Please fill all the details");
+    if (subject == "" || !num || !selectedCategory) {
+      message.error("Please fill all the details");
     }
     else {
 
-        navigate(`/set-questions/${selectedCategory}/${num}/${subject}`);
+      navigate(`/set-questions/${selectedCategory}/${num}/${subject}`);
     }
   };
 
@@ -53,7 +53,7 @@ function SetExamDetail() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/name-Course-all",
+        url: "https://igti-backend-5bgl.onrender.com/api/courses/name-Course-all",
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
@@ -74,7 +74,7 @@ function SetExamDetail() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/get-course",
+        url: "https://igti-backend-5bgl.onrender.com/api/courses/get-course",
         data: {
           courseName: selectedCategory,
         },
@@ -97,7 +97,7 @@ function SetExamDetail() {
       dispatch(SetLoading(true));
       const result = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/subjects/get-subject",
+        url: "https://igti-backend-5bgl.onrender.com/api/subjects/get-subject",
         data: {
           courseName: selectedCategory,
           semesterNumber: num,
@@ -128,8 +128,8 @@ function SetExamDetail() {
     if (!localStorage.getItem("adminToken")) {
       navigate("/");
     }
-    if(localStorage.getItem("myVariable")) {
-        localStorage.removeItem("myVariable");
+    if (localStorage.getItem("myVariable")) {
+      localStorage.removeItem("myVariable");
     }
     getAllCoursesName();
   }, []);

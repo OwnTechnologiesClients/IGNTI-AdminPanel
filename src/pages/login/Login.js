@@ -18,7 +18,7 @@ const Login = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/admins/login",
+        url: "https://igti-backend-5bgl.onrender.com/api/admins/login",
         data: {
           userName: userId,
           password: password,
@@ -44,56 +44,56 @@ const Login = () => {
   }, []);
 
   return (
-      <div className="login-section">
-        <div className="login-appbar-header">
-          <h2>Admin Panel</h2>
+    <div className="login-section">
+      <div className="login-appbar-header">
+        <h2>Admin Panel</h2>
+      </div>
+
+      <div className="login-square">
+        <div className="login-header">
+          <h2>Login</h2>
         </div>
+        <div className="login-card-parent">
+          <div className="userid-section">
+            <p>UserName</p>
 
-        <div className="login-square">
-          <div className="login-header">
-            <h2>Login</h2>
+            <input
+              type="text"
+              autocomplete="off"
+              className="form-control"
+              name="title"
+              value={userId}
+              onChange={(e) => {
+                setUserId(e.target.value);
+              }}
+            />
           </div>
-          <div className="login-card-parent">
-            <div className="userid-section">
-              <p>UserName</p>
 
-              <input
-                type="text"
-                autocomplete="off"
-                className="form-control"
-                name="title"
-                value={userId}
-                onChange={(e) => {
-                  setUserId(e.target.value);
-                }}
-              />
-            </div>
+          <div className="userid-section">
+            <p>Password</p>
 
-            <div className="userid-section">
-              <p>Password</p>
+            <input
+              type="password"
+              autocomplete="off"
+              className="form-control"
+              name="title"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </div>
 
-              <input
-                type="password"
-                autocomplete="off"
-                className="form-control"
-                name="title"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
-            </div>
-
-            <div>
-              <div className="login-button-parent">
-                <button class="button" onClick={navigateToType}>
-                  Login
-                </button>
-              </div>
+          <div>
+            <div className="login-button-parent">
+              <button class="button" onClick={navigateToType}>
+                Login
+              </button>
             </div>
           </div>
         </div>
       </div>
+    </div>
   );
 };
 

@@ -42,7 +42,7 @@ function EditCoursePreview() {
       navigate(`/add-subject/${id}`);
     }, 600);
   };
-  
+
   const cancelButton = () => {
     dispatch(SetLoading(true));
     setTimeout(() => {
@@ -56,7 +56,7 @@ function EditCoursePreview() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/get-course",
+        url: "https://igti-backend-5bgl.onrender.com/api/courses/get-course",
         data: {
           courseName: id,
         },

@@ -82,7 +82,7 @@ function Studentform() {
 
       dispatch(SetLoading(true));
       const result = await axios.post(
-        `https://igti-backend.onrender.com/api/students/update/${studentData._id}`,
+        `https://igti-backend-5bgl.onrender.com/api/students/update/${studentData._id}`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -114,7 +114,7 @@ function Studentform() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/name-Course-all",
+        url: "https://igti-backend-5bgl.onrender.com/api/courses/name-Course-all",
       });
       dispatch(SetLoading(false));
       console.log(response.data.data);
@@ -155,7 +155,7 @@ function Studentform() {
             />
 
             <input
-          
+
               type="email"
               className="form-control-11"
               value={emailAddress}
@@ -271,7 +271,7 @@ function Studentform() {
 
         <div className="buttons-submitt">
           <button onClick={(e) => addStudentButton(e)}>Update</button>
-          <button style={{backgroundColor: "red"}} onClick={() => handleReset()}>Delete Data</button>
+          <button style={{ backgroundColor: "red" }} onClick={() => handleReset()}>Delete Data</button>
         </div>
         <div className="back-button">
           <div onClick={() => navigate("/student-course")}> <img src="/img/arrow.png" alt="" /> </div>

@@ -74,7 +74,7 @@ const GetStudent = () => {
         dispatch(SetLoading(true));
         const response = await axios({
           method: "post",
-          url: "https://igti-backend.onrender.com/api/resultSets/get-result-set-set",
+          url: "https://igti-backend-5bgl.onrender.com/api/resultSets/get-result-set-set",
           data: {
             courseName: selectedCategory,
             semesterNumber: num,
@@ -175,7 +175,7 @@ const GetStudent = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/students/change-status",
+        url: "https://igti-backend-5bgl.onrender.com/api/students/change-status",
         data: {
           enrollNo: enrollmentNo,
         },
@@ -200,7 +200,7 @@ const GetStudent = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/students/get-student-id-detail",
+        url: "https://igti-backend-5bgl.onrender.com/api/students/get-student-id-detail",
         data: {
           id: x,
         },
@@ -222,7 +222,7 @@ const GetStudent = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/students/get-student-all-course",
+        url: "https://igti-backend-5bgl.onrender.com/api/students/get-student-all-course",
         data: {
           courseName: selectedCategory,
         },
@@ -256,7 +256,7 @@ const GetStudent = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/name-Course-all",
+        url: "https://igti-backend-5bgl.onrender.com/api/courses/name-Course-all",
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
@@ -283,7 +283,7 @@ const GetStudent = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/get-course",
+        url: "https://igti-backend-5bgl.onrender.com/api/courses/get-course",
         data: {
           courseName: selectedCategory,
         },
@@ -465,7 +465,7 @@ const GetStudent = () => {
                 <div className="ph-course-parent">
                   <p className="set-index">{index + 1}.</p>
                   <img
-                    src={`https://igti-backend.onrender.com/public/${value.imageFile}`}
+                    src={`https://igti-backend-5bgl.onrender.com/public/${value.imageFile}`}
                     alt="success"
                   />
                   <div className="ph-course-detail">
@@ -502,7 +502,7 @@ const GetStudent = () => {
                     <div className="ph-course-parent">
                       <p className="set-index">{index + 1}.</p>
                       <img
-                        src={`https://igti-backend.onrender.com/public/${detail[index].imageFile}`}
+                        src={`https://igti-backend-5bgl.onrender.com/public/${detail[index].imageFile}`}
                         alt="success"
                       />
                       <div className="ph-course-detail">

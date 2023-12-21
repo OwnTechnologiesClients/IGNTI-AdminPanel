@@ -45,7 +45,7 @@ function Publish() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/examSets/add-exams-set",
+        url: "https://igti-backend-5bgl.onrender.com/api/examSets/add-exams-set",
         data: {
           courseName: data1.courseName,
           semesterNumber: data1.semesterNumber,

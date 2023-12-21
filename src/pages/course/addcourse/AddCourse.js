@@ -28,13 +28,13 @@ function AddCourse() {
         });
       }
       try {
-        if(courseName === "" || duration === "" || fee === "") {
+        if (courseName === "" || duration === "" || fee === "") {
           throw new Error("Please fill All Fields!");
         }
         dispatch(SetLoading(true));
         const response = await axios({
           method: "post",
-          url: "https://igti-backend.onrender.com/api/courses/add-course",
+          url: "https://igti-backend-5bgl.onrender.com/api/courses/add-course",
           data: {
             courseName: courseName,
             noOfSemester: selectedCategory,

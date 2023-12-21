@@ -50,7 +50,7 @@ function SelectResultDetail() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/name-Course-all",
+        url: "https://igti-backend-5bgl.onrender.com/api/courses/name-Course-all",
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
@@ -71,7 +71,7 @@ function SelectResultDetail() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/get-course",
+        url: "https://igti-backend-5bgl.onrender.com/api/courses/get-course",
         data: {
           courseName: selectedCategory,
         },
@@ -93,7 +93,7 @@ function SelectResultDetail() {
       dispatch(SetLoading(true));
       const result = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/subjects/get-subject",
+        url: "https://igti-backend-5bgl.onrender.com/api/subjects/get-subject",
         data: {
           courseName: selectedCategory,
           semesterNumber: num,

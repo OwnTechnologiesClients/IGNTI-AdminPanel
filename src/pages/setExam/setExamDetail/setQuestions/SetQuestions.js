@@ -34,7 +34,7 @@ function SetQuestions() {
     }
     if (localStorage.getItem("myVariable") && JSON.parse(localStorage.getItem("myVariable")).length == 0) {
       getExistingQuestion();
-    }if (!localStorage.getItem("myVariable")) {
+    } if (!localStorage.getItem("myVariable")) {
       getExistingQuestion();
     }
   }, []);
@@ -124,7 +124,7 @@ function SetQuestions() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/examSets/get-exams-set",
+        url: "https://igti-backend-5bgl.onrender.com/api/examSets/get-exams-set",
         data: {
           courseName: courseName,
           semesterNumber: semesterNumber,

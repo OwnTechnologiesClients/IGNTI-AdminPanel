@@ -39,7 +39,7 @@ function EditCourse() {
       dispatch(SetLoading(true));
       const result = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/get-course",
+        url: "https://igti-backend-5bgl.onrender.com/api/courses/get-course",
         data: {
           courseName: courseName,
         },
@@ -47,7 +47,7 @@ function EditCourse() {
       // console.log(result.data.data._id);
       const response = await axios({
         method: "put",
-        url: `https://igti-backend.onrender.com/api/courses/update-course/${result.data.data._id}`,
+        url: `https://igti-backend-5bgl.onrender.com/api/courses/update-course/${result.data.data._id}`,
         data: {
           noOfSemester: selectedCategory,
           duration: duration,
@@ -59,7 +59,7 @@ function EditCourse() {
       console.log(response);
       if (response.data.success) {
         message.success(response.data.message);
-        if(high) {
+        if (high) {
           navigate(`/add-subject/${id}`);
         }
         else {
@@ -79,7 +79,7 @@ function EditCourse() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/get-course",
+        url: "https://igti-backend-5bgl.onrender.com/api/courses/get-course",
         data: {
           courseName: id,
         },
