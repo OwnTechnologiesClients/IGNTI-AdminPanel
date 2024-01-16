@@ -18,7 +18,7 @@ const Login = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend-5bgl.onrender.com/api/admins/login",
+        url: "https://backend.ignti.com/api/admins/login",
         data: {
           userName: userId,
           password: password,

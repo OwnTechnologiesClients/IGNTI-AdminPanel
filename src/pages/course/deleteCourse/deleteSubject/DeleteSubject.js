@@ -34,7 +34,7 @@ function DeleteSubject() {
       dispatch(SetLoading(true))
       const response = await axios({
         method: "post",
-        url: "https://igti-backend-5bgl.onrender.com/api/courses/get-course",
+        url: "https://backend.ignti.com/api/courses/get-course",
         data: {
           courseName: courseName,
         },
@@ -50,7 +50,7 @@ function DeleteSubject() {
       dispatch(SetLoading(true))
       const result = await axios({
         method: "post",
-        url: "https://igti-backend-5bgl.onrender.com/api/subjects/get-subject",
+        url: "https://backend.ignti.com/api/subjects/get-subject",
         data: {
           courseName: courseName,
           semesterNumber: selectedCategory,
@@ -74,7 +74,7 @@ function DeleteSubject() {
       dispatch(SetLoading(true));
       const result = await axios({
         method: "delete",
-        url: "https://igti-backend-5bgl.onrender.com/api/subjects/delete-one-subject",
+        url: "https://backend.ignti.com/api/subjects/delete-one-subject",
         data: {
           courseName: courseName,
           semesterNumber: selectedCategory,

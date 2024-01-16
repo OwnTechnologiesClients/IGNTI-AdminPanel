@@ -18,7 +18,7 @@ function ProtectedPage({ children }) {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "get",
-        url: "https://igti-backend-5bgl.onrender.com/api/admins/get-current-user",
+        url: "https://backend.ignti.com/api/admins/get-current-user",
         headers: {
           authorization: `Bearer ${localStorage.getItem("adminToken")}`,
         },

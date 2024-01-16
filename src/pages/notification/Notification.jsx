@@ -15,7 +15,7 @@ const Notification = () => {
     try {
       dispatch(SetLoading(true));
       const response = await axios.post(
-        `https://igti-backend-5bgl.onrender.com/api/notification/delete-notification/${id}`
+        `https://backend.ignti.com/api/notification/delete-notification/${id}`
       );
       dispatch(SetLoading(false));
       if (response.data.success) {
@@ -34,7 +34,7 @@ const Notification = () => {
     try {
       dispatch(SetLoading(true));
       const response = await axios.post(
-        "https://igti-backend-5bgl.onrender.com/api/notification/get-notification"
+        "https://backend.ignti.com/api/notification/get-notification"
       );
       dispatch(SetLoading(false));
       if (response.data.success) {

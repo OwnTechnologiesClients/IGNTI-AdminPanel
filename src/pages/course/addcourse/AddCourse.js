@@ -34,7 +34,7 @@ function AddCourse() {
         dispatch(SetLoading(true));
         const response = await axios({
           method: "post",
-          url: "https://igti-backend-5bgl.onrender.com/api/courses/add-course",
+          url: "https://backend.ignti.com/api/courses/add-course",
           data: {
             courseName: courseName,
             noOfSemester: selectedCategory,

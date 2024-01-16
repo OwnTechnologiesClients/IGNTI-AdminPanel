@@ -82,7 +82,7 @@ function Studentform() {
 
       dispatch(SetLoading(true));
       const result = await axios.post(
-        `https://igti-backend-5bgl.onrender.com/api/students/update/${studentData._id}`,
+        `https://backend.ignti.com/api/students/update/${studentData._id}`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -114,7 +114,7 @@ function Studentform() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend-5bgl.onrender.com/api/courses/name-Course-all",
+        url: "https://backend.ignti.com/api/courses/name-Course-all",
       });
       dispatch(SetLoading(false));
       console.log(response.data.data);

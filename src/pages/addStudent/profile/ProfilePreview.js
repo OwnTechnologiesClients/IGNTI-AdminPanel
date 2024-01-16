@@ -36,7 +36,7 @@ const ProfilePreview = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "delete",
-        url: `https://igti-backend-5bgl.onrender.com/api/students/delete-student-by-id/${id}`,
+        url: `https://backend.ignti.com/api/students/delete-student-by-id/${id}`,
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
@@ -60,7 +60,7 @@ const ProfilePreview = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend-5bgl.onrender.com/api/students/get-student-id-detail",
+        url: "https://backend.ignti.com/api/students/get-student-id-detail",
         data: {
           id: id,
         },
@@ -139,7 +139,7 @@ const ProfilePreview = () => {
 
               <div className="preview-section-two">
                 <img
-                  src={`https://igti-backend-5bgl.onrender.com/public/${user.imageFile}`}
+                  src={`https://backend.ignti.com/public/${user.imageFile}`}
                   alt=""
                 />
               </div>

@@ -24,7 +24,7 @@ const Adddata = () => {
   const handleSubmit = async () => {
     try {
       dispatch(SetLoading(true));
-      const response = await axios.post("https://igti-backend-5bgl.onrender.com/api/notification/add-notification", formData);
+      const response = await axios.post("https://backend.ignti.com/api/notification/add-notification", formData);
       dispatch(SetLoading(false));
       if (response.data.success) {
         message.success(response.data.message);
