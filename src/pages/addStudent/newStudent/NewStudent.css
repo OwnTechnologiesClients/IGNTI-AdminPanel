@@ -117,6 +117,7 @@ input::placeholder {
 }
 
 .add-course-dropdown {
+  width: 9.8vw;
   margin-top: 1vw;
   margin-left: 4vw;
 }
@@ -126,7 +127,6 @@ input::placeholder {
   padding: 0.8vw;
   border: 1px solid #ccc;
   padding-right: 6vw;
-  width: 88%;
 }
 
 .new-student-signup-button {

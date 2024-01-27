@@ -159,7 +159,7 @@ function SetQuestions() {
   return (
     <div>
       <div className="course-appbar-header">
-        <h2>Fundamentals of Computer</h2>
+        <h2>Set Questions</h2>
       </div>
 
       <div className="quesion-section">
@@ -167,7 +167,7 @@ function SetQuestions() {
           <p> Question #{questions.length + 1}</p>
           <textarea
             type="text"
-            className="form-controls"
+            className="question-form-controls"
             name="title"
             value={question}
             onChange={(e) => {

@@ -111,7 +111,7 @@ function Publish() {
       <div className="grid-container">
         {editedData.map((item, index) => {
           return (
-            <div className="grid-item" key={index}>
+            <div className="grid-item-edit-question" key={index}>
               <div className="publish-quesions">
                 {editMode ? (
                   <div className="updated-question-1">

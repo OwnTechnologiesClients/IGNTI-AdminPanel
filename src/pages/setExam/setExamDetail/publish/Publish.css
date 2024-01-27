@@ -51,11 +51,10 @@
     padding-right: 10%;
 }
 
-.grid-item {
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 2px 2px 4px rgba(132, 130, 130, 0.1);
+.grid-item{
+  border: 1px;
+  padding: 2vw;
+  background-color: #2f4e71;
 }
 
 .delete-button {
